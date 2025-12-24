@@ -25,12 +25,12 @@
             
             /* --- CORES DE SENTIMENTO (PSICOLOGIA DAS CORES) --- */
             
-            /* VERMELHO = DOR / PERDA / CUSTO ALTO */
+            /* VERMELHO = DOR / TRADICIONAL / CARO */
             --color-pain: #ef4444; 
             --bg-pain-light: rgba(239, 68, 68, 0.1);
             
-            /* VERDE = PRAZER / GANHO / ECONOMIA */
-            --color-gain: #10b981; /* Verde Esmeralda Vibrante */
+            /* VERDE = PRAZER / EFLIXTV / ECONOMIA */
+            --color-gain: #10b981; 
             --bg-gain-light: rgba(16, 185, 129, 0.1);
             
             /* Gradiente do Botão (Foco na Ação/Verde) */
@@ -100,9 +100,8 @@
             margin-bottom: 35px;
         }
         
-        /* Títulos com cor neutra ou destaque sutil */
         .section-title span {
-            color: var(--color-gain); /* Verde para indicar oportunidade */
+            color: var(--color-gain);
             font-size: 0.85rem;
             font-weight: 700;
             text-transform: uppercase;
@@ -140,12 +139,11 @@
         }
         .cost-row:last-child { border-bottom: none; }
         
-        /* Preços dos concorrentes em VERMELHO (Perda de dinheiro) */
         .cost-price { font-weight: 700; color: var(--color-pain); }
 
         .total-box {
             text-align: center;
-            background: var(--bg-pain-light); /* Fundo Vermelho Sutil */
+            background: var(--bg-pain-light);
             border: 1px solid rgba(239, 68, 68, 0.3);
             padding: 20px;
             border-radius: 12px;
@@ -164,7 +162,7 @@
             background: #262626;
             padding: 20px;
             border-radius: 12px;
-            border-left: 5px solid var(--color-gain); /* Verde (Positivo) */
+            border-left: 5px solid var(--color-gain);
         }
         .audience-item i {
             font-size: 1.8rem;
@@ -189,11 +187,11 @@
         .price-display {
             font-size: 3.5rem;
             font-weight: 700;
-            color: var(--color-gain); /* Preço em VERDE (Economia) */
+            color: var(--color-gain);
             line-height: 1;
             margin: 10px 0 5px 0;
             letter-spacing: -1px;
-            text-shadow: 0 0 20px rgba(16, 185, 129, 0.2); /* Brilho verde sutil */
+            text-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
         }
         .price-display small { font-size: 1rem; color: var(--text-secondary); font-weight: 400; letter-spacing: normal; text-shadow: none; }
 
@@ -210,7 +208,6 @@
             border: 1px solid rgba(16, 185, 129, 0.2);
         }
 
-        /* LISTA DE PREÇOS */
         .pricing-list {
             margin-top: 20px;
             border-top: 1px solid rgba(255,255,255,0.1);
@@ -227,7 +224,7 @@
         }
         .pricing-item:last-child { border-bottom: none; }
         .pricing-item strong { color: #fff; }
-        .pricing-item span { color: var(--color-gain); font-weight: 700; } /* Preço verde */
+        .pricing-item span { color: var(--color-gain); font-weight: 700; }
 
         /* --- FEATURES GRID --- */
         .features-grid {
@@ -247,7 +244,7 @@
         }
         
         .feature-item:hover {
-            border-color: rgba(16, 185, 129, 0.4); /* Borda verde ao passar o mouse */
+            border-color: rgba(16, 185, 129, 0.4);
             transform: translateY(-5px);
         }
         
@@ -256,20 +253,29 @@
         .brand-list { margin-top: 5px; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5; }
         .brand-list span { color: #fff; font-weight: 600; }
 
-        /* --- TABELA E CTA --- */
+        /* --- TABELA COMPARATIVA E CTA --- */
         .comparison-wrapper { overflow-x: auto; border-radius: 12px; border: 1px solid var(--border-color); }
         table { width: 100%; border-collapse: collapse; background: var(--bg-card); }
         th, td { padding: 15px; text-align: center; border-bottom: 1px solid var(--border-color); font-size: 0.95rem; }
+        
+        /* Cabeçalho padrão */
         th { background: #000000; color: #fff; font-weight: 700; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.5px; }
         
-        /* Coluna destaque VERDE (A escolha certa) */
+        /* COLUNA VERMELHA (TRADICIONAL) */
+        .pain-col {
+            background: var(--bg-pain-light); 
+            color: var(--color-pain); 
+            font-weight: 700; 
+        }
+
+        /* COLUNA VERDE (EFLIXTV) */
         .highlight-col { 
             background: var(--bg-gain-light); 
             color: var(--color-gain); 
             font-weight: 700; 
         }
 
-        /* Botão do Topo (Verde Ação) */
+        /* Botão Verde */
         .btn-header {
             display: inline-flex;
             align-items: center;
@@ -478,29 +484,29 @@
                     <thead>
                         <tr>
                             <th style="text-align: left;">Recurso</th>
-                            <th>Tradicional</th>
-                            <th class="highlight-col">NOSSO APP</th>
+                            <th class="pain-col">TRADICIONAL</th>
+                            <th class="highlight-col">EFLIXTV</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td style="text-align: left; font-weight: 600;">Custo Mensal</td>
-                            <td>± R$ 350,00</td>
+                            <td class="pain-col">± R$ 350,00</td>
                             <td class="highlight-col">A partir de R$ 20,00</td>
                         </tr>
                         <tr>
                             <td style="text-align: left; font-weight: 600;">Streamings</td>
-                            <td>Pagos à parte</td>
+                            <td class="pain-col">Pagos à parte</td>
                             <td class="highlight-col">Tudo Incluso</td>
                         </tr>
                         <tr>
                             <td style="text-align: left; font-weight: 600;">Instalação</td>
-                            <td>Cabos/Furos</td>
+                            <td class="pain-col">Cabos/Furos</td>
                             <td class="highlight-col">App (5 min)</td>
                         </tr>
                         <tr>
                             <td style="text-align: left; font-weight: 600;">Fidelidade</td>
-                            <td>12 Meses</td>
+                            <td class="pain-col">12 Meses</td>
                             <td class="highlight-col">Sem Fidelidade</td>
                         </tr>
                     </tbody>
