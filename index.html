@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart TV | Economia Inteligente</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
@@ -25,20 +28,24 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'Open Sans', sans-serif;
+            /* ALTERADO PARA POPPINS */
+            font-family: 'Poppins', sans-serif;
             background-color: var(--bg-dark);
             color: var(--text-primary);
-            line-height: 1.5;
+            line-height: 1.6;
             overflow-x: hidden;
         }
 
         h1, h2, h3, h4 {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 800;
-            line-height: 1.1;
+            /* ALTERADO PARA POPPINS */
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800; /* Extra Bold para ficar com cara de Esporte */
+            line-height: 1.2;
+            text-transform: uppercase; /* Maiúsculas para dar impacto */
+            letter-spacing: -0.5px;
         }
 
-        strong { color: #fff; }
+        strong { color: #fff; font-weight: 700; }
 
         .container {
             max-width: 1100px;
@@ -52,22 +59,12 @@
                         url('https://images.unsplash.com/photo-1593784697778-27e049f20191?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
-            padding: 40px 0; /* Reduzi o padding superior */
+            padding: 60px 0 40px 0;
             text-align: center;
         }
 
-        /* ESTILO DO LOGO ADICIONADO */
-        .logo-img {
-            max-width: 180px;
-            height: auto;
-            display: block;
-            margin: 0 auto 30px auto; /* Centraliza e dá margem inferior */
-        }
-
-        /* --- REMOVIDO O ESTILO DO HERO-TAG --- */
-
         header h1 {
-            font-size: 2rem;
+            font-size: 2.2rem; /* Aumentei um pouco para a Poppins brilhar */
             margin-bottom: 15px;
             background: -webkit-linear-gradient(#fff, #cbd5e1);
             -webkit-background-clip: text;
@@ -79,49 +76,54 @@
             color: var(--text-secondary);
             max-width: 700px;
             margin: 0 auto 25px auto;
+            font-weight: 400;
         }
 
         /* --- SEÇÕES GERAIS --- */
         section {
-            padding: 40px 0;
+            padding: 50px 0;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
         }
         
         .section-title span {
             color: #3b82f6;
-            font-size: 0.8rem;
+            font-size: 0.9rem;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             display: block;
             margin-bottom: 5px;
         }
 
-        .section-title h2 { font-size: 1.8rem; }
+        .section-title h2 { font-size: 2rem; }
 
         /* --- CARDS E PREÇOS --- */
         .card {
             background: var(--bg-card);
             border: 1px solid var(--border-color);
-            border-radius: 10px;
-            padding: 20px;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         }
 
         .problem-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            gap: 25px;
         }
 
         .cost-row {
             display: flex;
             justify-content: space-between;
-            padding: 8px 0;
+            align-items: center;
+            padding: 10px 0;
             border-bottom: 1px solid var(--border-color);
-            font-size: 0.9rem;
+            font-size: 0.95rem;
+            font-weight: 500;
         }
         .cost-row:last-child { border-bottom: none; }
         .cost-price { font-weight: 700; color: var(--danger-color); }
@@ -130,8 +132,8 @@
             text-align: center;
             background: rgba(239, 68, 68, 0.1);
             border: 1px solid rgba(239, 68, 68, 0.2);
-            padding: 15px;
-            border-radius: 8px;
+            padding: 20px;
+            border-radius: 12px;
             margin-top: 15px;
         }
 
@@ -139,25 +141,26 @@
         .audience-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 15px;
+            gap: 20px;
         }
         .audience-item {
             display: flex;
             align-items: center;
             background: rgba(59, 130, 246, 0.05);
-            padding: 15px;
-            border-radius: 8px;
-            border-left: 4px solid #3b82f6;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 5px solid #3b82f6;
         }
         .audience-item i {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             color: #3b82f6;
             margin-right: 15px;
         }
         .audience-item p {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             font-weight: 600;
             color: #fff;
+            margin: 0;
         }
 
         /* --- SOLUÇÃO (PREÇO) --- */
@@ -165,77 +168,86 @@
             background: linear-gradient(180deg, var(--bg-dark) 0%, #172033 100%);
             border-top: 1px solid var(--border-color);
             border-bottom: 1px solid var(--border-color);
-            padding: 30px 0;
+            padding: 40px 0;
         }
 
         .price-display {
-            font-size: 3rem;
+            font-size: 3.5rem; /* Maior para impacto */
             font-weight: 800;
             color: #fff;
             line-height: 1;
-            margin: 10px 0;
+            margin: 15px 0;
+            letter-spacing: -2px;
         }
-        .price-display small { font-size: 1rem; color: var(--text-secondary); font-weight: 400; }
+        .price-display small { font-size: 1.2rem; color: var(--text-secondary); font-weight: 400; letter-spacing: normal; }
 
         /* --- FEATURES GRID --- */
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 15px;
+            gap: 20px;
         }
         
         .feature-item {
             text-align: left;
-            padding: 20px;
+            padding: 25px;
             background: var(--bg-card);
-            border-radius: 8px;
+            border-radius: 12px;
             border: 1px solid transparent;
             height: 100%;
+            transition: transform 0.2s;
         }
         
-        .feature-icon { font-size: 1.5rem; color: #3b82f6; margin-bottom: 10px; }
+        .feature-item:hover {
+            border-color: rgba(59, 130, 246, 0.3);
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon { font-size: 1.8rem; color: #3b82f6; margin-bottom: 15px; }
 
-        .brand-list { margin-top: 5px; font-size: 0.85rem; color: var(--text-secondary); }
+        .feature-item h4 { font-size: 1.1rem; margin-bottom: 10px; color: #fff; }
+
+        .brand-list { margin-top: 5px; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5; }
         .brand-list span { color: #fff; font-weight: 600; }
 
         /* --- TABELA E CTA --- */
-        .comparison-wrapper { overflow-x: auto; border-radius: 8px; }
+        .comparison-wrapper { overflow-x: auto; border-radius: 12px; border: 1px solid var(--border-color); }
         table { width: 100%; border-collapse: collapse; background: var(--bg-card); }
-        th, td { padding: 12px; text-align: center; border-bottom: 1px solid var(--border-color); font-size: 0.9rem; }
-        th { background: #0f172a; color: #fff; font-weight: 600; text-transform: uppercase; font-size: 0.75rem; }
+        th, td { padding: 15px; text-align: center; border-bottom: 1px solid var(--border-color); font-size: 0.95rem; }
+        th { background: #0f172a; color: #fff; font-weight: 700; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; }
         
         .highlight-col { 
             background: rgba(59, 130, 246, 0.1); 
             color: var(--brand-blue); 
-            font-weight: bold; 
+            font-weight: 800; 
         }
 
         .btn-primary {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 10px;
             background: var(--success-gradient);
             color: white;
-            padding: 14px 30px;
+            padding: 16px 35px;
             border-radius: 50px;
             font-weight: 700;
             text-transform: uppercase;
             text-decoration: none;
             letter-spacing: 0.5px;
-            font-size: 0.9rem;
+            font-size: 1rem;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(16, 185, 129, 0.4);
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
         }
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(16, 185, 129, 0.6); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(16, 185, 129, 0.5); }
 
-        footer { text-align: center; padding: 20px 0; color: #475569; font-size: 0.8rem; margin-top: 20px; }
+        footer { text-align: center; padding: 30px 0; color: #475569; font-size: 0.85rem; margin-top: 20px; border-top: 1px solid var(--border-color); }
 
         @media (max-width: 768px) {
-            header h1 { font-size: 1.6rem; }
-            .price-display { font-size: 2.5rem; }
+            header h1 { font-size: 1.8rem; }
+            .price-display { font-size: 2.8rem; }
             .features-grid { grid-template-columns: 1fr; }
-            section { padding: 30px 0; }
+            section { padding: 40px 0; }
         }
     </style>
 </head>
@@ -243,7 +255,6 @@
 
     <header>
         <div class="container">
-            <img src="image_3.png" alt="EFLIX TV Logo" class="logo-img">
             <h1>A VERDADE SOBRE A SUA CONTA DE TV E STREAMING</h1>
             <p>Descubra como economizar mais de <strong>R$ 3.000 por ano</strong> tendo acesso a absolutamente tudo.</p>
             <a href="#solucao" class="btn-primary" style="background: var(--accent-gradient); box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);">
@@ -261,7 +272,7 @@
             <div class="problem-grid">
                 <div>
                     <div class="card">
-                        <h4 style="margin-bottom: 10px; border-bottom: 1px solid var(--border-color); padding-bottom: 5px;">Seus Custos Mensais:</h4>
+                        <h4 style="margin-bottom: 15px; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; font-size: 1rem;">Seus Custos Mensais:</h4>
                         <div class="cost-row"><span>TV a Cabo</span> <span class="cost-price">R$ 109,90</span></div>
                         <div class="cost-row"><span>Netflix</span> <span class="cost-price">R$ 44,90</span></div>
                         <div class="cost-row"><span>Globoplay</span> <span class="cost-price">R$ 29,90</span></div>
@@ -273,9 +284,9 @@
                 </div>
                 <div style="display: flex; flex-direction: column; justify-content: center;">
                     <div class="total-box">
-                        <h3 style="color: var(--danger-color); font-size: 1.1rem;">TOTAL ANUAL DESPERDIÇADO</h3>
-                        <p style="font-size: 2rem; font-weight: 800; color: #fff;">R$ 4.120,00</p>
-                        <p style="font-size: 0.8rem; margin-top: 5px;">Dava para comprar uma moto ou viajar nas férias.</p>
+                        <h3 style="color: var(--danger-color); font-size: 1.2rem; margin-bottom: 5px;">TOTAL ANUAL DESPERDIÇADO</h3>
+                        <p style="font-size: 2.5rem; font-weight: 800; color: #fff; letter-spacing: -1px;">R$ 4.120,00</p>
+                        <p style="font-size: 0.9rem; margin-top: 5px; font-weight: 500;">Dava para comprar uma moto ou viajar nas férias.</p>
                     </div>
                 </div>
             </div>
@@ -308,19 +319,19 @@
         <div class="container" style="text-align: center;">
             <div class="section-title">
                 <span>A Solução</span>
-                <h2>Tudo em um só lugar</h2>
+                <h2>EFLIXTV - Tudo em um só lugar</h2>
             </div>
             
-            <p style="max-width: 600px; margin: 0 auto 20px auto; color: var(--text-secondary); font-size: 0.95rem;">
+            <p style="max-width: 600px; margin: 0 auto 20px auto; color: var(--text-secondary); font-size: 1rem;">
                 Imagine pegar <strong>TODO</strong> o conteúdo acima e colocar num único app. Sem trocar de HDMI, sem trocar de conta.
             </p>
 
-            <div class="card" style="display: inline-block; border-color: #3b82f6; background: rgba(59, 130, 246, 0.05); padding: 20px 40px;">
-                <span style="text-transform: uppercase; color: #60a5fa; font-size: 0.8rem; font-weight: 600;">Plano Completo</span>
+            <div class="card" style="display: inline-block; border-color: #3b82f6; background: rgba(59, 130, 246, 0.05); padding: 30px 50px;">
+                <span style="text-transform: uppercase; color: #60a5fa; font-size: 0.85rem; font-weight: 700; letter-spacing: 1px;">Plano Completo</span>
                 <div class="price-display">
                     R$ 35,00<small>/mês</small>
                 </div>
-                <p style="font-size: 0.8rem; opacity: 0.8;">Sem fidelidade. Sem multas.</p>
+                <p style="font-size: 0.9rem; opacity: 0.8;">Sem fidelidade. Sem multas.</p>
             </div>
         </div>
     </section>
@@ -422,14 +433,14 @@
                 </table>
             </div>
 
-            <div class="card" style="margin-top: 30px; text-align: center; border-color: #3b82f6; padding: 30px 20px;">
-                <h3 style="color: #fff; font-size: 1.3rem;">🔥 TESTE DE 3 HORAS GRÁTIS 🔥</h3>
-                <p style="color: var(--text-secondary); margin: 10px 0 20px 0; font-size: 0.9rem;">
+            <div class="card" style="margin-top: 30px; text-align: center; border-color: #3b82f6; padding: 40px 20px;">
+                <h3 style="color: #fff; font-size: 1.5rem;">🔥 TESTE DE 3 HORAS GRÁTIS 🔥</h3>
+                <p style="color: var(--text-secondary); margin: 15px 0 25px 0; font-size: 1rem;">
                     Não cobramos nada adiantado. Liberamos o sinal, você testa a qualidade na sua TV e só assina se gostar.
                 </p>
                 
                 <a href="https://wa.me/5585992780931?text=Ol%C3%A1%2C%20vi%20o%20site%20e%20quero%20o%20teste%20gr%C3%A1tis%20de%203%20horas." class="btn-primary" target="_blank">
-                    <i class="fab fa-whatsapp" style="font-size: 1.1rem;"></i>
+                    <i class="fab fa-whatsapp" style="font-size: 1.3rem;"></i>
                     PEDIR TESTE GRÁTIS
                 </a>
             </div>
