@@ -7,7 +7,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
@@ -18,31 +18,38 @@
             --bg-card: #1e293b;
             --text-primary: #f8fafc;
             --text-secondary: #94a3b8;
-            --accent-gradient: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-            --danger-color: #ef4444;
-            --success-gradient: linear-gradient(90deg, #10b981 0%, #059669 100%);
+            
+            /* MUDANÇA PARA VERMELHO */
+            --brand-color: #ef4444; /* Vermelho Padrão */
+            --brand-dark: #b91c1c;  /* Vermelho Escuro */
+            --brand-light: #f87171; /* Vermelho Claro */
+            
+            /* Gradiente principal agora é Vermelho */
+            --accent-gradient: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%);
+            
+            --danger-color: #ef4444; /* Mantido igual a brand color para consistência */
+            --success-gradient: linear-gradient(90deg, #10b981 0%, #059669 100%); /* Verde do Whatsapp mantido */
             --border-color: #334155;
-            --brand-blue: #3b82f6;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            /* ALTERADO PARA INTER */
-            font-family: 'Inter', sans-serif;
+            /* ALTERADO PARA ROBOTO */
+            font-family: 'Roboto', sans-serif;
             background-color: var(--bg-dark);
             color: var(--text-primary);
             line-height: 1.6;
             overflow-x: hidden;
-            -webkit-font-smoothing: antialiased; /* Deixa a fonte mais nítida */
+            -webkit-font-smoothing: antialiased;
         }
 
         h1, h2, h3, h4 {
-            font-family: 'Inter', sans-serif;
-            font-weight: 800; /* Extra Bold para impacto visual */
+            font-family: 'Roboto', sans-serif;
+            font-weight: 900; /* Roboto 900 é bem robusto para títulos */
             line-height: 1.1;
             text-transform: uppercase;
-            letter-spacing: -0.02em; /* Inter fica melhor com leve aperto nos títulos */
+            letter-spacing: -0.5px;
         }
 
         strong { color: #fff; font-weight: 700; }
@@ -53,7 +60,7 @@
             padding: 0 15px;
         }
 
-        /* --- HERO COMPACTO --- */
+        /* --- HERO --- */
         header {
             background: linear-gradient(to bottom, rgba(15, 23, 42, 0.9), var(--bg-dark)), 
                         url('https://images.unsplash.com/photo-1593784697778-27e049f20191?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
@@ -72,7 +79,7 @@
         }
 
         header p {
-            font-size: 1.1rem; /* Aumentei levemente para legibilidade da Inter */
+            font-size: 1.1rem;
             color: var(--text-secondary);
             max-width: 700px;
             margin: 0 auto 25px auto;
@@ -90,7 +97,7 @@
         }
         
         .section-title span {
-            color: #3b82f6;
+            color: var(--brand-color); /* Agora Vermelho */
             font-size: 0.85rem;
             font-weight: 700;
             text-transform: uppercase;
@@ -146,19 +153,21 @@
         .audience-item {
             display: flex;
             align-items: center;
-            background: rgba(59, 130, 246, 0.05);
+            /* Fundo vermelho suave */
+            background: rgba(239, 68, 68, 0.05);
             padding: 20px;
             border-radius: 12px;
-            border-left: 5px solid #3b82f6;
+            /* Borda vermelha */
+            border-left: 5px solid var(--brand-color);
         }
         .audience-item i {
             font-size: 1.8rem;
-            color: #3b82f6;
+            color: var(--brand-color); /* Ícone vermelho */
             margin-right: 15px;
         }
         .audience-item p {
             font-size: 0.95rem;
-            font-weight: 600;
+            font-weight: 500;
             color: #fff;
             margin: 0;
         }
@@ -173,13 +182,44 @@
 
         .price-display {
             font-size: 3.5rem;
-            font-weight: 900; /* Inter Black para preço */
+            font-weight: 700;
             color: #fff;
             line-height: 1;
-            margin: 15px 0;
-            letter-spacing: -2px;
+            margin: 10px 0 5px 0;
+            letter-spacing: -1px;
         }
-        .price-display small { font-size: 1.2rem; color: var(--text-secondary); font-weight: 400; letter-spacing: normal; }
+        .price-display small { font-size: 1rem; color: var(--text-secondary); font-weight: 400; letter-spacing: normal; }
+
+        .plan-tag {
+            background: rgba(239, 68, 68, 0.2); /* Tag fundo vermelho */
+            color: var(--brand-light); /* Texto vermelho claro */
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+
+        /* LISTA DE PREÇOS */
+        .pricing-list {
+            margin-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 15px;
+            text-align: left;
+        }
+        .pricing-item {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            padding: 6px 0;
+            color: #cbd5e1;
+            border-bottom: 1px dashed rgba(255,255,255,0.1);
+        }
+        .pricing-item:last-child { border-bottom: none; }
+        .pricing-item strong { color: #fff; }
+        .pricing-item span { color: var(--brand-color); font-weight: 700; } /* Preço vermelho */
 
         /* --- FEATURES GRID --- */
         .features-grid {
@@ -199,14 +239,12 @@
         }
         
         .feature-item:hover {
-            border-color: rgba(59, 130, 246, 0.3);
+            border-color: rgba(239, 68, 68, 0.3); /* Hover vermelho */
             transform: translateY(-5px);
         }
         
-        .feature-icon { font-size: 1.8rem; color: #3b82f6; margin-bottom: 15px; }
-
+        .feature-icon { font-size: 1.8rem; color: var(--brand-color); margin-bottom: 15px; }
         .feature-item h4 { font-size: 1.1rem; margin-bottom: 10px; color: #fff; font-weight: 700; }
-
         .brand-list { margin-top: 5px; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5; }
         .brand-list span { color: #fff; font-weight: 600; }
 
@@ -216,13 +254,35 @@
         th, td { padding: 15px; text-align: center; border-bottom: 1px solid var(--border-color); font-size: 0.95rem; }
         th { background: #0f172a; color: #fff; font-weight: 700; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.5px; }
         
+        /* Coluna destaque Vermelha */
         .highlight-col { 
-            background: rgba(59, 130, 246, 0.1); 
-            color: var(--brand-blue); 
+            background: rgba(239, 68, 68, 0.1); 
+            color: var(--brand-color); 
             font-weight: 700; 
         }
 
-        .btn-primary {
+        /* Botão do Topo (Vermelho) */
+        .btn-header {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: var(--accent-gradient); /* Vermelho */
+            color: white;
+            padding: 16px 35px;
+            border-radius: 8px;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+        }
+        .btn-header:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(239, 68, 68, 0.5); }
+
+        /* Botão do WhatsApp (Mantido Verde para conversão padrão) */
+        .btn-whatsapp {
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -230,7 +290,7 @@
             background: var(--success-gradient);
             color: white;
             padding: 16px 35px;
-            border-radius: 8px; /* Inter combina mais com bordas um pouco menos redondas (opcional) */
+            border-radius: 8px;
             font-weight: 700;
             text-transform: uppercase;
             text-decoration: none;
@@ -239,7 +299,7 @@
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
         }
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(16, 185, 129, 0.5); }
+        .btn-whatsapp:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(16, 185, 129, 0.5); }
 
         footer { text-align: center; padding: 30px 0; color: #475569; font-size: 0.85rem; margin-top: 20px; border-top: 1px solid var(--border-color); }
 
@@ -257,7 +317,7 @@
         <div class="container">
             <h1>A VERDADE SOBRE A SUA CONTA DE TV E STREAMING</h1>
             <p>Descubra como economizar mais de <strong>R$ 3.000 por ano</strong> tendo acesso a absolutamente tudo.</p>
-            <a href="#solucao" class="btn-primary" style="background: var(--accent-gradient); box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);">
+            <a href="#solucao" class="btn-header">
                 Ver a Solução <i class="fas fa-arrow-down"></i>
             </a>
         </div>
@@ -285,8 +345,8 @@
                 <div style="display: flex; flex-direction: column; justify-content: center;">
                     <div class="total-box">
                         <h3 style="color: var(--danger-color); font-size: 1.2rem; margin-bottom: 5px;">TOTAL ANUAL DESPERDIÇADO</h3>
-                        <p style="font-size: 2.5rem; font-weight: 800; color: #fff; letter-spacing: -1px;">R$ 4.120,00</p>
-                        <p style="font-size: 0.9rem; margin-top: 5px; font-weight: 500;">Dava para comprar uma moto ou viajar nas férias.</p>
+                        <p style="font-size: 2.5rem; font-weight: 700; color: #fff; letter-spacing: -1px;">R$ 4.120,00</p>
+                        <p style="font-size: 0.9rem; margin-top: 5px; font-weight: 400;">Dava para comprar uma moto ou viajar nas férias.</p>
                     </div>
                 </div>
             </div>
@@ -322,16 +382,41 @@
                 <h2>EFLIXTV - Tudo em um só lugar</h2>
             </div>
             
-            <p style="max-width: 600px; margin: 0 auto 20px auto; color: var(--text-secondary); font-size: 1rem;">
+            <p style="max-width: 600px; margin: 0 auto 30px auto; color: var(--text-secondary); font-size: 1rem;">
                 Imagine pegar <strong>TODO</strong> o conteúdo acima e colocar num único app. Sem trocar de HDMI, sem trocar de conta.
             </p>
 
-            <div class="card" style="display: inline-block; border-color: #3b82f6; background: rgba(59, 130, 246, 0.05); padding: 30px 50px;">
-                <span style="text-transform: uppercase; color: #60a5fa; font-size: 0.85rem; font-weight: 700; letter-spacing: 1px;">Plano Completo</span>
+            <div class="card" style="display: inline-block; border-color: var(--brand-color); background: rgba(239, 68, 68, 0.05); padding: 30px; width: 100%; max-width: 450px;">
+                
+                <span class="plan-tag">PLANO ANUAL (MELHOR OFERTA)</span>
+                <p style="font-size: 0.9rem; color: #94a3b8; text-transform: uppercase; font-weight: 600;">Planos a partir de:</p>
+                
                 <div class="price-display">
-                    R$ 35,00<small>/mês</small>
+                    R$ 20,00<small>/mês</small>
                 </div>
-                <p style="font-size: 0.9rem; opacity: 0.8;">Sem fidelidade. Sem multas.</p>
+                <p style="font-size: 0.85rem; opacity: 0.8; margin-bottom: 20px;">No pagamento anual de R$ 240,00</p>
+
+                <div class="pricing-list">
+                    <p style="color: var(--brand-light); font-size: 0.8rem; font-weight: 700; margin-bottom: 10px; text-transform: uppercase;">Outras opções disponíveis:</p>
+                    
+                    <div class="pricing-item">
+                        <strong>Mensal</strong>
+                        <span>R$ 35,00</span>
+                    </div>
+                    <div class="pricing-item">
+                        <strong>Bimestral</strong>
+                        <span>R$ 60,00 <small style="color: #94a3b8; font-weight:400;">(R$ 30/mês)</small></span>
+                    </div>
+                    <div class="pricing-item">
+                        <strong>Quadrimestral</strong>
+                        <span>R$ 110,00 <small style="color: #94a3b8; font-weight:400;">(R$ 27,50/mês)</small></span>
+                    </div>
+                    <div class="pricing-item">
+                        <strong>Semestral</strong>
+                        <span>R$ 150,00 <small style="color: #94a3b8; font-weight:400;">(R$ 25/mês)</small></span>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -412,7 +497,7 @@
                         <tr>
                             <td style="text-align: left; font-weight: 600;">Custo Mensal</td>
                             <td>± R$ 350,00</td>
-                            <td class="highlight-col">R$ 35,00</td>
+                            <td class="highlight-col">A partir de R$ 20,00</td>
                         </tr>
                         <tr>
                             <td style="text-align: left; font-weight: 600;">Streamings</td>
@@ -433,13 +518,13 @@
                 </table>
             </div>
 
-            <div class="card" style="margin-top: 30px; text-align: center; border-color: #3b82f6; padding: 40px 20px;">
+            <div class="card" style="margin-top: 30px; text-align: center; border-color: var(--brand-color); padding: 40px 20px;">
                 <h3 style="color: #fff; font-size: 1.5rem;">🔥 TESTE DE 3 HORAS GRÁTIS 🔥</h3>
                 <p style="color: var(--text-secondary); margin: 15px 0 25px 0; font-size: 1rem;">
                     Não cobramos nada adiantado. Liberamos o sinal, você testa a qualidade na sua TV e só assina se gostar.
                 </p>
                 
-                <a href="https://wa.me/5585992780931?text=Ol%C3%A1%2C%20vi%20o%20site%20e%20quero%20o%20teste%20gr%C3%A1tis%20de%203%20horas." class="btn-primary" target="_blank">
+                <a href="https://wa.me/5585992780931?text=Ol%C3%A1%2C%20vi%20o%20site%20e%20quero%20o%20teste%20gr%C3%A1tis%20de%203%20horas." class="btn-whatsapp" target="_blank">
                     <i class="fab fa-whatsapp" style="font-size: 1.3rem;"></i>
                     PEDIR TESTE GRÁTIS
                 </a>
