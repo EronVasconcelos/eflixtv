@@ -5,21 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart TV | Economia Inteligente</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
-        /* --- VARIÁVEIS E RESET --- */
+        /* --- VARIÁVEIS REFINADAS --- */
         :root {
             --bg-dark: #0f172a;
             --bg-card: #1e293b;
             --text-primary: #f8fafc;
             --text-secondary: #94a3b8;
-            --accent-gradient: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); /* Azul Tech */
-            --danger-color: #ef4444;
-            --success-gradient: linear-gradient(90deg, #10b981 0%, #059669 100%); /* Verde Ação */
-            --border-color: #334155;
+            --accent: #3b82f6;
+            --success: #10b981;
+            --danger: #ef4444;
+            --border: rgba(255, 255, 255, 0.1);
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
 
         * {
@@ -32,240 +32,176 @@
             font-family: 'Open Sans', sans-serif;
             background-color: var(--bg-dark);
             color: var(--text-primary);
-            line-height: 1.7;
-            overflow-x: hidden;
+            line-height: 1.6;
         }
 
-        h1, h2, h3, h4 {
+        h1, h2, h3 {
             font-family: 'Montserrat', sans-serif;
-            font-weight: 800;
-            line-height: 1.2;
+            font-weight: 700;
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
         /* --- HERO SECTION --- */
         header {
-            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.8), var(--bg-dark)), 
-                        url('https://images.unsplash.com/photo-1593784697778-27e049f20191?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-            padding: 120px 0 80px 0;
+            padding: 140px 0 100px;
             text-align: center;
+            background: radial-gradient(circle at top, #1e293b 0%, #0f172a 100%);
         }
 
         .hero-tag {
             background: rgba(59, 130, 246, 0.1);
-            color: #60a5fa;
-            padding: 8px 16px;
-            border-radius: 30px;
-            font-size: 0.85rem;
+            color: var(--accent);
+            padding: 6px 16px;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 600;
-            display: inline-block;
-            margin-bottom: 20px;
             border: 1px solid rgba(59, 130, 246, 0.2);
+            margin-bottom: 24px;
+            display: inline-block;
         }
 
         header h1 {
-            font-size: 2.5rem;
+            font-size: 3.5rem;
+            letter-spacing: -1px;
             margin-bottom: 20px;
-            background: -webkit-linear-gradient(#fff, #cbd5e1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            line-height: 1.1;
         }
 
         header p {
-            font-size: 1.1rem;
+            font-size: 1.25rem;
             color: var(--text-secondary);
-            max-width: 700px;
-            margin: 0 auto 40px auto;
+            max-width: 600px;
+            margin: 0 auto 40px;
         }
 
-        /* --- SEÇÕES GERAIS --- */
+        /* --- CARDS E SEÇÕES --- */
         section {
-            padding: 80px 0;
+            padding: 100px 0;
         }
 
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-        
-        .section-title span {
-            color: #3b82f6;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        /* --- CARDS E PREÇOS --- */
         .card {
             background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 30px;
-            transition: transform 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: #475569;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: var(--shadow);
         }
 
         .problem-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+            align-items: center;
         }
 
         .cost-row {
             display: flex;
             justify-content: space-between;
-            padding: 15px 0;
-            border-bottom: 1px solid var(--border-color);
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
         }
-        .cost-row:last-child { border-bottom: none; }
-        .cost-price { font-weight: 700; color: var(--danger-color); }
 
         .total-box {
+            background: linear-gradient(135deg, #ef4444 0%, #991b1b 100%);
+            padding: 40px;
+            border-radius: 20px;
             text-align: center;
-            background: rgba(239, 68, 68, 0.1);
-            border: 1px solid rgba(239, 68, 68, 0.2);
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 20px;
         }
 
-        /* --- SOLUÇÃO (PREÇO) --- */
-        .solution-section {
-            background: linear-gradient(180deg, var(--bg-dark) 0%, #172033 100%);
-            border-top: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .price-display {
-            font-size: 4rem;
-            font-weight: 800;
-            color: #fff;
-            line-height: 1;
-        }
-        .price-display small {
-            font-size: 1rem;
-            color: var(--text-secondary);
-            font-weight: 400;
-        }
-
-        /* --- FEATURES GRID --- */
+        /* --- FEATURES --- */
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
         }
-        
+
         .feature-item {
-            text-align: center;
-            padding: 30px 20px;
+            padding: 40px;
             background: var(--bg-card);
-            border-radius: 8px;
-            border: 1px solid transparent;
+            border-radius: 16px;
+            text-align: center;
+            transition: transform 0.3s ease;
         }
+
         .feature-item:hover {
-            border-color: #3b82f6;
-            background: linear-gradient(to bottom, var(--bg-card), #1e293b);
+            transform: translateY(-8px);
         }
-        
+
         .feature-icon {
-            font-size: 2rem;
-            color: #3b82f6;
+            font-size: 2.5rem;
+            color: var(--accent);
             margin-bottom: 20px;
         }
 
-        /* --- TABELA COMPARATIVA --- */
-        .comparison-wrapper {
+        /* --- COMPARATIVO --- */
+        .table-container {
             overflow-x: auto;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            margin-top: 40px;
         }
 
         table {
             width: 100%;
-            border-collapse: collapse;
-            background: var(--bg-card);
-        }
-
-        th, td {
-            padding: 20px;
-            text-align: center;
-            border-bottom: 1px solid var(--border-color);
+            border-collapse: separate;
+            border-spacing: 0 8px;
         }
 
         th {
-            background: #0f172a;
-            color: #fff;
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
-        }
-
-        .highlight-col {
-            background: rgba(16, 185, 129, 0.05); /* Verde suave */
-            color: #34d399;
-            font-weight: bold;
-            border-bottom: 1px solid rgba(16, 185, 129, 0.2);
-        }
-
-        /* --- CTA BOTÃO --- */
-        .cta-container {
+            padding: 15px;
             text-align: center;
-            margin-top: 40px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+        }
+
+        td {
+            padding: 20px;
+            background: var(--bg-card);
+            text-align: center;
+        }
+
+        td:first-child { border-radius: 12px 0 0 12px; text-align: left; }
+        td:last-child { border-radius: 0 12px 12px 0; }
+
+        .highlight-text {
+            color: var(--success);
+            font-weight: 700;
+        }
+
+        /* --- BOTÕES --- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 20px 40px;
+            border-radius: 100px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
         }
 
         .btn-primary {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            background: var(--success-gradient);
+            background: var(--success);
             color: white;
-            padding: 18px 40px;
-            border-radius: 50px;
-            font-weight: 700;
-            text-transform: uppercase;
-            text-decoration: none;
-            letter-spacing: 1px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
         }
 
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.6);
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(16, 185, 129, 0.4);
         }
 
-        /* --- FOOTER --- */
-        footer {
-            text-align: center;
-            padding: 40px 0;
-            color: #475569;
-            font-size: 0.9rem;
-            border-top: 1px solid var(--border-color);
-            margin-top: 40px;
-        }
-
-        /* --- MOBILE --- */
+        /* --- RESPONSIVIDADE --- */
         @media (max-width: 768px) {
-            header h1 { font-size: 1.8rem; }
-            .price-display { font-size: 3rem; }
+            header h1 { font-size: 2.5rem; }
+            .problem-grid { grid-template-columns: 1fr; }
+            header { padding: 80px 0 60px; }
         }
     </style>
 </head>
@@ -273,176 +209,70 @@
 
     <header>
         <div class="container">
-            <span class="hero-tag">Análise Financeira 2024</span>
-            <h1>A VERDADE SOBRE A SUA CONTA DE TV</h1>
-            <p>Você sabe quanto realmente gasta por ano em assinaturas fragmentadas? Fizemos a conta e o resultado é impressionante.</p>
-            <a href="#solucao" class="btn-primary" style="background: var(--accent-gradient); box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);">
-                Ver a Solução <i class="fas fa-arrow-down"></i>
+            <span class="hero-tag">Economize até R$ 3.000/ano</span>
+            <h1>Chega de pagar caro por cada streaming</h1>
+            <p>Tenha todos os canais, filmes e séries em um único lugar, por uma fração do preço.</p>
+            <a href="#testar" class="btn btn-primary">
+                Começar Teste Grátis <i class="fas fa-rocket"></i>
             </a>
         </div>
     </header>
 
     <section>
         <div class="container">
-            <div class="section-title">
-                <span>Cenário Atual</span>
-                <h2>A Armadilha das Assinaturas</h2>
-            </div>
-
             <div class="problem-grid">
                 <div>
-                    <p style="color: var(--text-secondary); margin-bottom: 20px;">
-                        Antigamente, pagava-se apenas o cabo. Hoje, para ter acesso a tudo, o consumidor médio assina múltiplos serviços, criando uma "bola de neve" financeira invisível.
-                    </p>
+                    <h2 style="margin-bottom: 24px; font-size: 2rem;">A conta que não fecha no fim do mês</h2>
                     <div class="card">
-                        <h4 style="margin-bottom: 20px; border-bottom: 1px solid var(--border-color); padding-bottom: 10px;">Custo Médio Mensal</h4>
-                        <div class="cost-row">
-                            <span>TV por Assinatura (Cabo)</span>
-                            <span class="cost-price">R$ 109,90</span>
-                        </div>
-                        <div class="cost-row">
-                            <span>Netflix (Standard)</span>
-                            <span class="cost-price">R$ 44,90</span>
-                        </div>
-                        <div class="cost-row">
-                            <span>Premiere (Futebol)</span>
-                            <span class="cost-price">R$ 59,90</span>
-                        </div>
-                        <div class="cost-row">
-                            <span>Streamings Extras (Disney/Star)</span>
-                            <span class="cost-price">R$ 43,90</span>
-                        </div>
-                        <div class="cost-row">
-                            <span>Combate/PPV</span>
-                            <span class="cost-price">R$ 34,90</span>
-                        </div>
+                        <div class="cost-row"><span>Cabo Tradicional</span> <strong>R$ 109,90</strong></div>
+                        <div class="cost-row"><span>Netflix</span> <strong>R$ 44,90</strong></div>
+                        <div class="cost-row"><span>Premiere</span> <strong>R$ 59,90</strong></div>
+                        <div class="cost-row"><span>Outros Apps</span> <strong>R$ 78,80</strong></div>
                     </div>
                 </div>
-
-                <div style="display: flex; flex-direction: column; justify-content: center;">
-                    <div class="total-box">
-                        <h3 style="color: var(--danger-color);">Total Gasto Por Ano</h3>
-                        <p style="font-size: 2.5rem; font-weight: 800; color: #fff;">R$ 3.522,00</p>
-                        <p style="font-size: 0.9rem; margin-top: 10px;">Equivalente a uma moto usada ou uma viagem de férias.</p>
-                    </div>
+                <div class="total-box">
+                    <p style="text-transform: uppercase; font-size: 0.9rem; font-weight: 700;">Você gasta hoje:</p>
+                    <h2 style="font-size: 3rem; margin: 10px 0;">R$ 3.522</h2>
+                    <p>por ano com TV e streaming.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="solucao" class="solution-section">
+    <section id="testar" style="background: #0b1120;">
         <div class="container" style="text-align: center;">
-            <div class="section-title">
-                <span>A Revolução</span>
-                <h2>Centralize o seu Entretenimento</h2>
-            </div>
-            
-            <p style="max-width: 600px; margin: 0 auto 40px auto; color: var(--text-secondary);">
-                Todo o conteúdo listado acima — e muito mais — num único aplicativo, leve, rápido e organizado. Sem trocar de HDMI, sem trocar de App.
-            </p>
-
-            <div class="card" style="display: inline-block; border-color: #3b82f6; background: rgba(59, 130, 246, 0.05);">
-                <span style="text-transform: uppercase; letter-spacing: 1px; color: #60a5fa; font-size: 0.9rem; font-weight: 600;">Plano Premium</span>
-                <div class="price-display">
-                    R$ 35,00<small>/mês</small>
-                </div>
-                <p style="margin-top: 10px; font-size: 0.9rem; opacity: 0.8;">Sem fidelidade. Cancele quando quiser.</p>
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <div class="container">
-            <div class="section-title">
-                <h2>Conteúdo Incluso</h2>
-            </div>
+            <h2 style="margin-bottom: 16px;">Tudo o que você precisa num só lugar</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 60px;">Qualidade 4K e zero travamentos.</p>
             
             <div class="features-grid">
                 <div class="feature-item">
                     <i class="fas fa-tv feature-icon"></i>
-                    <h4>TV Ao Vivo</h4>
-                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 10px;">+2.000 Canais. Globo, Notícias, Documentários e Canais 24h.</p>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-futbol feature-icon"></i>
-                    <h4>Desportos</h4>
-                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 10px;">Brasileirão, Champions, Premier League, NBA e F1.</p>
+                    <h3>2.000+ Canais</h3>
+                    <p>Canais abertos e fechados em HD e Full HD.</p>
                 </div>
                 <div class="feature-item">
                     <i class="fas fa-film feature-icon"></i>
-                    <h4>Cinema em Casa</h4>
-                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 10px;">Lançamentos de cinema, catálogo Netflix, Prime e HBO.</p>
+                    <h3>Filmes e Séries</h3>
+                    <p>O catálogo das maiores plataformas atualizado diariamente.</p>
                 </div>
                 <div class="feature-item">
-                    <i class="fas fa-child feature-icon"></i>
-                    <h4>Kids</h4>
-                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 10px;">Desenhos 24h, Disney e controle parental incluso.</p>
+                    <i class="fas fa-futbol feature-icon"></i>
+                    <h3>Esportes</h3>
+                    <p>Todos os jogos do seu time sem pagar Premiere.</p>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <section style="background-color: #0b1120;">
-        <div class="container">
-            <div class="section-title">
-                <h2>Comparativo Técnico</h2>
-            </div>
-
-            <div class="comparison-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th style="text-align: left;">Recurso</th>
-                            <th>TV Tradicional</th>
-                            <th class="highlight-col" style="background: rgba(16, 185, 129, 0.1);">Nosso App</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td style="text-align: left; font-weight: 600;">Investimento Mensal</td>
-                            <td>± R$ 300,00</td>
-                            <td class="highlight-col">R$ 35,00</td>
-                        </tr>
-                        <tr>
-                            <td style="text-align: left; font-weight: 600;">Instalação</td>
-                            <td>Física (Cabos/Furos)</td>
-                            <td class="highlight-col">Remota (5 min)</td>
-                        </tr>
-                        <tr>
-                            <td style="text-align: left; font-weight: 600;">Qualidade</td>
-                            <td>HD/FHD</td>
-                            <td class="highlight-col">FHD / 4K</td>
-                        </tr>
-                        <tr>
-                            <td style="text-align: left; font-weight: 600;">Fidelidade</td>
-                            <td>12 Meses (Multa)</td>
-                            <td class="highlight-col">Sem Fidelidade</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="card" style="margin-top: 60px; text-align: center; border-color: #10b981;">
-                <h3 style="color: #fff;">Teste de Confiança (3 Horas)</h3>
-                <p style="color: var(--text-secondary); margin: 15px 0 30px 0;">
-                    Sabemos que a qualidade é a sua maior dúvida. Por isso, não cobramos nada adiantado.
-                    Liberamos o sinal, você testa na sua TV e só assina se gostar.
-                </p>
-                
-                <a href="https://wa.me/5500000000000?text=Olá,%20gostaria%20do%20teste%20grátis%20de%203%20horas." class="btn-primary" target="_blank">
-                    <i class="fab fa-whatsapp" style="font-size: 1.2rem;"></i>
-                    Solicitar Teste Grátis
+            <div class="card" style="margin-top: 80px; border-color: var(--success);">
+                <span class="highlight-text" style="font-size: 0.9rem; text-transform: uppercase;">Acesso Premium</span>
+                <h2 style="font-size: 4rem; margin: 10px 0;">R$ 35<small style="font-size: 1.5rem;">/mês</small></h2>
+                <p style="margin-bottom: 30px;">Sem contratos, sem multas. Cancele quando quiser.</p>
+                <a href="#" class="btn btn-primary">
+                    <i class="fab fa-whatsapp"></i> Liberar Acesso Agora
                 </a>
-                <p style="margin-top: 15px; font-size: 0.8rem; opacity: 0.6;">Resposta imediata via WhatsApp</p>
             </div>
         </div>
     </section>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Streaming Inteligente. Todos os direitos reservados.</p>
-        </div>
-    </footer>
 
 </body>
 </html>
+
