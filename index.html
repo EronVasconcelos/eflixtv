@@ -52,22 +52,19 @@
                         url('https://images.unsplash.com/photo-1593784697778-27e049f20191?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
-            padding: 60px 0 40px 0;
+            padding: 40px 0; /* Reduzi o padding superior */
             text-align: center;
         }
 
-        .hero-tag {
-            background: rgba(59, 130, 246, 0.1);
-            color: #60a5fa;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            font-weight: 600;
-            display: inline-block;
-            margin-bottom: 15px;
-            border: 1px solid rgba(59, 130, 246, 0.2);
+        /* ESTILO DO LOGO ADICIONADO */
+        .logo-img {
+            max-width: 180px;
+            height: auto;
+            display: block;
+            margin: 0 auto 30px auto; /* Centraliza e dá margem inferior */
         }
+
+        /* --- REMOVIDO O ESTILO DO HERO-TAG --- */
 
         header h1 {
             font-size: 2rem;
@@ -122,7 +119,7 @@
         .cost-row {
             display: flex;
             justify-content: space-between;
-            padding: 8px 0; /* Reduzi um pouco o padding para caber mais itens */
+            padding: 8px 0;
             border-bottom: 1px solid var(--border-color);
             font-size: 0.9rem;
         }
@@ -246,7 +243,7 @@
 
     <header>
         <div class="container">
-            <span class="hero-tag">Análise Financeira & Economia</span>
+            <img src="image_3.png" alt="EFLIX TV Logo" class="logo-img">
             <h1>A VERDADE SOBRE A SUA CONTA DE TV E STREAMING</h1>
             <p>Descubra como economizar mais de <strong>R$ 3.000 por ano</strong> tendo acesso a absolutamente tudo.</p>
             <a href="#solucao" class="btn-primary" style="background: var(--accent-gradient); box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);">
@@ -267,7 +264,9 @@
                         <h4 style="margin-bottom: 10px; border-bottom: 1px solid var(--border-color); padding-bottom: 5px;">Seus Custos Mensais:</h4>
                         <div class="cost-row"><span>TV a Cabo</span> <span class="cost-price">R$ 109,90</span></div>
                         <div class="cost-row"><span>Netflix</span> <span class="cost-price">R$ 44,90</span></div>
-                        <div class="cost-row"><span>Globoplay</span> <span class="cost-price">R$ 29,90</span></div> <div class="cost-row"><span>Prime Video</span> <span class="cost-price">R$ 19,90</span></div> <div class="cost-row"><span>Premiere</span> <span class="cost-price">R$ 59,90</span></div>
+                        <div class="cost-row"><span>Globoplay</span> <span class="cost-price">R$ 29,90</span></div>
+                        <div class="cost-row"><span>Prime Video</span> <span class="cost-price">R$ 19,90</span></div>
+                        <div class="cost-row"><span>Premiere</span> <span class="cost-price">R$ 59,90</span></div>
                         <div class="cost-row"><span>Disney+/Star+</span> <span class="cost-price">R$ 43,90</span></div>
                         <div class="cost-row"><span>Combate</span> <span class="cost-price">R$ 34,90</span></div>
                     </div>
@@ -275,7 +274,7 @@
                 <div style="display: flex; flex-direction: column; justify-content: center;">
                     <div class="total-box">
                         <h3 style="color: var(--danger-color); font-size: 1.1rem;">TOTAL ANUAL DESPERDIÇADO</h3>
-                        <p style="font-size: 2rem; font-weight: 800; color: #fff;">R$ 4.120,00</p> 
+                        <p style="font-size: 2rem; font-weight: 800; color: #fff;">R$ 4.120,00</p>
                         <p style="font-size: 0.8rem; margin-top: 5px;">Dava para comprar uma moto ou viajar nas férias.</p>
                     </div>
                 </div>
