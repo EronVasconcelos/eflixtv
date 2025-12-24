@@ -564,17 +564,20 @@
 
     <script>
         const counterElement = document.getElementById('visit-count');
+        const numeroInicial = 534; // VOCÊ PODE MUDAR ESSE NÚMERO AQUI
         
-        // Usa uma API gratuita para contagem persistente baseada no domínio
         fetch('https://api.counterapi.dev/v1/eflixtv-eron/visits/up')
             .then(response => response.json())
             .then(data => {
-                counterElement.innerText = data.count;
+                // Soma o número real + o número inicial que escolhemos
+                const total = numeroInicial + data.count;
+                // Formata o número (ex: 1.534 em vez de 1534)
+                counterElement.innerText = total.toLocaleString('pt-BR');
             })
             .catch(err => {
                 console.error("Erro ao carregar contador:", err);
-                // Se der erro na API, mostra um número fixo de "reserva" para não ficar vazio
-                counterElement.innerText = "1.240"; 
+                // Se der erro, mostra um valor fixo seguro
+                counterElement.innerText = (numeroInicial + 25).toLocaleString('pt-BR'); 
             });
     </script>
 
