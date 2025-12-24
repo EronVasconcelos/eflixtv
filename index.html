@@ -14,25 +14,27 @@
     <style>
         /* --- ESTILOS COMPACTOS --- */
         :root {
-            /* --- PALETA DE CINZAS NEUTROS (SEM AZUL) --- */
-            --bg-dark: #121212;      /* Fundo Principal (Quase preto) */
-            --bg-section: #181818;   /* Fundo de Seções Alternadas */
-            --bg-card: #212121;      /* Fundo dos Cards (Cinza escuro) */
-            --border-color: #333333; /* Bordas em cinza discreto */
+            /* --- FUNDOS ESCUROS PREMIUM --- */
+            --bg-dark: #121212;      
+            --bg-section: #181818;   
+            --bg-card: #212121;      
+            --border-color: #333333; 
             
-            --text-primary: #ededed; /* Branco gelo */
-            --text-secondary: #a3a3a3; /* Cinza médio */
+            --text-primary: #ededed; 
+            --text-secondary: #a3a3a3; 
             
-            /* ACENTOS EM VERMELHO */
-            --brand-color: #ef4444; 
-            --brand-dark: #b91c1c;
-            --brand-light: #f87171;
+            /* --- CORES DE SENTIMENTO (PSICOLOGIA DAS CORES) --- */
             
-            /* Gradiente de destaque Vermelho */
-            --accent-gradient: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            /* VERMELHO = DOR / PERDA / CUSTO ALTO */
+            --color-pain: #ef4444; 
+            --bg-pain-light: rgba(239, 68, 68, 0.1);
             
-            --danger-color: #ef4444;
-            --success-gradient: linear-gradient(90deg, #10b981 0%, #059669 100%);
+            /* VERDE = PRAZER / GANHO / ECONOMIA */
+            --color-gain: #10b981; /* Verde Esmeralda Vibrante */
+            --bg-gain-light: rgba(16, 185, 129, 0.1);
+            
+            /* Gradiente do Botão (Foco na Ação/Verde) */
+            --action-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -64,7 +66,6 @@
 
         /* --- HERO --- */
         header {
-            /* Gradiente ajustado para Preto/Cinza */
             background: linear-gradient(to bottom, rgba(0, 0, 0, 0.85), var(--bg-dark)), 
                         url('https://images.unsplash.com/photo-1593784697778-27e049f20191?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
@@ -99,8 +100,9 @@
             margin-bottom: 35px;
         }
         
+        /* Títulos com cor neutra ou destaque sutil */
         .section-title span {
-            color: var(--brand-color);
+            color: var(--color-gain); /* Verde para indicar oportunidade */
             font-size: 0.85rem;
             font-weight: 700;
             text-transform: uppercase;
@@ -111,15 +113,16 @@
 
         .section-title h2 { font-size: 2rem; }
 
-        /* --- CARDS E PREÇOS --- */
+        /* --- CARDS --- */
         .card {
             background: var(--bg-card);
             border: 1px solid var(--border-color);
             border-radius: 12px;
             padding: 25px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Sombra mais escura */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
 
+        /* --- SEÇÃO DA DOR (VERMELHO) --- */
         .problem-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -136,12 +139,14 @@
             font-weight: 500;
         }
         .cost-row:last-child { border-bottom: none; }
-        .cost-price { font-weight: 700; color: var(--danger-color); }
+        
+        /* Preços dos concorrentes em VERMELHO (Perda de dinheiro) */
+        .cost-price { font-weight: 700; color: var(--color-pain); }
 
         .total-box {
             text-align: center;
-            background: rgba(239, 68, 68, 0.08); /* Fundo vermelho bem sutil */
-            border: 1px solid rgba(239, 68, 68, 0.2);
+            background: var(--bg-pain-light); /* Fundo Vermelho Sutil */
+            border: 1px solid rgba(239, 68, 68, 0.3);
             padding: 20px;
             border-radius: 12px;
             margin-top: 15px;
@@ -156,14 +161,14 @@
         .audience-item {
             display: flex;
             align-items: center;
-            background: #262626; /* Cinza Neutro um pouco mais claro que o card */
+            background: #262626;
             padding: 20px;
             border-radius: 12px;
-            border-left: 5px solid var(--brand-color);
+            border-left: 5px solid var(--color-gain); /* Verde (Positivo) */
         }
         .audience-item i {
             font-size: 1.8rem;
-            color: var(--brand-color);
+            color: var(--color-gain);
             margin-right: 15px;
         }
         .audience-item p {
@@ -173,9 +178,8 @@
             margin: 0;
         }
 
-        /* --- SOLUÇÃO (PREÇO) --- */
+        /* --- SOLUÇÃO (VERDE/GANHO) --- */
         .solution-section {
-            /* Gradiente puramente cinza/preto */
             background: linear-gradient(180deg, var(--bg-dark) 0%, #000000 100%);
             border-top: 1px solid var(--border-color);
             border-bottom: 1px solid var(--border-color);
@@ -185,16 +189,17 @@
         .price-display {
             font-size: 3.5rem;
             font-weight: 700;
-            color: #fff;
+            color: var(--color-gain); /* Preço em VERDE (Economia) */
             line-height: 1;
             margin: 10px 0 5px 0;
             letter-spacing: -1px;
+            text-shadow: 0 0 20px rgba(16, 185, 129, 0.2); /* Brilho verde sutil */
         }
-        .price-display small { font-size: 1rem; color: var(--text-secondary); font-weight: 400; letter-spacing: normal; }
+        .price-display small { font-size: 1rem; color: var(--text-secondary); font-weight: 400; letter-spacing: normal; text-shadow: none; }
 
         .plan-tag {
-            background: rgba(239, 68, 68, 0.2);
-            color: var(--brand-light);
+            background: var(--bg-gain-light);
+            color: var(--color-gain);
             font-size: 0.75rem;
             padding: 4px 10px;
             border-radius: 20px;
@@ -202,6 +207,7 @@
             text-transform: uppercase;
             display: inline-block;
             margin-bottom: 5px;
+            border: 1px solid rgba(16, 185, 129, 0.2);
         }
 
         /* LISTA DE PREÇOS */
@@ -221,7 +227,7 @@
         }
         .pricing-item:last-child { border-bottom: none; }
         .pricing-item strong { color: #fff; }
-        .pricing-item span { color: var(--brand-color); font-weight: 700; }
+        .pricing-item span { color: var(--color-gain); font-weight: 700; } /* Preço verde */
 
         /* --- FEATURES GRID --- */
         .features-grid {
@@ -241,11 +247,11 @@
         }
         
         .feature-item:hover {
-            border-color: rgba(239, 68, 68, 0.4);
+            border-color: rgba(16, 185, 129, 0.4); /* Borda verde ao passar o mouse */
             transform: translateY(-5px);
         }
         
-        .feature-icon { font-size: 1.8rem; color: var(--brand-color); margin-bottom: 15px; }
+        .feature-icon { font-size: 1.8rem; color: var(--color-gain); margin-bottom: 15px; }
         .feature-item h4 { font-size: 1.1rem; margin-bottom: 10px; color: #fff; font-weight: 700; }
         .brand-list { margin-top: 5px; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5; }
         .brand-list span { color: #fff; font-weight: 600; }
@@ -256,40 +262,20 @@
         th, td { padding: 15px; text-align: center; border-bottom: 1px solid var(--border-color); font-size: 0.95rem; }
         th { background: #000000; color: #fff; font-weight: 700; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.5px; }
         
-        /* Coluna destaque Vermelha */
+        /* Coluna destaque VERDE (A escolha certa) */
         .highlight-col { 
-            background: rgba(239, 68, 68, 0.08); 
-            color: var(--brand-color); 
+            background: var(--bg-gain-light); 
+            color: var(--color-gain); 
             font-weight: 700; 
         }
 
-        /* Botão do Topo (Vermelho) */
+        /* Botão do Topo (Verde Ação) */
         .btn-header {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
-            background: var(--accent-gradient);
-            color: white;
-            padding: 16px 35px;
-            border-radius: 8px;
-            font-weight: 700;
-            text-transform: uppercase;
-            text-decoration: none;
-            letter-spacing: 0.5px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
-        }
-        .btn-header:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(239, 68, 68, 0.5); }
-
-        /* Botão do WhatsApp (Verde) */
-        .btn-whatsapp {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            background: var(--success-gradient);
+            background: var(--action-gradient);
             color: white;
             padding: 16px 35px;
             border-radius: 8px;
@@ -301,7 +287,7 @@
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
         }
-        .btn-whatsapp:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(16, 185, 129, 0.5); }
+        .btn-header:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(16, 185, 129, 0.5); }
 
         footer { text-align: center; padding: 30px 0; color: #666; font-size: 0.85rem; margin-top: 20px; border-top: 1px solid var(--border-color); }
 
@@ -328,12 +314,13 @@
     <section>
         <div class="container">
             <div class="section-title">
-                <h2>A Armadilha das Assinaturas</h2>
+                <h2 style="color: #fff;">A Armadilha das Assinaturas</h2>
+                <span style="color: var(--color-pain); margin-top: 5px;">Veja quanto você perde</span>
             </div>
 
             <div class="problem-grid">
                 <div>
-                    <div class="card">
+                    <div class="card" style="border-color: rgba(239, 68, 68, 0.2);">
                         <h4 style="margin-bottom: 15px; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; font-size: 1rem;">Seus Custos Mensais:</h4>
                         <div class="cost-row"><span>TV a Cabo</span> <span class="cost-price">R$ 109,90</span></div>
                         <div class="cost-row"><span>Netflix</span> <span class="cost-price">R$ 44,90</span></div>
@@ -346,7 +333,7 @@
                 </div>
                 <div style="display: flex; flex-direction: column; justify-content: center;">
                     <div class="total-box">
-                        <h3 style="color: var(--danger-color); font-size: 1.2rem; margin-bottom: 5px;">TOTAL ANUAL DESPERDIÇADO</h3>
+                        <h3 style="color: var(--color-pain); font-size: 1.2rem; margin-bottom: 5px;">TOTAL ANUAL DESPERDIÇADO</h3>
                         <p style="font-size: 2.5rem; font-weight: 700; color: #fff; letter-spacing: -1px;">R$ 4.120,00</p>
                         <p style="font-size: 0.9rem; margin-top: 5px; font-weight: 400;">Dava para comprar uma moto ou viajar nas férias.</p>
                     </div>
@@ -388,7 +375,7 @@
                 Imagine pegar <strong>TODO</strong> o conteúdo acima e colocar num único app. Sem trocar de HDMI, sem trocar de conta.
             </p>
 
-            <div class="card" style="display: inline-block; border-color: var(--brand-color); background: rgba(239, 68, 68, 0.05); padding: 30px; width: 100%; max-width: 450px;">
+            <div class="card" style="display: inline-block; border-color: var(--color-gain); background: rgba(16, 185, 129, 0.05); padding: 30px; width: 100%; max-width: 450px;">
                 
                 <span class="plan-tag">PLANO ANUAL (MELHOR OFERTA)</span>
                 <p style="font-size: 0.9rem; color: #a3a3a3; text-transform: uppercase; font-weight: 600;">Planos a partir de:</p>
@@ -399,7 +386,7 @@
                 <p style="font-size: 0.85rem; opacity: 0.8; margin-bottom: 20px;">No pagamento anual de R$ 240,00</p>
 
                 <div class="pricing-list">
-                    <p style="color: var(--brand-light); font-size: 0.8rem; font-weight: 700; margin-bottom: 10px; text-transform: uppercase;">Outras opções disponíveis:</p>
+                    <p style="color: var(--color-gain); font-size: 0.8rem; font-weight: 700; margin-bottom: 10px; text-transform: uppercase;">Outras opções disponíveis:</p>
                     
                     <div class="pricing-item">
                         <strong>Mensal</strong>
@@ -520,13 +507,13 @@
                 </table>
             </div>
 
-            <div class="card" style="margin-top: 30px; text-align: center; border-color: var(--brand-color); padding: 40px 20px;">
+            <div class="card" style="margin-top: 30px; text-align: center; border-color: var(--color-gain); padding: 40px 20px;">
                 <h3 style="color: #fff; font-size: 1.5rem;">🔥 TESTE DE 3 HORAS GRÁTIS 🔥</h3>
                 <p style="color: var(--text-secondary); margin: 15px 0 25px 0; font-size: 1rem;">
                     Não cobramos nada adiantado. Liberamos o sinal, você testa a qualidade na sua TV e só assina se gostar.
                 </p>
                 
-                <a href="https://wa.me/5585992780931?text=Ol%C3%A1%2C%20vi%20o%20site%20e%20quero%20o%20teste%20gr%C3%A1tis%20de%203%20horas." class="btn-whatsapp" target="_blank">
+                <a href="https://wa.me/5585992780931?text=Ol%C3%A1%2C%20vi%20o%20site%20e%20quero%20o%20teste%20gr%C3%A1tis%20de%203%20horas." class="btn-header" target="_blank">
                     <i class="fab fa-whatsapp" style="font-size: 1.3rem;"></i>
                     PEDIR TESTE GRÁTIS
                 </a>
