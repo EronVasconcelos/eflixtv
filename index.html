@@ -7,7 +7,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
@@ -28,21 +28,21 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            /* ALTERADO PARA POPPINS */
-            font-family: 'Poppins', sans-serif;
+            /* ALTERADO PARA INTER */
+            font-family: 'Inter', sans-serif;
             background-color: var(--bg-dark);
             color: var(--text-primary);
             line-height: 1.6;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased; /* Deixa a fonte mais nítida */
         }
 
         h1, h2, h3, h4 {
-            /* ALTERADO PARA POPPINS */
-            font-family: 'Poppins', sans-serif;
-            font-weight: 800; /* Extra Bold para ficar com cara de Esporte */
-            line-height: 1.2;
-            text-transform: uppercase; /* Maiúsculas para dar impacto */
-            letter-spacing: -0.5px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 800; /* Extra Bold para impacto visual */
+            line-height: 1.1;
+            text-transform: uppercase;
+            letter-spacing: -0.02em; /* Inter fica melhor com leve aperto nos títulos */
         }
 
         strong { color: #fff; font-weight: 700; }
@@ -64,7 +64,7 @@
         }
 
         header h1 {
-            font-size: 2.2rem; /* Aumentei um pouco para a Poppins brilhar */
+            font-size: 2.2rem;
             margin-bottom: 15px;
             background: -webkit-linear-gradient(#fff, #cbd5e1);
             -webkit-background-clip: text;
@@ -72,7 +72,7 @@
         }
 
         header p {
-            font-size: 1rem;
+            font-size: 1.1rem; /* Aumentei levemente para legibilidade da Inter */
             color: var(--text-secondary);
             max-width: 700px;
             margin: 0 auto 25px auto;
@@ -91,12 +91,12 @@
         
         .section-title span {
             color: #3b82f6;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 1px;
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
         }
 
         .section-title h2 { font-size: 2rem; }
@@ -172,8 +172,8 @@
         }
 
         .price-display {
-            font-size: 3.5rem; /* Maior para impacto */
-            font-weight: 800;
+            font-size: 3.5rem;
+            font-weight: 900; /* Inter Black para preço */
             color: #fff;
             line-height: 1;
             margin: 15px 0;
@@ -205,7 +205,7 @@
         
         .feature-icon { font-size: 1.8rem; color: #3b82f6; margin-bottom: 15px; }
 
-        .feature-item h4 { font-size: 1.1rem; margin-bottom: 10px; color: #fff; }
+        .feature-item h4 { font-size: 1.1rem; margin-bottom: 10px; color: #fff; font-weight: 700; }
 
         .brand-list { margin-top: 5px; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5; }
         .brand-list span { color: #fff; font-weight: 600; }
@@ -214,12 +214,12 @@
         .comparison-wrapper { overflow-x: auto; border-radius: 12px; border: 1px solid var(--border-color); }
         table { width: 100%; border-collapse: collapse; background: var(--bg-card); }
         th, td { padding: 15px; text-align: center; border-bottom: 1px solid var(--border-color); font-size: 0.95rem; }
-        th { background: #0f172a; color: #fff; font-weight: 700; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; }
+        th { background: #0f172a; color: #fff; font-weight: 700; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.5px; }
         
         .highlight-col { 
             background: rgba(59, 130, 246, 0.1); 
             color: var(--brand-blue); 
-            font-weight: 800; 
+            font-weight: 700; 
         }
 
         .btn-primary {
@@ -230,7 +230,7 @@
             background: var(--success-gradient);
             color: white;
             padding: 16px 35px;
-            border-radius: 50px;
+            border-radius: 8px; /* Inter combina mais com bordas um pouco menos redondas (opcional) */
             font-weight: 700;
             text-transform: uppercase;
             text-decoration: none;
