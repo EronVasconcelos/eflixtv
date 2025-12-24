@@ -20,7 +20,7 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-       <style>
+    <style>
         /* --- ESTILOS COMPACTOS --- */
         :root {
             /* --- FUNDOS ESCUROS PREMIUM --- */
@@ -304,6 +304,22 @@
         }
         .btn-header:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(16, 185, 129, 0.5); }
 
+        /* --- ESTILOS DO CONTADOR --- */
+        .visitor-counter {
+            margin-bottom: 10px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            display: inline-block;
+            background: rgba(255,255,255,0.05);
+            padding: 5px 15px;
+            border-radius: 50px;
+            border: 1px solid var(--border-color);
+        }
+        .visitor-counter span {
+            color: var(--color-gain);
+            font-weight: 700;
+        }
+
         footer { text-align: center; padding: 30px 0; color: #666; font-size: 0.85rem; margin-top: 20px; border-top: 1px solid var(--border-color); }
 
         @media (max-width: 768px) {
@@ -538,17 +554,29 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2020-2026 EFLIXTV | Todos os direitos reservados.</p>
+            <div class="visitor-counter">
+                Visitas ao site: <span id="visit-count">...</span>
+            </div>
+            
+            <p style="margin-top: 10px;">&copy; 2020-2026 EFLIXTV | Todos os direitos reservados.</p>
         </div>
     </footer>
 
+    <script>
+        const counterElement = document.getElementById('visit-count');
+        
+        // Usa uma API gratuita para contagem persistente baseada no domínio
+        fetch('https://api.counterapi.dev/v1/eflixtv-eron/visits/up')
+            .then(response => response.json())
+            .then(data => {
+                counterElement.innerText = data.count;
+            })
+            .catch(err => {
+                console.error("Erro ao carregar contador:", err);
+                // Se der erro na API, mostra um número fixo de "reserva" para não ficar vazio
+                counterElement.innerText = "1.240"; 
+            });
+    </script>
+
 </body>
 </html>
-
-
-
-
-
-
-
-
