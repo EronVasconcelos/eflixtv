@@ -1,120 +1,446 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart TV | Economia Inteligente</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
     <style>
-        /* Estilos Gerais do Container */
-        .tabela-comparativa {
-            background-color: #111827; /* Fundo escuro */
-            color: #ffffff;
-            font-family: Arial, sans-serif;
-            border-radius: 15px;
-            max-width: 600px;
-            margin: 20px auto;
-            overflow: hidden; /* Para respeitar as bordas arredondadas */
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        /* --- ESTILOS COMPACTOS --- */
+        :root {
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent-gradient: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            --danger-color: #ef4444;
+            --success-gradient: linear-gradient(90deg, #10b981 0%, #059669 100%);
+            --border-color: #334155;
+            --brand-blue: #3b82f6; /* Azul padrão do site */
         }
 
-        /* Estrutura das Linhas */
-        .linha {
-            display: flex;
-            align-items: center;
-            padding: 20px;
-            border-bottom: 1px solid #1f2937; /* Linha divisória sutil */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.5;
+            overflow-x: hidden;
         }
 
-        .linha:last-child {
-            border-bottom: none;
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            line-height: 1.1;
         }
 
-        /* Colunas */
-        .coluna-recurso {
-            flex: 1;
-            font-weight: bold;
-            font-size: 1.1rem;
-            text-align: left;
+        strong { color: #fff; }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 15px;
         }
 
-        .coluna-tradicional {
-            flex: 1;
+        /* --- HERO COMPACTO --- */
+        header {
+            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.9), var(--bg-dark)), 
+                        url('https://images.unsplash.com/photo-1593784697778-27e049f20191?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 60px 0 40px 0;
             text-align: center;
-            color: #d1d5db; /* Cinza claro */
         }
 
-        .coluna-nosso-app {
-            flex: 1;
-            text-align: center;
-            font-weight: bold;
-            
-            /* --- MUDANÇA DE COR AQUI --- */
-            color: #0ea5e9; /* Azul (Sky Blue) */
-            background-color: rgba(14, 165, 233, 0.1); /* Fundo azul bem leve */
-            padding: 10px;
-            border-radius: 8px;
-        }
-
-        /* Cabeçalho da Tabela */
-        .cabecalho {
-            background-color: #0f172a;
-            font-size: 0.9rem;
+        .hero-tag {
+            background: rgba(59, 130, 246, 0.1);
+            color: #60a5fa;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            padding-top: 25px;
-            padding-bottom: 25px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 15px;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        header h1 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            background: -webkit-linear-gradient(#fff, #cbd5e1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 25px auto;
+        }
+
+        /* --- SEÇÕES GERAIS --- */
+        section {
+            padding: 40px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
         }
         
-        .cabecalho .coluna-nosso-app {
-            background-color: transparent; /* Sem fundo no cabeçalho */
+        .section-title span {
+            color: #3b82f6;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 5px;
         }
 
-        /* Detalhe pequeno para os preços dos streamings */
-        .detalhe-preco {
-            display: block;
-            font-size: 0.8rem;
-            color: #9ca3af;
-            margin-top: 5px;
+        .section-title h2 { font-size: 1.8rem; }
+
+        /* --- CARDS E PREÇOS --- */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .cost-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.9rem;
+        }
+        .cost-row:last-child { border-bottom: none; }
+        .cost-price { font-weight: 700; color: var(--danger-color); }
+
+        .total-box {
+            text-align: center;
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        /* --- PARA QUEM SERVE --- */
+        .audience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+        }
+        .audience-item {
+            display: flex;
+            align-items: center;
+            background: rgba(59, 130, 246, 0.05);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #3b82f6;
+        }
+        .audience-item i {
+            font-size: 1.5rem;
+            color: #3b82f6;
+            margin-right: 15px;
+        }
+        .audience-item p {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        /* --- SOLUÇÃO (PREÇO) --- */
+        .solution-section {
+            background: linear-gradient(180deg, var(--bg-dark) 0%, #172033 100%);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 30px 0;
+        }
+
+        .price-display {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #fff;
+            line-height: 1;
+            margin: 10px 0;
+        }
+        .price-display small { font-size: 1rem; color: var(--text-secondary); font-weight: 400; }
+
+        /* --- FEATURES GRID --- */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+        }
+        
+        .feature-item {
+            text-align: left;
+            padding: 20px;
+            background: var(--bg-card);
+            border-radius: 8px;
+            border: 1px solid transparent;
+            height: 100%;
+        }
+        
+        .feature-icon { font-size: 1.5rem; color: #3b82f6; margin-bottom: 10px; }
+
+        .brand-list { margin-top: 5px; font-size: 0.85rem; color: var(--text-secondary); }
+        .brand-list span { color: #fff; font-weight: 600; }
+
+        /* --- TABELA E CTA --- */
+        .comparison-wrapper { overflow-x: auto; border-radius: 8px; }
+        table { width: 100%; border-collapse: collapse; background: var(--bg-card); }
+        th, td { padding: 12px; text-align: center; border-bottom: 1px solid var(--border-color); font-size: 0.9rem; }
+        th { background: #0f172a; color: #fff; font-weight: 600; text-transform: uppercase; font-size: 0.75rem; }
+        
+        /* ALTERAÇÃO: Cor da coluna de destaque mudada para AZUL */
+        .highlight-col { 
+            background: rgba(59, 130, 246, 0.1); 
+            color: var(--brand-blue); 
+            font-weight: bold; 
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: var(--success-gradient);
+            color: white;
+            padding: 14px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(16, 185, 129, 0.4);
+        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(16, 185, 129, 0.6); }
+
+        footer { text-align: center; padding: 20px 0; color: #475569; font-size: 0.8rem; margin-top: 20px; }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 1.6rem; }
+            .price-display { font-size: 2.5rem; }
+            .features-grid { grid-template-columns: 1fr; }
+            section { padding: 30px 0; }
         }
     </style>
 </head>
 <body>
 
-    <div class="tabela-comparativa">
-        
-        <div class="linha cabecalho">
-            <div class="coluna-recurso">RECURSO</div>
-            <div class="coluna-tradicional">TRADICIONAL</div>
-            <div class="coluna-nosso-app">NOSSO APP</div>
+    <header>
+        <div class="container">
+            <span class="hero-tag">Análise Financeira & Economia</span>
+            <h1>A VERDADE SOBRE A SUA CONTA DE TV E STREAMING</h1>
+            <p>Descubra como economizar mais de <strong>R$ 3.000 por ano</strong> tendo acesso a absolutamente tudo.</p>
+            <a href="#solucao" class="btn-primary" style="background: var(--accent-gradient); box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);">
+                Ver a Solução <i class="fas fa-arrow-down"></i>
+            </a>
         </div>
+    </header>
 
-        <div class="linha">
-            <div class="coluna-recurso">Custo Mensal</div>
-            <div class="coluna-tradicional">± R$ 300,00</div>
-            <div class="coluna-nosso-app">R$ 35,00</div>
-        </div>
-
-        <div class="linha">
-            <div class="coluna-recurso">Streamings</div>
-            <div class="coluna-tradicional">
-                Pagos à parte
-                <span class="detalhe-preco">Globoplay: ± R$30</span>
-                <span class="detalhe-preco">Prime: ± R$20</span>
+    <section>
+        <div class="container">
+            <div class="section-title">
+                <h2>A Armadilha das Assinaturas</h2>
             </div>
-            <div class="coluna-nosso-app">Tudo Incluso</div>
-        </div>
 
-        <div class="linha">
-            <div class="coluna-recurso">Instalação</div>
-            <div class="coluna-tradicional">Cabos/Furos</div>
-            <div class="coluna-nosso-app">App (5 min)</div>
+            <div class="problem-grid">
+                <div>
+                    <div class="card">
+                        <h4 style="margin-bottom: 10px; border-bottom: 1px solid var(--border-color); padding-bottom: 5px;">Seus Custos Mensais:</h4>
+                        <div class="cost-row"><span>TV a Cabo</span> <span class="cost-price">R$ 109,90</span></div>
+                        <div class="cost-row"><span>Netflix</span> <span class="cost-price">R$ 44,90</span></div>
+                        <div class="cost-row"><span>Premiere</span> <span class="cost-price">R$ 59,90</span></div>
+                        <div class="cost-row"><span>Disney+/Star+</span> <span class="cost-price">R$ 43,90</span></div>
+                        <div class="cost-row"><span>Combate</span> <span class="cost-price">R$ 34,90</span></div>
+                    </div>
+                </div>
+                <div style="display: flex; flex-direction: column; justify-content: center;">
+                    <div class="total-box">
+                        <h3 style="color: var(--danger-color); font-size: 1.1rem;">TOTAL ANUAL DESPERDIÇADO</h3>
+                        <p style="font-size: 2rem; font-weight: 800; color: #fff;">R$ 3.522,00</p>
+                        <p style="font-size: 0.8rem; margin-top: 5px;">O preço de uma moto usada ou férias em família.</p>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="linha">
-            <div class="coluna-recurso">Fidelidade</div>
-            <div class="coluna-tradicional">12 Meses</div>
-            <div class="coluna-nosso-app">Sem Fidelidade</div>
+    <section style="background-color: #131c2e;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Para quem serve esse conteúdo?</h2>
+            </div>
+            <div class="audience-grid">
+                <div class="audience-item">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <p>Para quem está cansado de pagar caro em faturas de TV e Streaming.</p>
+                </div>
+                <div class="audience-item">
+                    <i class="fas fa-tv"></i>
+                    <p>Para quem possui Smart TV (Samsung/LG/Android), TV Box ou FireStick.</p>
+                </div>
+                <div class="audience-item">
+                    <i class="fas fa-futbol"></i>
+                    <p>Para quem não quer perder nenhum jogo do seu time, filme ou série.</p>
+                </div>
+            </div>
         </div>
+    </section>
 
-    </div>
+    <section id="solucao" class="solution-section">
+        <div class="container" style="text-align: center;">
+            <div class="section-title">
+                <span>A Solução</span>
+                <h2>Tudo em um só lugar</h2>
+            </div>
+            
+            <p style="max-width: 600px; margin: 0 auto 20px auto; color: var(--text-secondary); font-size: 0.95rem;">
+                Imagine pegar <strong>TODO</strong> o conteúdo acima e colocar num único app. Sem trocar de HDMI, sem trocar de conta.
+            </p>
+
+            <div class="card" style="display: inline-block; border-color: #3b82f6; background: rgba(59, 130, 246, 0.05); padding: 20px 40px;">
+                <span style="text-transform: uppercase; color: #60a5fa; font-size: 0.8rem; font-weight: 600;">Plano Completo</span>
+                <div class="price-display">
+                    R$ 35,00<small>/mês</small>
+                </div>
+                <p style="font-size: 0.8rem; opacity: 0.8;">Sem fidelidade. Sem multas.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="section-title">
+                <h2>O Que Está Incluído?</h2>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i class="fas fa-tv feature-icon"></i>
+                    <h4>TV Ao Vivo (+2.000)</h4>
+                    <p class="brand-list">
+                        <span>Abertos:</span> Globo, SBT, Record, Band.<br>
+                        <span>Canais:</span> GloboNews, CNN, Viva, Multishow, HBO, Telecine, Discovery.
+                    </p>
+                </div>
+
+                <div class="feature-item">
+                    <i class="fas fa-play-circle feature-icon" style="color: #E50914;"></i>
+                    <h4>Super Streamings</h4>
+                    <p class="brand-list">
+                        Catálogo completo incluso:<br>
+                        <span style="color: #E50914;">Netflix</span> • <span style="color: #00A8E1;">Prime Video</span> • <span style="color: #ff6a00;">Globoplay</span> • <span style="color: #fff;">Apple TV+</span> • <span style="color: #9146FF;">HBO Max</span> • <span style="color: #113CCF;">Disney+</span>
+                    </p>
+                </div>
+
+                <div class="feature-item">
+                    <i class="fas fa-futbol feature-icon" style="color: #25D366;"></i>
+                    <h4>Esportes Liberados</h4>
+                    <p class="brand-list">
+                        <span>Futebol:</span> Premiere (Séries A e B), Libertadores.<br>
+                        <span>Mundo:</span> Champions, Premier League, NBA, F1, UFC (Combate).
+                    </p>
+                </div>
+
+                <div class="feature-item">
+                    <i class="fas fa-child feature-icon" style="color: #FFD700;"></i>
+                    <h4>Kids & Família</h4>
+                    <p class="brand-list">
+                        Cartoon Network, Nick, Gloob, Discovery Kids.<br>Filmes Disney/Pixar sob demanda.
+                    </p>
+                </div>
+
+                <div class="feature-item">
+                    <i class="fas fa-lock feature-icon" style="color: #f43f5e;"></i>
+                    <h4>Adultos (+18)</h4>
+                    <p class="brand-list">
+                        Conteúdo opcional com <span>Controle dos Pais</span> (senha). Discrição total.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="background-color: #0b1120;">
+        <div class="container">
+            <div class="comparison-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="text-align: left;">Recurso</th>
+                            <th>Tradicional</th>
+                            <th class="highlight-col">NOSSO APP</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="text-align: left; font-weight: 600;">Custo Mensal</td>
+                            <td>± R$ 300,00</td>
+                            <td class="highlight-col">R$ 35,00</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left; font-weight: 600;">Streamings</td>
+                            <td>
+                                Pagos à parte
+                                <div style="font-size: 0.75rem; color: #94a3b8; margin-top: 4px; line-height: 1.2;">
+                                    Globoplay: ±R$30<br>
+                                    Prime Video: ±R$20
+                                </div>
+                            </td>
+                            <td class="highlight-col">Tudo Incluso</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left; font-weight: 600;">Instalação</td>
+                            <td>Cabos/Furos</td>
+                            <td class="highlight-col">App (5 min)</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left; font-weight: 600;">Fidelidade</td>
+                            <td>12 Meses</td>
+                            <td class="highlight-col">Sem Fidelidade</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card" style="margin-top: 30px; text-align: center; border-color: #3b82f6; padding: 30px 20px;">
+                <h3 style="color: #fff; font-size: 1.3rem;">🔥 TESTE DE 3 HORAS GRÁTIS 🔥</h3>
+                <p style="color: var(--text-secondary); margin: 10px 0 20px 0; font-size: 0.9rem;">
+                    Não cobramos nada adiantado. Liberamos o sinal, você testa a qualidade na sua TV e só assina se gostar.
+                </p>
+                
+                <a href="https://wa.me/5585992780931?text=Ol%C3%A1%2C%20vi%20o%20site%20e%20quero%20o%20teste%20gr%C3%A1tis%20de%203%20horas." class="btn-primary" target="_blank">
+                    <i class="fab fa-whatsapp" style="font-size: 1.1rem;"></i>
+                    PEDIR TESTE GRÁTIS
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Economia de Verdade. Todos os direitos reservados.</p>
+        </div>
+    </footer>
 
 </body>
 </html>
