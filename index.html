@@ -37,10 +37,10 @@
             --color-pain: #ef4444; 
             --bg-pain-light: rgba(239, 68, 68, 0.1);
             
-            /* 2. AZUL VIBRANTE (Novo "Positivo/Ganho" Geral) */
-            /* Usado para preços, destaques da tabela, tags */
-            --color-gain: #3b82f6; 
-            --bg-gain-light: rgba(59, 130, 246, 0.1);
+            /* 2. AZUL VIBRANTE/CLARO (Novo "Positivo/Ganho" Geral) */
+            /* Alterado de #3b82f6 para #60a5fa para maior contraste */
+            --color-gain: #60a5fa; 
+            --bg-gain-light: rgba(96, 165, 250, 0.15); /* Fundo um pouco mais visível */
 
             /* 3. VERDE (EXCLUSIVO PARA BOTÕES/AÇÃO) */
             --action-btn-color: #10b981;
@@ -48,7 +48,7 @@
             --action-shadow: rgba(16, 185, 129, 0.4);
 
             /* 4. AZUL MARCA (Ícones gerais e títulos) */
-            --brand-blue: #3b82f6;
+            --brand-blue: #60a5fa; /* Sincronizado com o azul vibrante */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -190,7 +190,7 @@
             margin: 0;
         }
 
-        /* --- SOLUÇÃO (AGORA AZUL) --- */
+        /* --- SOLUÇÃO (AGORA AZUL VIBRANTE) --- */
         .solution-section {
             background: linear-gradient(180deg, var(--bg-dark) 0%, #0b1120 100%);
             border-top: 1px solid var(--border-color);
@@ -198,22 +198,22 @@
             padding: 40px 0;
         }
 
-        /* Preço Principal em AZUL */
+        /* Preço Principal em AZUL VIBRANTE */
         .price-display {
             font-size: 3.5rem;
             font-weight: 700;
-            color: var(--color-gain); /* Azul */
+            color: var(--color-gain); 
             line-height: 1;
             margin: 10px 0 5px 0;
             letter-spacing: -1px;
-            text-shadow: 0 0 20px rgba(59, 130, 246, 0.3); /* Sombra Azul */
+            text-shadow: 0 0 25px rgba(96, 165, 250, 0.3); /* Sombra mais vibrante */
         }
         .price-display small { font-size: 1rem; color: var(--text-secondary); font-weight: 400; letter-spacing: normal; text-shadow: none; }
 
         /* Tag do Plano em AZUL */
         .plan-tag {
-            background: var(--bg-gain-light); /* Fundo Azul Claro */
-            color: var(--color-gain); /* Texto Azul */
+            background: var(--bg-gain-light); 
+            color: var(--color-gain); 
             font-size: 0.75rem;
             padding: 4px 10px;
             border-radius: 20px;
@@ -221,7 +221,7 @@
             text-transform: uppercase;
             display: inline-block;
             margin-bottom: 5px;
-            border: 1px solid rgba(59, 130, 246, 0.3); /* Borda Azul */
+            border: 1px solid rgba(96, 165, 250, 0.4); 
         }
 
         .pricing-list {
@@ -240,7 +240,7 @@
         }
         .pricing-item:last-child { border-bottom: none; }
         .pricing-item strong { color: #fff; }
-        .pricing-item span { color: var(--color-gain); font-weight: 700; } /* Preços da lista em AZUL */
+        .pricing-item span { color: var(--color-gain); font-weight: 700; } 
 
         /* --- FEATURES GRID --- */
         .features-grid {
@@ -260,7 +260,7 @@
         }
         
         .feature-item:hover {
-            border-color: rgba(59, 130, 246, 0.4); /* Hover Azul */
+            border-color: rgba(96, 165, 250, 0.5); /* Hover Azul Vibrante */
             transform: translateY(-5px);
         }
         
@@ -282,20 +282,20 @@
             font-weight: 700; 
         }
 
-        /* Coluna de Destaque agora é AZUL */
+        /* Coluna de Destaque agora é AZUL VIBRANTE */
         .highlight-col { 
-            background: var(--bg-gain-light); /* Azul claro */
-            color: var(--color-gain); /* Texto Azul */
+            background: var(--bg-gain-light); 
+            color: var(--color-gain); 
             font-weight: 700; 
         }
 
-        /* --- BOTÕES (MANTIDOS EM VERDE) --- */
+        /* --- BOTÕES (VERDES) --- */
         .btn-header {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
-            background: var(--action-gradient); /* Gradiente Verde */
+            background: var(--action-gradient); 
             color: white;
             padding: 16px 35px;
             border-radius: 8px;
@@ -305,7 +305,7 @@
             letter-spacing: 0.5px;
             font-size: 1rem;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px var(--action-shadow); /* Sombra Verde */
+            box-shadow: 0 4px 15px var(--action-shadow); 
         }
         .btn-header:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(16, 185, 129, 0.6); }
 
@@ -320,7 +320,7 @@
             border: 1px solid var(--border-color);
         }
         .visitor-counter span {
-            color: var(--color-gain); /* Contador em Azul */
+            color: var(--color-gain); /* Contador em Azul Vibrante */
             font-weight: 700;
         }
 
