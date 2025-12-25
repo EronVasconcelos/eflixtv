@@ -33,14 +33,13 @@
             
             /* --- SISTEMA DE CORES REFINADO --- */
             
-            /* 1. VERMELHO (DOR/CUSTO) - Mantido */
+            /* 1. VERMELHO (DOR/CUSTO) */
             --color-pain: #ef4444; 
             --bg-pain-light: rgba(239, 68, 68, 0.1);
             
-            /* 2. AZUL CIANO / PRIME VIDEO (Novo "Positivo/Ganho" Geral) */
-            /* A cor exata do Prime Video é #00A8E1 */
+            /* 2. AZUL CIANO / PRIME VIDEO (Positivo/Ganho) */
             --color-gain: #00A8E1; 
-            --bg-gain-light: rgba(0, 168, 225, 0.15); /* Fundo Ciano Transparente */
+            --bg-gain-light: rgba(0, 168, 225, 0.15); 
 
             /* 3. VERDE (EXCLUSIVO PARA BOTÕES/AÇÃO) */
             --action-btn-color: #10b981;
@@ -48,7 +47,7 @@
             --action-shadow: rgba(16, 185, 129, 0.4);
 
             /* 4. AZUL MARCA (Ícones gerais e títulos) */
-            --brand-blue: #00A8E1; /* Sincronizado com o Ciano Prime */
+            --brand-blue: #00A8E1; 
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -190,7 +189,7 @@
             margin: 0;
         }
 
-        /* --- SOLUÇÃO (AGORA CIANO / PRIME BLUE) --- */
+        /* --- SOLUÇÃO (CIANO / PRIME BLUE) --- */
         .solution-section {
             background: linear-gradient(180deg, var(--bg-dark) 0%, #0b1120 100%);
             border-top: 1px solid var(--border-color);
@@ -198,7 +197,6 @@
             padding: 40px 0;
         }
 
-        /* Preço Principal em CIANO */
         .price-display {
             font-size: 3.5rem;
             font-weight: 700;
@@ -206,11 +204,10 @@
             line-height: 1;
             margin: 10px 0 5px 0;
             letter-spacing: -1px;
-            text-shadow: 0 0 25px rgba(0, 168, 225, 0.3); /* Sombra Ciano */
+            text-shadow: 0 0 25px rgba(0, 168, 225, 0.3);
         }
         .price-display small { font-size: 1rem; color: var(--text-secondary); font-weight: 400; letter-spacing: normal; text-shadow: none; }
 
-        /* Tag do Plano em CIANO */
         .plan-tag {
             background: var(--bg-gain-light); 
             color: var(--color-gain); 
@@ -242,7 +239,7 @@
         .pricing-item strong { color: #fff; }
         .pricing-item span { color: var(--color-gain); font-weight: 700; } 
 
-        /* --- FEATURES GRID --- */
+        /* --- FEATURES GRID (COM LAYOUT HORIZONTAL) --- */
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -260,12 +257,32 @@
         }
         
         .feature-item:hover {
-            border-color: rgba(0, 168, 225, 0.5); /* Hover Ciano */
+            border-color: rgba(0, 168, 225, 0.5); 
             transform: translateY(-5px);
         }
+
+        /* --- NOVO ESTILO PARA O CABEÇALHO DO CARD (ÍCONE + TÍTULO) --- */
+        .feature-header {
+            display: flex;
+            align-items: center; /* Centraliza verticalmente */
+            gap: 15px; /* Espaço entre ícone e título */
+            margin-bottom: 12px; /* Espaço entre o cabeçalho e o texto */
+        }
         
-        .feature-icon { font-size: 1.8rem; color: var(--brand-blue); margin-bottom: 15px; }
-        .feature-item h4 { font-size: 1.1rem; margin-bottom: 10px; color: #fff; font-weight: 700; }
+        .feature-icon { 
+            font-size: 1.8rem; 
+            color: var(--brand-blue); 
+            margin-bottom: 0; /* Remove a margem antiga */
+        }
+        
+        .feature-item h4 { 
+            font-size: 1.1rem; 
+            margin-bottom: 0; /* Remove a margem antiga */
+            color: #fff; 
+            font-weight: 700; 
+            line-height: 1.2;
+        }
+        
         .brand-list { margin-top: 5px; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5; }
         .brand-list span { color: #fff; font-weight: 600; }
 
@@ -282,14 +299,12 @@
             font-weight: 700; 
         }
 
-        /* Coluna de Destaque agora é CIANO */
         .highlight-col { 
             background: var(--bg-gain-light); 
             color: var(--color-gain); 
             font-weight: 700; 
         }
 
-        /* --- BOTÕES (VERDES) --- */
         .btn-header {
             display: inline-flex;
             align-items: center;
@@ -320,7 +335,7 @@
             border: 1px solid var(--border-color);
         }
         .visitor-counter span {
-            color: var(--color-gain); /* Contador em Ciano */
+            color: var(--color-gain); 
             font-weight: 700;
         }
 
@@ -419,9 +434,12 @@
             </div>
             
             <div class="features-grid">
+                
                 <div class="feature-item">
-                    <i class="fas fa-tv feature-icon"></i>
-                    <h4>TV Ao Vivo (+2.000)</h4>
+                    <div class="feature-header">
+                        <i class="fas fa-tv feature-icon"></i>
+                        <h4>TV Ao Vivo (+2.000)</h4>
+                    </div>
                     <p class="brand-list">
                         <span>Abertos:</span> Globo, SBT, Record, Band.<br>
                         <span>Canais:</span> GloboNews, CNN, Viva, Multishow, HBO, Telecine, Discovery.
@@ -429,8 +447,10 @@
                 </div>
 
                 <div class="feature-item">
-                    <i class="fas fa-play-circle feature-icon" style="color: #E50914;"></i>
-                    <h4>Super Streamings</h4>
+                    <div class="feature-header">
+                        <i class="fas fa-play-circle feature-icon" style="color: #E50914;"></i>
+                        <h4>Super Streamings</h4>
+                    </div>
                     <p class="brand-list">
                         Catálogo completo incluso:<br>
                         <span style="color: #E50914;">Netflix</span> • <span style="color: #00A8E1;">Prime Video</span> • <span style="color: #ff6a00;">Globoplay</span> • <span style="color: #fff;">Apple TV+</span> • <span style="color: #9146FF;">HBO Max</span> • <span style="color: #113CCF;">Disney+</span>
@@ -438,8 +458,10 @@
                 </div>
 
                 <div class="feature-item">
-                    <i class="fas fa-futbol feature-icon" style="color: #25D366;"></i>
-                    <h4>Esportes Liberados</h4>
+                    <div class="feature-header">
+                        <i class="fas fa-futbol feature-icon" style="color: #25D366;"></i>
+                        <h4>Esportes Liberados</h4>
+                    </div>
                     <p class="brand-list">
                         <span>Futebol:</span> Premiere (Séries A e B), Libertadores.<br>
                         <span>Mundo:</span> Champions, Premier League, NBA, F1, UFC (Combate).
@@ -447,24 +469,30 @@
                 </div>
 
                 <div class="feature-item">
-                    <i class="fas fa-child feature-icon" style="color: #FFD700;"></i>
-                    <h4>Kids & Família</h4>
+                    <div class="feature-header">
+                        <i class="fas fa-child feature-icon" style="color: #FFD700;"></i>
+                        <h4>Kids & Família</h4>
+                    </div>
                     <p class="brand-list">
                         Cartoon Network, Nick, Gloob, Discovery Kids.<br>Filmes Disney/Pixar sob demanda.
                     </p>
                 </div>
 
                 <div class="feature-item">
-                    <i class="fas fa-lock feature-icon" style="color: #f43f5e;"></i>
-                    <h4>Adultos (+18)</h4>
+                    <div class="feature-header">
+                        <i class="fas fa-lock feature-icon" style="color: #f43f5e;"></i>
+                        <h4>Adultos (+18)</h4>
+                    </div>
                     <p class="brand-list">
                         Conteúdo opcional com <span>Controle dos Pais</span> (senha). Discrição total e canais exclusivos.
                     </p>
                 </div>
 
                 <div class="feature-item">
-                    <i class="fas fa-star feature-icon" style="color: #fbbf24;"></i>
-                    <h4>Qualidade Cinema 4K</h4>
+                    <div class="feature-header">
+                        <i class="fas fa-star feature-icon" style="color: #fbbf24;"></i>
+                        <h4>Qualidade Cinema 4K</h4>
+                    </div>
                     <p class="brand-list">
                         Imagem em <span>UHD e Full HD</span> sem travamentos. Servidores estáveis e atualizados diariamente.
                     </p>
