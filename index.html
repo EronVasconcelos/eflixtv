@@ -23,27 +23,25 @@
     <style>
         /* --- ESTILOS COMPACTOS --- */
         :root {
-            /* --- FUNDOS ESCUROS PREMIUM --- */
-            --bg-dark: #121212;      
-            --bg-section: #181818;   
-            --bg-card: #212121;      
-            --border-color: #333333; 
+            /* --- PALETA AZUL MARINHO (VOLTANDO AO ORIGINAL) --- */
+            --bg-dark: #0f172a;      /* Azul marinho profundo */
+            --bg-section: #131c2e;   /* Azul marinho médio para seções */
+            --bg-card: #1e293b;      /* Azul acinzentado para cards */
+            --border-color: #334155; /* Borda azulada discreta */
             
-            --text-primary: #ededed; 
-            --text-secondary: #a3a3a3; 
+            --text-primary: #f8fafc; /* Branco gelo */
+            --text-secondary: #94a3b8; /* Cinza azulado claro */
             
-            /* --- CORES DE SENTIMENTO (PSICOLOGIA DAS CORES) --- */
+            /* --- COR DE DESTAQUE UNIFICADA (AZUL VIBRANTE) --- */
+            --brand-blue: #3b82f6;
+            --bg-brand-light: rgba(59, 130, 246, 0.1);
             
-            /* VERMELHO = DOR / TRADICIONAL / CARO */
-            --color-pain: #ef4444; 
-            --bg-pain-light: rgba(239, 68, 68, 0.1);
+            /* Substituindo as variaveis de dor/ganho pelo azul da marca */
+            --color-highlight: var(--brand-blue);
+            --bg-highlight-light: var(--bg-brand-light);
             
-            /* VERDE = PRAZER / EFLIXTV / ECONOMIA */
-            --color-gain: #10b981; 
-            --bg-gain-light: rgba(16, 185, 129, 0.1);
-            
-            /* Gradiente do Botão (Foco na Ação/Verde) */
-            --action-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            /* Gradiente do Botão (Azul) */
+            --action-gradient: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -75,7 +73,8 @@
 
         /* --- HERO --- */
         header {
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.85), var(--bg-dark)), 
+            /* Gradiente ajustado para o azul marinho */
+            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.9), var(--bg-dark)), 
                         url('https://images.unsplash.com/photo-1593784697778-27e049f20191?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
@@ -86,7 +85,7 @@
         header h1 {
             font-size: 2.2rem;
             margin-bottom: 15px;
-            background: -webkit-linear-gradient(#fff, #d4d4d4);
+            background: -webkit-linear-gradient(#fff, #cbd5e1);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -110,7 +109,7 @@
         }
         
         .section-title span {
-            color: var(--color-gain);
+            color: var(--color-highlight);
             font-size: 0.85rem;
             font-weight: 700;
             text-transform: uppercase;
@@ -127,10 +126,10 @@
             border: 1px solid var(--border-color);
             border-radius: 12px;
             padding: 25px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
-        /* --- SEÇÃO DA DOR (VERMELHO) --- */
+        /* --- SEÇÃO DA DOR (AGORA EM AZUL) --- */
         .problem-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -148,12 +147,13 @@
         }
         .cost-row:last-child { border-bottom: none; }
         
-        .cost-price { font-weight: 700; color: var(--color-pain); }
+        /* Preços agora em azul */
+        .cost-price { font-weight: 700; color: var(--color-highlight); }
 
         .total-box {
             text-align: center;
-            background: var(--bg-pain-light);
-            border: 1px solid rgba(239, 68, 68, 0.3);
+            background: var(--bg-highlight-light);
+            border: 1px solid rgba(59, 130, 246, 0.3); /* Borda azul */
             padding: 20px;
             border-radius: 12px;
             margin-top: 15px;
@@ -168,14 +168,14 @@
         .audience-item {
             display: flex;
             align-items: center;
-            background: #262626;
+            background: var(--bg-card);
             padding: 20px;
             border-radius: 12px;
-            border-left: 5px solid var(--color-gain);
+            border-left: 5px solid var(--color-highlight);
         }
         .audience-item i {
             font-size: 1.8rem;
-            color: var(--color-gain);
+            color: var(--color-highlight);
             margin-right: 15px;
         }
         .audience-item p {
@@ -185,9 +185,10 @@
             margin: 0;
         }
 
-        /* --- SOLUÇÃO (VERDE/GANHO) --- */
+        /* --- SOLUÇÃO --- */
         .solution-section {
-            background: linear-gradient(180deg, var(--bg-dark) 0%, #000000 100%);
+            /* Gradiente para um azul mais escuro no final */
+            background: linear-gradient(180deg, var(--bg-dark) 0%, #0b1120 100%);
             border-top: 1px solid var(--border-color);
             border-bottom: 1px solid var(--border-color);
             padding: 40px 0;
@@ -196,17 +197,18 @@
         .price-display {
             font-size: 3.5rem;
             font-weight: 700;
-            color: var(--color-gain);
+            color: var(--color-highlight);
             line-height: 1;
             margin: 10px 0 5px 0;
             letter-spacing: -1px;
-            text-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
+            /* Sombra azul */
+            text-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
         }
         .price-display small { font-size: 1rem; color: var(--text-secondary); font-weight: 400; letter-spacing: normal; text-shadow: none; }
 
         .plan-tag {
-            background: var(--bg-gain-light);
-            color: var(--color-gain);
+            background: var(--bg-highlight-light);
+            color: var(--color-highlight);
             font-size: 0.75rem;
             padding: 4px 10px;
             border-radius: 20px;
@@ -214,7 +216,7 @@
             text-transform: uppercase;
             display: inline-block;
             margin-bottom: 5px;
-            border: 1px solid rgba(16, 185, 129, 0.2);
+            border: 1px solid rgba(59, 130, 246, 0.3);
         }
 
         .pricing-list {
@@ -228,12 +230,12 @@
             justify-content: space-between;
             font-size: 0.9rem;
             padding: 6px 0;
-            color: #a3a3a3;
+            color: var(--text-secondary);
             border-bottom: 1px dashed rgba(255,255,255,0.1);
         }
         .pricing-item:last-child { border-bottom: none; }
         .pricing-item strong { color: #fff; }
-        .pricing-item span { color: var(--color-gain); font-weight: 700; }
+        .pricing-item span { color: var(--color-highlight); font-weight: 700; }
 
         /* --- FEATURES GRID --- */
         .features-grid {
@@ -253,11 +255,11 @@
         }
         
         .feature-item:hover {
-            border-color: rgba(16, 185, 129, 0.4);
+            border-color: rgba(59, 130, 246, 0.4); /* Borda azul ao passar o mouse */
             transform: translateY(-5px);
         }
         
-        .feature-icon { font-size: 1.8rem; color: var(--color-gain); margin-bottom: 15px; }
+        .feature-icon { font-size: 1.8rem; color: var(--color-highlight); margin-bottom: 15px; }
         .feature-item h4 { font-size: 1.1rem; margin-bottom: 10px; color: #fff; font-weight: 700; }
         .brand-list { margin-top: 5px; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5; }
         .brand-list span { color: #fff; font-weight: 600; }
@@ -267,24 +269,17 @@
         table { width: 100%; border-collapse: collapse; background: var(--bg-card); }
         th, td { padding: 15px; text-align: center; border-bottom: 1px solid var(--border-color); font-size: 0.95rem; }
         
-        /* Cabeçalho padrão */
-        th { background: #000000; color: #fff; font-weight: 700; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.5px; }
+        /* Cabeçalho azul marinho bem escuro */
+        th { background: #0b1120; color: #fff; font-weight: 700; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.5px; }
         
-        /* COLUNA VERMELHA (TRADICIONAL) */
-        .pain-col {
-            background: var(--bg-pain-light); 
-            color: var(--color-pain); 
-            font-weight: 700; 
-        }
-
-        /* COLUNA VERDE (EFLIXTV) */
+        /* COLUNAS DE DESTAQUE (AZUL) */
         .highlight-col { 
-            background: var(--bg-gain-light); 
-            color: var(--color-gain); 
+            background: var(--bg-highlight-light); 
+            color: var(--color-highlight); 
             font-weight: 700; 
         }
 
-        /* Botão Verde */
+        /* Botão Azul */
         .btn-header {
             display: inline-flex;
             align-items: center;
@@ -300,9 +295,10 @@
             letter-spacing: 0.5px;
             font-size: 1rem;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+            /* Sombra azul */
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
         }
-        .btn-header:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(16, 185, 129, 0.5); }
+        .btn-header:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(59, 130, 246, 0.6); }
 
         /* --- ESTILOS DO CONTADOR --- */
         .visitor-counter {
@@ -316,11 +312,11 @@
             border: 1px solid var(--border-color);
         }
         .visitor-counter span {
-            color: var(--color-gain);
+            color: var(--color-highlight);
             font-weight: 700;
         }
 
-        footer { text-align: center; padding: 30px 0; color: #666; font-size: 0.85rem; margin-top: 20px; border-top: 1px solid var(--border-color); }
+        footer { text-align: center; padding: 30px 0; color: var(--text-secondary); font-size: 0.85rem; margin-top: 20px; border-top: 1px solid var(--border-color); }
 
         @media (max-width: 768px) {
             header h1 { font-size: 1.8rem; }
@@ -346,12 +342,12 @@
         <div class="container">
             <div class="section-title">
                 <h2 style="color: #fff;">A Armadilha das Assinaturas</h2>
-                <span style="color: var(--color-pain); margin-top: 5px;">Veja quanto você perde</span>
+                <span style="color: var(--color-highlight); margin-top: 5px;">Veja quanto você perde</span>
             </div>
 
             <div class="problem-grid">
                 <div>
-                    <div class="card" style="border-color: rgba(239, 68, 68, 0.2);">
+                    <div class="card" style="border-color: rgba(59, 130, 246, 0.3);">
                         <h4 style="margin-bottom: 15px; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; font-size: 1rem;">Seus Custos Mensais:</h4>
                         <div class="cost-row"><span>TV a Cabo</span> <span class="cost-price">R$ 109,90</span></div>
                         <div class="cost-row"><span>Netflix</span> <span class="cost-price">R$ 44,90</span></div>
@@ -364,7 +360,7 @@
                 </div>
                 <div style="display: flex; flex-direction: column; justify-content: center;">
                     <div class="total-box">
-                        <h3 style="color: var(--color-pain); font-size: 1.2rem; margin-bottom: 5px;">TOTAL ANUAL DESPERDIÇADO</h3>
+                        <h3 style="color: var(--color-highlight); font-size: 1.2rem; margin-bottom: 5px;">TOTAL ANUAL DESPERDIÇADO</h3>
                         <p style="font-size: 2.5rem; font-weight: 700; color: #fff; letter-spacing: -1px;">R$ 4.120,00</p>
                         <p style="font-size: 0.9rem; margin-top: 5px; font-weight: 400;">Dava para comprar uma moto ou viajar nas férias.</p>
                     </div>
@@ -406,10 +402,10 @@
                 Imagine pegar <strong>TODO</strong> o conteúdo acima e colocar num único app. Sem trocar de HDMI, sem trocar de conta.
             </p>
 
-            <div class="card" style="display: inline-block; border-color: var(--color-gain); background: rgba(16, 185, 129, 0.05); padding: 30px; width: 100%; max-width: 450px;">
+            <div class="card" style="display: inline-block; border-color: var(--color-highlight); background: var(--bg-highlight-light); padding: 30px; width: 100%; max-width: 450px;">
                 
                 <span class="plan-tag">PLANO ANUAL (MELHOR OFERTA)</span>
-                <p style="font-size: 0.9rem; color: #a3a3a3; text-transform: uppercase; font-weight: 600;">Planos a partir de:</p>
+                <p style="font-size: 0.9rem; color: var(--text-secondary); text-transform: uppercase; font-weight: 600;">Planos a partir de:</p>
                 
                 <div class="price-display">
                     R$ 20,00<small>/mês</small>
@@ -417,7 +413,7 @@
                 <p style="font-size: 0.85rem; opacity: 0.8; margin-bottom: 20px;">No pagamento anual de R$ 240,00</p>
 
                 <div class="pricing-list">
-                    <p style="color: var(--color-gain); font-size: 0.8rem; font-weight: 700; margin-bottom: 10px; text-transform: uppercase;">Outras opções disponíveis:</p>
+                    <p style="color: var(--color-highlight); font-size: 0.8rem; font-weight: 700; margin-bottom: 10px; text-transform: uppercase;">Outras opções disponíveis:</p>
                     
                     <div class="pricing-item">
                         <strong>Mensal</strong>
@@ -425,15 +421,15 @@
                     </div>
                     <div class="pricing-item">
                         <strong>Bimestral</strong>
-                        <span>R$ 60,00 <small style="color: #888; font-weight:400;">(R$ 30/mês)</small></span>
+                        <span>R$ 60,00 <small style="color: var(--text-secondary); font-weight:400;">(R$ 30/mês)</small></span>
                     </div>
                     <div class="pricing-item">
                         <strong>Quadrimestral</strong>
-                        <span>R$ 110,00 <small style="color: #888; font-weight:400;">(R$ 27,50/mês)</small></span>
+                        <span>R$ 110,00 <small style="color: var(--text-secondary); font-weight:400;">(R$ 27,50/mês)</small></span>
                     </div>
                     <div class="pricing-item">
                         <strong>Semestral</strong>
-                        <span>R$ 150,00 <small style="color: #888; font-weight:400;">(R$ 25/mês)</small></span>
+                        <span>R$ 150,00 <small style="color: var(--text-secondary); font-weight:400;">(R$ 25/mês)</small></span>
                     </div>
                 </div>
 
@@ -502,43 +498,43 @@
         </div>
     </section>
 
-    <section style="background-color: #000000;">
+    <section style="background-color: #0b1120;">
         <div class="container">
             <div class="comparison-wrapper">
                 <table>
                     <thead>
                         <tr>
                             <th style="text-align: left;">Recurso</th>
-                            <th class="pain-col">TRADICIONAL</th>
+                            <th class="highlight-col">TRADICIONAL</th>
                             <th class="highlight-col">EFLIXTV</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td style="text-align: left; font-weight: 600;">Custo Mensal</td>
-                            <td class="pain-col">± R$ 350,00</td>
+                            <td class="highlight-col">± R$ 350,00</td>
                             <td class="highlight-col">A partir de R$ 20,00</td>
                         </tr>
                         <tr>
                             <td style="text-align: left; font-weight: 600;">Streamings</td>
-                            <td class="pain-col">Pagos à parte</td>
+                            <td class="highlight-col">Pagos à parte</td>
                             <td class="highlight-col">Tudo Incluso</td>
                         </tr>
                         <tr>
                             <td style="text-align: left; font-weight: 600;">Instalação</td>
-                            <td class="pain-col">Cabos/Furos</td>
+                            <td class="highlight-col">Cabos/Furos</td>
                             <td class="highlight-col">App (5 min)</td>
                         </tr>
                         <tr>
                             <td style="text-align: left; font-weight: 600;">Fidelidade</td>
-                            <td class="pain-col">12 Meses</td>
+                            <td class="highlight-col">12 Meses</td>
                             <td class="highlight-col">Sem Fidelidade</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
-            <div class="card" style="margin-top: 30px; text-align: center; border-color: var(--color-gain); padding: 40px 20px;">
+            <div class="card" style="margin-top: 30px; text-align: center; border-color: var(--color-highlight); padding: 40px 20px;">
                 <h3 style="color: #fff; font-size: 1.5rem;">🔥 TESTE DE 3 HORAS GRÁTIS 🔥</h3>
                 <p style="color: var(--text-secondary); margin: 15px 0 25px 0; font-size: 1rem;">
                     Não cobramos nada adiantado. Liberamos o sinal, você testa a qualidade na sua TV e só assina se gostar.
@@ -564,23 +560,22 @@
 
     <script>
         const counterElement = document.getElementById('visit-count');
-        const numeroInicial = 500; // VOCÊ PODE MUDAR ESSE NÚMERO AQUI
+        
+        // --- ALTERE O NÚMERO INICIAL AQUI ---
+        const numeroInicial = 534; 
+        // ------------------------------------
         
         fetch('https://api.counterapi.dev/v1/eflixtv-eron/visits/up')
             .then(response => response.json())
             .then(data => {
-                // Soma o número real + o número inicial que escolhemos
                 const total = numeroInicial + data.count;
-                // Formata o número (ex: 1.534 em vez de 1534)
                 counterElement.innerText = total.toLocaleString('pt-BR');
             })
             .catch(err => {
                 console.error("Erro ao carregar contador:", err);
-                // Se der erro, mostra um valor fixo seguro
                 counterElement.innerText = (numeroInicial + 25).toLocaleString('pt-BR'); 
             });
     </script>
 
 </body>
 </html>
-
