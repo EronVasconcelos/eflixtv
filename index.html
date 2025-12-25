@@ -31,18 +31,23 @@
             --text-primary: #f8fafc; 
             --text-secondary: #94a3b8; 
             
-            /* --- SISTEMA DE CORES HÍBRIDO --- */
+            /* --- SISTEMA DE CORES REFINADO --- */
             
-            /* 1. VERMELHO (DOR/CUSTO) */
+            /* 1. VERMELHO (DOR/CUSTO) - Mantido */
             --color-pain: #ef4444; 
             --bg-pain-light: rgba(239, 68, 68, 0.1);
             
-            /* 2. VERDE (AÇÃO/SUCESSO) */
-            --color-gain: #10b981; 
-            --bg-gain-light: rgba(16, 185, 129, 0.1);
-            --action-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%); 
+            /* 2. AZUL VIBRANTE (Novo "Positivo/Ganho" Geral) */
+            /* Usado para preços, destaques da tabela, tags */
+            --color-gain: #3b82f6; 
+            --bg-gain-light: rgba(59, 130, 246, 0.1);
 
-            /* 3. AZUL (MARCA/NEUTRO) */
+            /* 3. VERDE (EXCLUSIVO PARA BOTÕES/AÇÃO) */
+            --action-btn-color: #10b981;
+            --action-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%); 
+            --action-shadow: rgba(16, 185, 129, 0.4);
+
+            /* 4. AZUL MARCA (Ícones gerais e títulos) */
             --brand-blue: #3b82f6;
         }
 
@@ -185,7 +190,7 @@
             margin: 0;
         }
 
-        /* --- SOLUÇÃO (VERDE/AÇÃO) --- */
+        /* --- SOLUÇÃO (AGORA AZUL) --- */
         .solution-section {
             background: linear-gradient(180deg, var(--bg-dark) 0%, #0b1120 100%);
             border-top: 1px solid var(--border-color);
@@ -193,20 +198,22 @@
             padding: 40px 0;
         }
 
+        /* Preço Principal em AZUL */
         .price-display {
             font-size: 3.5rem;
             font-weight: 700;
-            color: var(--color-gain); 
+            color: var(--color-gain); /* Azul */
             line-height: 1;
             margin: 10px 0 5px 0;
             letter-spacing: -1px;
-            text-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
+            text-shadow: 0 0 20px rgba(59, 130, 246, 0.3); /* Sombra Azul */
         }
         .price-display small { font-size: 1rem; color: var(--text-secondary); font-weight: 400; letter-spacing: normal; text-shadow: none; }
 
+        /* Tag do Plano em AZUL */
         .plan-tag {
-            background: var(--bg-gain-light);
-            color: var(--color-gain);
+            background: var(--bg-gain-light); /* Fundo Azul Claro */
+            color: var(--color-gain); /* Texto Azul */
             font-size: 0.75rem;
             padding: 4px 10px;
             border-radius: 20px;
@@ -214,7 +221,7 @@
             text-transform: uppercase;
             display: inline-block;
             margin-bottom: 5px;
-            border: 1px solid rgba(16, 185, 129, 0.3);
+            border: 1px solid rgba(59, 130, 246, 0.3); /* Borda Azul */
         }
 
         .pricing-list {
@@ -233,7 +240,7 @@
         }
         .pricing-item:last-child { border-bottom: none; }
         .pricing-item strong { color: #fff; }
-        .pricing-item span { color: var(--color-gain); font-weight: 700; } 
+        .pricing-item span { color: var(--color-gain); font-weight: 700; } /* Preços da lista em AZUL */
 
         /* --- FEATURES GRID --- */
         .features-grid {
@@ -253,7 +260,7 @@
         }
         
         .feature-item:hover {
-            border-color: rgba(59, 130, 246, 0.4);
+            border-color: rgba(59, 130, 246, 0.4); /* Hover Azul */
             transform: translateY(-5px);
         }
         
@@ -275,18 +282,20 @@
             font-weight: 700; 
         }
 
+        /* Coluna de Destaque agora é AZUL */
         .highlight-col { 
-            background: var(--bg-gain-light); 
-            color: var(--color-gain); 
+            background: var(--bg-gain-light); /* Azul claro */
+            color: var(--color-gain); /* Texto Azul */
             font-weight: 700; 
         }
 
+        /* --- BOTÕES (MANTIDOS EM VERDE) --- */
         .btn-header {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
-            background: var(--action-gradient); 
+            background: var(--action-gradient); /* Gradiente Verde */
             color: white;
             padding: 16px 35px;
             border-radius: 8px;
@@ -296,7 +305,7 @@
             letter-spacing: 0.5px;
             font-size: 1rem;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+            box-shadow: 0 4px 15px var(--action-shadow); /* Sombra Verde */
         }
         .btn-header:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(16, 185, 129, 0.6); }
 
@@ -311,7 +320,7 @@
             border: 1px solid var(--border-color);
         }
         .visitor-counter span {
-            color: var(--color-gain); 
+            color: var(--color-gain); /* Contador em Azul */
             font-weight: 700;
         }
 
