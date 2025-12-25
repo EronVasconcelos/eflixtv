@@ -11,7 +11,6 @@
     <meta property="og:url" content="https://eronvasconcelos.github.io/eflixtv">
     <meta property="og:title" content="🔥 EFLIXTV: Tudo Liberado por R$ 20,00">
     <meta property="og:description" content="Pare de pagar caro em TV a cabo e Streamings. Teste grátis agora!">
-    
     <meta property="og:image" content="https://eronvasconcelos.github.io/eflixtv/capa-zap.webp">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,16 +33,16 @@
             
             /* --- SISTEMA DE CORES HÍBRIDO --- */
             
-            /* 1. VERMELHO (DOR/CUSTO) - Para tabelas e preços altos */
+            /* 1. VERMELHO (DOR/CUSTO) */
             --color-pain: #ef4444; 
             --bg-pain-light: rgba(239, 68, 68, 0.1);
             
-            /* 2. VERDE (AÇÃO/SUCESSO) - Para botões e Coluna EFLIXTV */
+            /* 2. VERDE (AÇÃO/SUCESSO) */
             --color-gain: #10b981; 
             --bg-gain-light: rgba(16, 185, 129, 0.1);
-            --action-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%); /* Botão Verde */
+            --action-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%); 
 
-            /* 3. AZUL (MARCA/NEUTRO) - Para ícones e títulos */
+            /* 3. AZUL (MARCA/NEUTRO) */
             --brand-blue: #3b82f6;
         }
 
@@ -111,7 +110,7 @@
         }
         
         .section-title span {
-            color: var(--brand-blue); /* Títulos em azul para combinar com fundo */
+            color: var(--brand-blue); 
             font-size: 0.85rem;
             font-weight: 700;
             text-transform: uppercase;
@@ -149,12 +148,11 @@
         }
         .cost-row:last-child { border-bottom: none; }
         
-        /* PREÇOS EM VERMELHO (Conforme solicitado) */
         .cost-price { font-weight: 700; color: var(--color-pain); }
 
         .total-box {
             text-align: center;
-            background: var(--bg-pain-light); /* Fundo Vermelho */
+            background: var(--bg-pain-light); 
             border: 1px solid rgba(239, 68, 68, 0.3);
             padding: 20px;
             border-radius: 12px;
@@ -173,11 +171,11 @@
             background: var(--bg-card);
             padding: 20px;
             border-radius: 12px;
-            border-left: 5px solid var(--brand-blue); /* Detalhe Azul */
+            border-left: 5px solid var(--brand-blue); 
         }
         .audience-item i {
             font-size: 1.8rem;
-            color: var(--brand-blue); /* Ícone Azul */
+            color: var(--brand-blue); 
             margin-right: 15px;
         }
         .audience-item p {
@@ -187,7 +185,7 @@
             margin: 0;
         }
 
-        /* --- SOLUÇÃO --- */
+        /* --- SOLUÇÃO (VERDE/AÇÃO) --- */
         .solution-section {
             background: linear-gradient(180deg, var(--bg-dark) 0%, #0b1120 100%);
             border-top: 1px solid var(--border-color);
@@ -195,7 +193,6 @@
             padding: 40px 0;
         }
 
-        /* Preço da Solução em Verde (Positivo) */
         .price-display {
             font-size: 3.5rem;
             font-weight: 700;
@@ -236,7 +233,7 @@
         }
         .pricing-item:last-child { border-bottom: none; }
         .pricing-item strong { color: #fff; }
-        .pricing-item span { color: var(--color-gain); font-weight: 700; } /* Preços da lista em verde */
+        .pricing-item span { color: var(--color-gain); font-weight: 700; } 
 
         /* --- FEATURES GRID --- */
         .features-grid {
@@ -272,27 +269,24 @@
         
         th { background: #0b1120; color: #fff; font-weight: 700; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.5px; }
         
-        /* COLUNA VERMELHA (TRADICIONAL) - Conforme solicitado */
         .pain-col {
             background: var(--bg-pain-light); 
             color: var(--color-pain); 
             font-weight: 700; 
         }
 
-        /* COLUNA VERDE (EFLIXTV) - Para combinar com o botão */
         .highlight-col { 
             background: var(--bg-gain-light); 
             color: var(--color-gain); 
             font-weight: 700; 
         }
 
-        /* BOTÃO VERDE (Conforme solicitado) */
         .btn-header {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
-            background: var(--action-gradient); /* Verde */
+            background: var(--action-gradient); 
             color: white;
             padding: 16px 35px;
             border-radius: 8px;
@@ -306,7 +300,6 @@
         }
         .btn-header:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(16, 185, 129, 0.6); }
 
-        /* --- ESTILOS DO CONTADOR --- */
         .visitor-counter {
             margin-bottom: 10px;
             font-size: 0.85rem;
@@ -318,7 +311,7 @@
             border: 1px solid var(--border-color);
         }
         .visitor-counter span {
-            color: var(--color-gain); /* Verde para mostrar sucesso */
+            color: var(--color-gain); 
             font-weight: 700;
         }
 
@@ -375,7 +368,19 @@
         </div>
     </section>
 
-    <section style="background-color: var(--bg-section);">
+    <section style="background-color: var(--bg-section); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+        <div class="container" style="text-align: center;">
+            <i class="fas fa-exchange-alt" style="font-size: 2rem; color: var(--brand-blue); margin-bottom: 20px;"></i>
+            <h2 style="font-size: 1.8rem; margin-bottom: 10px;">Existe um jeito mais inteligente.</h2>
+            <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto 20px auto; font-size: 1.1rem;">
+                Você não precisa cancelar os serviços que ama. <br>
+                Você só precisa trocar a forma como acessa eles.
+            </p>
+            <h2 style="color: var(--brand-blue); font-size: 2.5rem; text-transform: uppercase; letter-spacing: 2px;">Apresentamos a EFLIXTV</h2>
+        </div>
+    </section>
+
+    <section>
         <div class="container">
             <div class="section-title">
                 <h2>Para quem serve esse conteúdo?</h2>
@@ -397,56 +402,11 @@
         </div>
     </section>
 
-    <section id="solucao" class="solution-section">
-        <div class="container" style="text-align: center;">
-            <div class="section-title">
-                <span>A Solução</span>
-                <h2>EFLIXTV - Tudo em um só lugar</h2>
-            </div>
-            
-            <p style="max-width: 600px; margin: 0 auto 30px auto; color: var(--text-secondary); font-size: 1rem;">
-                Imagine pegar <strong>TODO</strong> o conteúdo acima e colocar num único app. Sem trocar de HDMI, sem trocar de conta.
-            </p>
-
-            <div class="card" style="display: inline-block; border-color: var(--color-gain); background: var(--bg-gain-light); padding: 30px; width: 100%; max-width: 450px;">
-                
-                <span class="plan-tag">PLANO ANUAL (MELHOR OFERTA)</span>
-                <p style="font-size: 0.9rem; color: var(--text-secondary); text-transform: uppercase; font-weight: 600;">Planos a partir de:</p>
-                
-                <div class="price-display">
-                    R$ 20,00<small>/mês</small>
-                </div>
-                <p style="font-size: 0.85rem; opacity: 0.8; margin-bottom: 20px;">No pagamento anual de R$ 240,00</p>
-
-                <div class="pricing-list">
-                    <p style="color: var(--color-gain); font-size: 0.8rem; font-weight: 700; margin-bottom: 10px; text-transform: uppercase;">Outras opções disponíveis:</p>
-                    
-                    <div class="pricing-item">
-                        <strong>Mensal</strong>
-                        <span>R$ 35,00</span>
-                    </div>
-                    <div class="pricing-item">
-                        <strong>Bimestral</strong>
-                        <span>R$ 60,00 <small style="color: var(--text-secondary); font-weight:400;">(R$ 30/mês)</small></span>
-                    </div>
-                    <div class="pricing-item">
-                        <strong>Quadrimestral</strong>
-                        <span>R$ 110,00 <small style="color: var(--text-secondary); font-weight:400;">(R$ 27,50/mês)</small></span>
-                    </div>
-                    <div class="pricing-item">
-                        <strong>Semestral</strong>
-                        <span>R$ 150,00 <small style="color: var(--text-secondary); font-weight:400;">(R$ 25/mês)</small></span>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section>
+    <section style="background-color: var(--bg-section);">
         <div class="container">
             <div class="section-title">
-                <h2>O Que Está Incluído?</h2>
+                <span>Tudo incluso no nosso App</span>
+                <h2>O Que Você Leva com a EFLIXTV?</h2>
             </div>
             
             <div class="features-grid">
@@ -500,6 +460,52 @@
                         Imagem em <span>UHD e Full HD</span> sem travamentos. Servidores estáveis e atualizados diariamente.
                     </p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="solucao" class="solution-section">
+        <div class="container" style="text-align: center;">
+            <div class="section-title">
+                <span>Oferta Especial</span>
+                <h2>Escolha seu Plano</h2>
+            </div>
+            
+            <p style="max-width: 600px; margin: 0 auto 30px auto; color: var(--text-secondary); font-size: 1rem;">
+                Tudo o que você viu acima, por um preço que cabe no seu bolso.
+            </p>
+
+            <div class="card" style="display: inline-block; border-color: var(--color-gain); background: var(--bg-gain-light); padding: 30px; width: 100%; max-width: 450px;">
+                
+                <span class="plan-tag">PLANO ANUAL (MELHOR OFERTA)</span>
+                <p style="font-size: 0.9rem; color: var(--text-secondary); text-transform: uppercase; font-weight: 600;">Planos a partir de:</p>
+                
+                <div class="price-display">
+                    R$ 20,00<small>/mês</small>
+                </div>
+                <p style="font-size: 0.85rem; opacity: 0.8; margin-bottom: 20px;">No pagamento anual de R$ 240,00</p>
+
+                <div class="pricing-list">
+                    <p style="color: var(--color-gain); font-size: 0.8rem; font-weight: 700; margin-bottom: 10px; text-transform: uppercase;">Outras opções disponíveis:</p>
+                    
+                    <div class="pricing-item">
+                        <strong>Mensal</strong>
+                        <span>R$ 35,00</span>
+                    </div>
+                    <div class="pricing-item">
+                        <strong>Bimestral</strong>
+                        <span>R$ 60,00 <small style="color: var(--text-secondary); font-weight:400;">(R$ 30/mês)</small></span>
+                    </div>
+                    <div class="pricing-item">
+                        <strong>Quadrimestral</strong>
+                        <span>R$ 110,00 <small style="color: var(--text-secondary); font-weight:400;">(R$ 27,50/mês)</small></span>
+                    </div>
+                    <div class="pricing-item">
+                        <strong>Semestral</strong>
+                        <span>R$ 150,00 <small style="color: var(--text-secondary); font-weight:400;">(R$ 25/mês)</small></span>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -566,10 +572,7 @@
 
     <script>
         const counterElement = document.getElementById('visit-count');
-        
-        // --- ALTERE O NÚMERO INICIAL AQUI ---
         const numeroInicial = 534; 
-        // ------------------------------------
         
         fetch('https://api.counterapi.dev/v1/eflixtv-eron/visits/up')
             .then(response => response.json())
