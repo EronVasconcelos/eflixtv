@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart TV | Economia Inteligente</title>
+    <title>EFLIXTV | Seu Mundo de Entretenimento</title>
     
     <link rel="icon" type="image/png" href="favicon.webp">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://eronvasconcelos.github.io/eflixtv">
-    <meta property="og:title" content="🔥 EFLIXTV: Tudo Liberado a partir de R$ 20,00/mês">
+    <meta property="og:title" content="🔥 EFLIXTV: Tudo Liberado por R$ 20,00">
     <meta property="og:description" content="Pare de pagar caro em TV a cabo e Streamings. Teste grátis agora!">
     <meta property="og:image" content="https://eronvasconcelos.github.io/eflixtv/capa-zap.webp">
 
@@ -31,23 +31,25 @@
             --text-primary: #f8fafc; 
             --text-secondary: #94a3b8; 
             
-            /* --- SISTEMA DE CORES REFINADO --- */
+            /* --- SISTEMA DE CORES REFINADO (COMPATÍVEL COM LOGO) --- */
             
             /* 1. VERMELHO (DOR/CUSTO) */
             --color-pain: #ef4444; 
             --bg-pain-light: rgba(239, 68, 68, 0.1);
             
-            /* 2. AZUL CIANO / PRIME VIDEO (Positivo/Ganho) */
-            --color-gain: #00A8E1; 
-            --bg-gain-light: rgba(0, 168, 225, 0.15); 
+            /* 2. DOURADO / GOLD (PREMIUM - Cor da Logo) */
+            /* Substituindo o antigo azul ciano */
+            --color-gain: #FFD700; 
+            --bg-gain-light: rgba(255, 215, 0, 0.15); 
+            --gain-glow: rgba(255, 215, 0, 0.3); /* Brilho dourado */
 
-            /* 3. VERDE (EXCLUSIVO PARA BOTÕES/AÇÃO) */
+            /* 3. VERDE (MANTIDO PARA BOTÕES/AÇÃO/WHATSAPP) */
             --action-btn-color: #10b981;
             --action-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%); 
             --action-shadow: rgba(16, 185, 129, 0.4);
 
-            /* 4. AZUL MARCA (Ícones gerais e títulos) */
-            --brand-blue: #00A8E1; 
+            /* 4. COR DA MARCA (Ícones gerais e títulos) */
+            --brand-color: #FFD700; 
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -90,7 +92,8 @@
         header h1 {
             font-size: 2.2rem;
             margin-bottom: 15px;
-            background: -webkit-linear-gradient(#fff, #cbd5e1);
+            /* Gradiente Metálico Suave no Título */
+            background: -webkit-linear-gradient(#fff, #e2e8f0);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -114,7 +117,7 @@
         }
         
         .section-title span {
-            color: var(--brand-blue); 
+            color: var(--brand-color); 
             font-size: 0.85rem;
             font-weight: 700;
             text-transform: uppercase;
@@ -175,11 +178,11 @@
             background: var(--bg-card);
             padding: 20px;
             border-radius: 12px;
-            border-left: 5px solid var(--brand-blue); 
+            border-left: 5px solid var(--brand-color); 
         }
         .audience-item i {
             font-size: 1.8rem;
-            color: var(--brand-blue); 
+            color: var(--brand-color); 
             margin-right: 15px;
         }
         .audience-item p {
@@ -189,7 +192,7 @@
             margin: 0;
         }
 
-        /* --- SOLUÇÃO (CIANO / PRIME BLUE) --- */
+        /* --- SOLUÇÃO (DOURADO / PREMIUM) --- */
         .solution-section {
             background: linear-gradient(180deg, var(--bg-dark) 0%, #0b1120 100%);
             border-top: 1px solid var(--border-color);
@@ -204,7 +207,7 @@
             line-height: 1;
             margin: 10px 0 5px 0;
             letter-spacing: -1px;
-            text-shadow: 0 0 25px rgba(0, 168, 225, 0.3);
+            text-shadow: 0 0 25px var(--gain-glow);
         }
         .price-display small { font-size: 1rem; color: var(--text-secondary); font-weight: 400; letter-spacing: normal; text-shadow: none; }
 
@@ -218,7 +221,7 @@
             text-transform: uppercase;
             display: inline-block;
             margin-bottom: 5px;
-            border: 1px solid rgba(0, 168, 225, 0.4); 
+            border: 1px solid rgba(255, 215, 0, 0.4); 
         }
 
         .pricing-list {
@@ -257,27 +260,28 @@
         }
         
         .feature-item:hover {
-            border-color: rgba(0, 168, 225, 0.5); 
+            border-color: rgba(255, 215, 0, 0.5); /* Borda Dourada ao passar o mouse */
             transform: translateY(-5px);
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
         }
 
         /* --- NOVO ESTILO PARA O CABEÇALHO DO CARD (ÍCONE + TÍTULO) --- */
         .feature-header {
             display: flex;
-            align-items: center; /* Centraliza verticalmente */
-            gap: 15px; /* Espaço entre ícone e título */
-            margin-bottom: 12px; /* Espaço entre o cabeçalho e o texto */
+            align-items: center; 
+            gap: 15px; 
+            margin-bottom: 12px; 
         }
         
         .feature-icon { 
             font-size: 1.8rem; 
-            color: var(--brand-blue); 
-            margin-bottom: 0; /* Remove a margem antiga */
+            color: var(--brand-color); 
+            margin-bottom: 0; 
         }
         
         .feature-item h4 { 
             font-size: 1.1rem; 
-            margin-bottom: 0; /* Remove a margem antiga */
+            margin-bottom: 0; 
             color: #fff; 
             font-weight: 700; 
             line-height: 1.2;
@@ -379,8 +383,6 @@
                         <div class="cost-row"><span>Premiere</span> <span class="cost-price">R$ 59,90</span></div>
                         <div class="cost-row"><span>Disney+/Star+</span> <span class="cost-price">R$ 43,90</span></div>
                         <div class="cost-row"><span>Combate</span> <span class="cost-price">R$ 34,90</span></div>
-                        <div class="cost-row"><span>TOTAL POR MÊS</span> <span class="cost-price">R$ 343,30</span></div>
-                        
                     </div>
                 </div>
                 <div style="display: flex; flex-direction: column; justify-content: center;">
@@ -396,13 +398,13 @@
 
     <section style="background-color: var(--bg-section); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
         <div class="container" style="text-align: center;">
-            <i class="fas fa-exchange-alt" style="font-size: 2rem; color: var(--brand-blue); margin-bottom: 20px;"></i>
+            <i class="fas fa-exchange-alt" style="font-size: 2rem; color: var(--brand-color); margin-bottom: 20px;"></i>
             <h2 style="font-size: 1.8rem; margin-bottom: 10px;">Existe um jeito mais inteligente.</h2>
             <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto 20px auto; font-size: 1.1rem;">
                 Você não precisa cancelar os serviços que ama. <br>
                 Você só precisa trocar a forma como acessa eles.
             </p>
-            <h2 style="color: var(--brand-blue); font-size: 2.5rem; text-transform: uppercase; letter-spacing: 2px;">Apresentamos a EFLIXTV</h2>
+            <h2 style="color: var(--brand-color); font-size: 2.5rem; text-transform: uppercase; letter-spacing: 2px;">Apresentamos a EFLIXTV</h2>
         </div>
     </section>
 
@@ -418,7 +420,7 @@
                 </div>
                 <div class="audience-item">
                     <i class="fas fa-tv"></i>
-                    <p>Para quem possui Smart TV, Tablet, TV Box e Smartphone.</p>
+                    <p>Para quem possui Smart TV (Samsung/LG/Android), TV Box ou FireStick.</p>
                 </div>
                 <div class="audience-item">
                     <i class="fas fa-futbol"></i>
@@ -627,6 +629,3 @@
 
 </body>
 </html>
-
-
-
