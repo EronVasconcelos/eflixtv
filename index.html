@@ -9,7 +9,7 @@
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://eronvasconcelos.github.io/eflixtv">
-    <meta property="og:title" content="🔥 EFLIXTV: Tudo Liberado por R$ 20,00">
+    <meta property="og:title" content="🔥 EFLIXTV: Tudo Liberado a partir de R$ 20,00/mês">
     <meta property="og:description" content="Pare de pagar caro em TV a cabo e Streamings. Teste grátis agora!">
     <meta property="og:image" content="https://eronvasconcelos.github.io/eflixtv/capa-zap.webp">
 
@@ -31,25 +31,32 @@
             --text-primary: #f8fafc; 
             --text-secondary: #94a3b8; 
             
-            /* --- SISTEMA DE CORES REFINADO (COMPATÍVEL COM LOGO) --- */
+            /* --- SISTEMA DE CORES REFINADO (TEMA DOURADO/GOLD) --- */
             
             /* 1. VERMELHO (DOR/CUSTO) */
             --color-pain: #ef4444; 
             --bg-pain-light: rgba(239, 68, 68, 0.1);
             
-            /* 2. DOURADO / GOLD (PREMIUM - Cor da Logo) */
-            /* Substituindo o antigo azul ciano */
-            --color-gain: #FFD700; 
-            --bg-gain-light: rgba(255, 215, 0, 0.15); 
-            --gain-glow: rgba(255, 215, 0, 0.3); /* Brilho dourado */
+            /* 2. DOURADO PREMIUM (COR DA LOGO) */
+            /* Definindo tons para o degradê metálico */
+            --gold-base: #d4af37; /* Dourado clássico */
+            --gold-light: #fceabb; /* Dourado claro/brilho */
+            --gold-dark: #996515; /* Dourado mais escuro/bronze */
+            
+            /* O degradê que dará o efeito metálico */
+            --gold-gradient: linear-gradient(to right, var(--gold-base), var(--gold-light), var(--gold-base));
 
-            /* 3. VERDE (MANTIDO PARA BOTÕES/AÇÃO/WHATSAPP) */
+            --color-gain: var(--gold-base); /* Cor sólida de fallback */
+            --bg-gain-light: rgba(212, 175, 55, 0.15); /* Fundo dourado sutil */
+            --gain-glow: rgba(212, 175, 55, 0.4); /* Brilho/Sombra dourada */
+
+            /* 3. VERDE (MANTIDO PARA BOTÕES/AÇÃO) */
             --action-btn-color: #10b981;
             --action-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%); 
             --action-shadow: rgba(16, 185, 129, 0.4);
 
-            /* 4. COR DA MARCA (Ícones gerais e títulos) */
-            --brand-color: #FFD700; 
+            /* 4. COR DA MARCA (Referência geral) */
+            --brand-color: var(--gold-base); 
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -79,6 +86,14 @@
             padding: 0 15px;
         }
 
+        /* Classe utilitária para aplicar o degradê dourado em textos */
+        .text-gold-gradient {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block; /* Necessário para o gradient funcionar bem em alguns spans */
+        }
+
         /* --- HERO --- */
         header {
             background: linear-gradient(to bottom, rgba(15, 23, 42, 0.9), var(--bg-dark)), 
@@ -92,7 +107,7 @@
         header h1 {
             font-size: 2.2rem;
             margin-bottom: 15px;
-            /* Gradiente Metálico Suave no Título */
+            /* Gradiente Metálico Prata/Branco no Título Principal */
             background: -webkit-linear-gradient(#fff, #e2e8f0);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -116,13 +131,16 @@
             margin-bottom: 35px;
         }
         
+        /* Aplicando o degradê dourado nos subtítulos */
         .section-title span {
-            color: var(--brand-color); 
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             font-size: 0.85rem;
-            font-weight: 700;
+            font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 1px;
-            display: block;
+            display: inline-block;
             margin-bottom: 8px;
         }
 
@@ -153,7 +171,7 @@
             font-size: 0.95rem;
             font-weight: 500;
         }
-        .cost-row:last-child { border-bottom: none; }
+        /* Removido o :last-child border-bottom: none para acomodar o novo total */
         
         .cost-price { font-weight: 700; color: var(--color-pain); }
 
@@ -178,11 +196,14 @@
             background: var(--bg-card);
             padding: 20px;
             border-radius: 12px;
-            border-left: 5px solid var(--brand-color); 
+            border-left: 5px solid var(--gold-base); /* Borda dourada sólida */
         }
+        /* Ícones com degradê dourado */
         .audience-item i {
             font-size: 1.8rem;
-            color: var(--brand-color); 
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             margin-right: 15px;
         }
         .audience-item p {
@@ -192,7 +213,7 @@
             margin: 0;
         }
 
-        /* --- SOLUÇÃO (DOURADO / PREMIUM) --- */
+        /* --- SOLUÇÃO (DOURADO PREMIUM) --- */
         .solution-section {
             background: linear-gradient(180deg, var(--bg-dark) 0%, #0b1120 100%);
             border-top: 1px solid var(--border-color);
@@ -200,20 +221,23 @@
             padding: 40px 0;
         }
 
+        /* Preço principal com degradê dourado e brilho */
         .price-display {
             font-size: 3.5rem;
             font-weight: 700;
-            color: var(--color-gain); 
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             line-height: 1;
             margin: 10px 0 5px 0;
             letter-spacing: -1px;
             text-shadow: 0 0 25px var(--gain-glow);
         }
-        .price-display small { font-size: 1rem; color: var(--text-secondary); font-weight: 400; letter-spacing: normal; text-shadow: none; }
+        .price-display small { font-size: 1rem; color: var(--text-secondary); font-weight: 400; letter-spacing: normal; text-shadow: none; -webkit-text-fill-color: var(--text-secondary); }
 
         .plan-tag {
             background: var(--bg-gain-light); 
-            color: var(--color-gain); 
+            color: var(--gold-base); 
             font-size: 0.75rem;
             padding: 4px 10px;
             border-radius: 20px;
@@ -221,7 +245,7 @@
             text-transform: uppercase;
             display: inline-block;
             margin-bottom: 5px;
-            border: 1px solid rgba(255, 215, 0, 0.4); 
+            border: 1px solid rgba(212, 175, 55, 0.4); 
         }
 
         .pricing-list {
@@ -240,7 +264,7 @@
         }
         .pricing-item:last-child { border-bottom: none; }
         .pricing-item strong { color: #fff; }
-        .pricing-item span { color: var(--color-gain); font-weight: 700; } 
+        .pricing-item span { color: var(--gold-base); font-weight: 700; } 
 
         /* --- FEATURES GRID (COM LAYOUT HORIZONTAL) --- */
         .features-grid {
@@ -256,11 +280,11 @@
             border-radius: 12px;
             border: 1px solid transparent;
             height: 100%;
-            transition: transform 0.2s;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
         
         .feature-item:hover {
-            border-color: rgba(255, 215, 0, 0.5); /* Borda Dourada ao passar o mouse */
+            border-color: rgba(212, 175, 55, 0.5); /* Borda Dourada ao passar o mouse */
             transform: translateY(-5px);
             box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
         }
@@ -273,10 +297,19 @@
             margin-bottom: 12px; 
         }
         
+        /* Ícones dos recursos com degradê dourado (exceto os coloridos originais) */
         .feature-icon { 
             font-size: 1.8rem; 
-            color: var(--brand-color); 
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             margin-bottom: 0; 
+        }
+
+        /* Ícones que devem manter suas cores originais */
+        .feature-icon.keep-color {
+            background: none;
+            -webkit-text-fill-color: initial;
         }
         
         .feature-item h4 { 
@@ -305,10 +338,11 @@
 
         .highlight-col { 
             background: var(--bg-gain-light); 
-            color: var(--color-gain); 
+            color: var(--gold-base); 
             font-weight: 700; 
         }
 
+        /* Botões Verdes (Mantidos para contraste e ação) */
         .btn-header {
             display: inline-flex;
             align-items: center;
@@ -339,7 +373,7 @@
             border: 1px solid var(--border-color);
         }
         .visitor-counter span {
-            color: var(--color-gain); 
+            color: var(--gold-base); 
             font-weight: 700;
         }
 
@@ -369,7 +403,7 @@
         <div class="container">
             <div class="section-title">
                 <h2 style="color: #fff;">A Armadilha das Assinaturas</h2>
-                <span style="color: var(--color-pain); margin-top: 5px;">Veja quanto você perde</span>
+                <span style="color: var(--color-pain);">Veja quanto você perde</span>
             </div>
 
             <div class="problem-grid">
@@ -383,6 +417,11 @@
                         <div class="cost-row"><span>Premiere</span> <span class="cost-price">R$ 59,90</span></div>
                         <div class="cost-row"><span>Disney+/Star+</span> <span class="cost-price">R$ 43,90</span></div>
                         <div class="cost-row"><span>Combate</span> <span class="cost-price">R$ 34,90</span></div>
+                        
+                        <div class="cost-row" style="border-top: 1px solid var(--border-color); margin-top: 10px; padding-top: 15px; border-bottom: none;">
+                            <span>TOTAL POR MÊS</span> 
+                            <span class="cost-price" style="font-size: 1.1rem;">R$ 343,30</span>
+                        </div>
                     </div>
                 </div>
                 <div style="display: flex; flex-direction: column; justify-content: center;">
@@ -398,13 +437,13 @@
 
     <section style="background-color: var(--bg-section); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
         <div class="container" style="text-align: center;">
-            <i class="fas fa-exchange-alt" style="font-size: 2rem; color: var(--brand-color); margin-bottom: 20px;"></i>
+            <i class="fas fa-exchange-alt text-gold-gradient" style="font-size: 2rem; margin-bottom: 20px;"></i>
             <h2 style="font-size: 1.8rem; margin-bottom: 10px;">Existe um jeito mais inteligente.</h2>
             <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto 20px auto; font-size: 1.1rem;">
                 Você não precisa cancelar os serviços que ama. <br>
                 Você só precisa trocar a forma como acessa eles.
             </p>
-            <h2 style="color: var(--brand-color); font-size: 2.5rem; text-transform: uppercase; letter-spacing: 2px;">Apresentamos a EFLIXTV</h2>
+            <h2 class="text-gold-gradient" style="font-size: 2.5rem; text-transform: uppercase; letter-spacing: 2px;">Apresentamos a EFLIXTV</h2>
         </div>
     </section>
 
@@ -420,7 +459,7 @@
                 </div>
                 <div class="audience-item">
                     <i class="fas fa-tv"></i>
-                    <p>Para quem possui Smart TV (Samsung/LG/Android), TV Box ou FireStick.</p>
+                    <p>Para quem possui Smart TV, Tablet, TV Box e Smartphone.</p>
                 </div>
                 <div class="audience-item">
                     <i class="fas fa-futbol"></i>
@@ -452,7 +491,7 @@
 
                 <div class="feature-item">
                     <div class="feature-header">
-                        <i class="fas fa-play-circle feature-icon" style="color: #E50914;"></i>
+                        <i class="fas fa-play-circle feature-icon keep-color" style="color: #E50914;"></i>
                         <h4>Super Streamings</h4>
                     </div>
                     <p class="brand-list">
@@ -463,7 +502,7 @@
 
                 <div class="feature-item">
                     <div class="feature-header">
-                        <i class="fas fa-futbol feature-icon" style="color: #25D366;"></i>
+                        <i class="fas fa-futbol feature-icon keep-color" style="color: #25D366;"></i>
                         <h4>Esportes Liberados</h4>
                     </div>
                     <p class="brand-list">
@@ -474,7 +513,7 @@
 
                 <div class="feature-item">
                     <div class="feature-header">
-                        <i class="fas fa-child feature-icon" style="color: #FFD700;"></i>
+                        <i class="fas fa-child feature-icon"></i>
                         <h4>Kids & Família</h4>
                     </div>
                     <p class="brand-list">
@@ -484,7 +523,7 @@
 
                 <div class="feature-item">
                     <div class="feature-header">
-                        <i class="fas fa-lock feature-icon" style="color: #f43f5e;"></i>
+                         <i class="fas fa-lock feature-icon keep-color" style="color: #f43f5e;"></i>
                         <h4>Adultos (+18)</h4>
                     </div>
                     <p class="brand-list">
@@ -494,7 +533,7 @@
 
                 <div class="feature-item">
                     <div class="feature-header">
-                        <i class="fas fa-star feature-icon" style="color: #fbbf24;"></i>
+                        <i class="fas fa-star feature-icon"></i>
                         <h4>Qualidade Cinema 4K</h4>
                     </div>
                     <p class="brand-list">
@@ -516,7 +555,7 @@
                 Tudo o que você viu acima, por um preço que cabe no seu bolso.
             </p>
 
-            <div class="card" style="display: inline-block; border-color: var(--color-gain); background: var(--bg-gain-light); padding: 30px; width: 100%; max-width: 450px;">
+            <div class="card" style="display: inline-block; border-color: var(--gold-base); background: var(--bg-gain-light); padding: 30px; width: 100%; max-width: 450px;">
                 
                 <span class="plan-tag">PLANO ANUAL (MELHOR OFERTA)</span>
                 <p style="font-size: 0.9rem; color: var(--text-secondary); text-transform: uppercase; font-weight: 600;">Planos a partir de:</p>
@@ -527,7 +566,7 @@
                 <p style="font-size: 0.85rem; opacity: 0.8; margin-bottom: 20px;">No pagamento anual de R$ 240,00</p>
 
                 <div class="pricing-list">
-                    <p style="color: var(--color-gain); font-size: 0.8rem; font-weight: 700; margin-bottom: 10px; text-transform: uppercase;">Outras opções disponíveis:</p>
+                    <p style="color: var(--gold-base); font-size: 0.8rem; font-weight: 700; margin-bottom: 10px; text-transform: uppercase;">Outras opções disponíveis:</p>
                     
                     <div class="pricing-item">
                         <strong>Mensal</strong>
@@ -587,7 +626,7 @@
                 </table>
             </div>
 
-            <div class="card" style="margin-top: 30px; text-align: center; border-color: var(--color-gain); padding: 40px 20px;">
+            <div class="card" style="margin-top: 30px; text-align: center; border-color: var(--gold-base); padding: 40px 20px;">
                 <h3 style="color: #fff; font-size: 1.5rem;">🔥 TESTE DE 3 HORAS GRÁTIS 🔥</h3>
                 <p style="color: var(--text-secondary); margin: 15px 0 25px 0; font-size: 1rem;">
                     Não cobramos nada adiantado. Liberamos o sinal, você testa a qualidade na sua TV e só assina se gostar.
