@@ -39,8 +39,8 @@
             --gold-light: #fceabb; 
             --gold-dark: #996515; 
             
-            /* DEGRADÊ DIAGONAL (45deg) - Subindo da esquerda para direita */
-            --gold-gradient: linear-gradient(45deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+            /* DEGRADÊ DIAGONAL INVERTIDO (135deg) - Descendo da esquerda para direita */
+            --gold-gradient: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
 
             --color-gain: var(--gold-base); 
             --bg-gain-light: rgba(212, 175, 55, 0.1); 
@@ -102,7 +102,7 @@
             background-clip: text;
             color: var(--gold-base); /* Fallback */
             text-shadow: 0px 2px 10px rgba(0,0,0,0.3); 
-            font-weight: 700; /* Ouro precisa de peso para aparecer o brilho */
+            font-weight: 700; 
         }
 
         /* --- HERO --- */
@@ -206,7 +206,6 @@
         }
         .audience-item i {
             font-size: 1.8rem;
-            /* Aplicando o gradiente diagonal nos ícones */
             background: var(--gold-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -242,7 +241,6 @@
 
         .plan-tag {
             background: var(--bg-gain-light); 
-            /* Texto da tag agora é gradiente também */
             background-image: var(--gold-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -274,7 +272,6 @@
         .pricing-item:last-child { border-bottom: none; }
         .pricing-item strong { color: #fff; }
         
-        /* Preços menores da lista agora com gradiente */
         .pricing-item span { 
             background: var(--gold-gradient);
             -webkit-background-clip: text;
@@ -346,7 +343,6 @@
 
         .highlight-col { 
             background: var(--bg-gain-light); 
-            /* Cabeçalho da tabela (EFLIXTV) agora é Ouro Gradiente */
             background-image: var(--gold-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -384,7 +380,6 @@
             border-radius: 50px;
             border: 1px solid var(--border-color);
         }
-        /* Contador de visitas agora é Ouro Gradiente */
         .visitor-counter span {
             background: var(--gold-gradient);
             -webkit-background-clip: text;
