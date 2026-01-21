@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
-        /* --- ESTILOS COMPACTOS --- */
+        /* --- ESTILOS GERAIS --- */
         :root {
             /* --- FUNDO AZUL MARINHO (PREMIUM) --- */
             --bg-dark: #0f172a;      
@@ -31,31 +31,29 @@
             --text-primary: #f8fafc; 
             --text-secondary: #94a3b8; 
             
-            /* --- SISTEMA DE CORES REFINADO (TEMA DOURADO/GOLD) --- */
+            /* --- PALETA DE CORES --- */
             
-            /* 1. VERMELHO (DOR/CUSTO) */
-            --color-pain: #ef4444; 
-            --bg-pain-light: rgba(239, 68, 68, 0.1);
+            /* 1. CINZA/PRATA (SUBSTITUI O VERMELHO) */
+            --color-pain: #cbd5e1; 
+            --bg-pain-light: rgba(148, 163, 184, 0.1); 
             
-            /* 2. DOURADO PREMIUM (COR DA LOGO) */
-            /* Definindo tons para o degradê metálico */
-            --gold-base: #d4af37; /* Dourado clássico */
-            --gold-light: #fceabb; /* Dourado claro/brilho */
-            --gold-dark: #996515; /* Dourado mais escuro/bronze */
-            
-            /* O degradê que dará o efeito metálico */
-            --gold-gradient: linear-gradient(to right, var(--gold-base), var(--gold-light), var(--gold-base));
+            /* 2. DOURADO PREMIUM (AGORA NAS HEADLINES) */
+            --gold-base: #d4af37; 
+            --gold-light: #fceabb; 
+            --gold-dark: #996515; 
+            /* Degradê Metálico Rico */
+            --gold-gradient: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
 
-            --color-gain: var(--gold-base); /* Cor sólida de fallback */
-            --bg-gain-light: rgba(212, 175, 55, 0.15); /* Fundo dourado sutil */
-            --gain-glow: rgba(212, 175, 55, 0.4); /* Brilho/Sombra dourada */
+            --color-gain: var(--gold-base); 
+            --bg-gain-light: rgba(212, 175, 55, 0.1); 
+            --gain-glow: rgba(212, 175, 55, 0.3); 
 
-            /* 3. VERDE (MANTIDO PARA BOTÕES/AÇÃO) */
+            /* 3. VERDE (APENAS BOTÕES DE AÇÃO) */
             --action-btn-color: #10b981;
             --action-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%); 
-            --action-shadow: rgba(16, 185, 129, 0.4);
+            --action-shadow: rgba(16, 185, 129, 0.3);
 
-            /* 4. COR DA MARCA (Referência geral) */
+            /* 4. COR DA MARCA */
             --brand-color: var(--gold-base); 
         }
 
@@ -73,7 +71,7 @@
         h1, h2, h3, h4 {
             font-family: 'Roboto', sans-serif;
             font-weight: 900;
-            line-height: 1.1;
+            line-height: 1.2;
             text-transform: uppercase;
             letter-spacing: -0.5px;
         }
@@ -86,29 +84,31 @@
             padding: 0 15px;
         }
 
-        /* Classe utilitária para aplicar o degradê dourado em textos */
-        .text-gold-gradient {
+        /* Classe Mágica para o Texto Dourado */
+        .text-gold {
             background: var(--gold-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            display: inline-block; /* Necessário para o gradient funcionar bem em alguns spans */
+            background-clip: text;
+            color: var(--gold-base); /* Fallback */
+            text-shadow: 0px 2px 10px rgba(0,0,0,0.3); /* Sombra suave para destacar do fundo */
         }
 
         /* --- HERO --- */
         header {
-            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.9), var(--bg-dark)), 
+            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.95), var(--bg-dark)), 
                         url('https://images.unsplash.com/photo-1593784697778-27e049f20191?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
-            padding: 60px 0 40px 0;
+            padding: 70px 0 50px 0;
             text-align: center;
         }
 
         header h1 {
-            font-size: 2.2rem;
+            font-size: 2.5rem; /* Aumentei um pouco */
             margin-bottom: 15px;
-            /* Gradiente Metálico Prata/Branco no Título Principal */
-            background: -webkit-linear-gradient(#fff, #e2e8f0);
+            /* Aplicando Dourado Direto no H1 */
+            background: var(--gold-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -117,34 +117,33 @@
             font-size: 1.1rem;
             color: var(--text-secondary);
             max-width: 700px;
-            margin: 0 auto 25px auto;
+            margin: 0 auto 30px auto;
             font-weight: 400;
         }
 
-        /* --- SEÇÕES GERAIS --- */
-        section {
-            padding: 50px 0;
+        /* --- SEÇÕES --- */
+        section { padding: 50px 0; }
+
+        .section-title { text-align: center; margin-bottom: 40px; }
+        
+        .section-title span {
+            color: #fff; /* Subtítulo agora é Branco/Prata */
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: inline-block;
+            margin-bottom: 5px;
+            opacity: 0.8;
         }
 
-        .section-title {
-            text-align: center;
-            margin-bottom: 35px;
-        }
-        
-        /* Aplicando o degradê dourado nos subtítulos */
-        .section-title span {
+        .section-title h2 { 
+            font-size: 2.2rem; 
+            /* Aplicando Dourado nos H2 das seções */
             background: var(--gold-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            font-size: 0.85rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            display: inline-block;
-            margin-bottom: 8px;
         }
-
-        .section-title h2 { font-size: 2rem; }
 
         /* --- CARDS --- */
         .card {
@@ -155,7 +154,7 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
-        /* --- SEÇÃO DA DOR (VERMELHO) --- */
+        /* --- SEÇÃO DA DOR (CINZA/PRATA) --- */
         .problem-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -167,18 +166,18 @@
             justify-content: space-between;
             align-items: center;
             padding: 10px 0;
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
             font-size: 0.95rem;
             font-weight: 500;
+            color: var(--text-secondary);
         }
-        /* Removido o :last-child border-bottom: none para acomodar o novo total */
         
         .cost-price { font-weight: 700; color: var(--color-pain); }
 
         .total-box {
             text-align: center;
             background: var(--bg-pain-light); 
-            border: 1px solid rgba(239, 68, 68, 0.3);
+            border: 1px solid var(--border-color);
             padding: 20px;
             border-radius: 12px;
             margin-top: 15px;
@@ -196,9 +195,8 @@
             background: var(--bg-card);
             padding: 20px;
             border-radius: 12px;
-            border-left: 5px solid var(--gold-base); /* Borda dourada sólida */
+            border-left: 4px solid var(--gold-base); 
         }
-        /* Ícones com degradê dourado */
         .audience-item i {
             font-size: 1.8rem;
             background: var(--gold-gradient);
@@ -213,15 +211,14 @@
             margin: 0;
         }
 
-        /* --- SOLUÇÃO (DOURADO PREMIUM) --- */
+        /* --- SOLUÇÃO --- */
         .solution-section {
             background: linear-gradient(180deg, var(--bg-dark) 0%, #0b1120 100%);
             border-top: 1px solid var(--border-color);
             border-bottom: 1px solid var(--border-color);
-            padding: 40px 0;
+            padding: 50px 0;
         }
 
-        /* Preço principal com degradê dourado e brilho */
         .price-display {
             font-size: 3.5rem;
             font-weight: 700;
@@ -231,9 +228,9 @@
             line-height: 1;
             margin: 10px 0 5px 0;
             letter-spacing: -1px;
-            text-shadow: 0 0 25px var(--gain-glow);
+            text-shadow: 0 0 30px var(--gain-glow);
         }
-        .price-display small { font-size: 1rem; color: var(--text-secondary); font-weight: 400; letter-spacing: normal; text-shadow: none; -webkit-text-fill-color: var(--text-secondary); }
+        .price-display small { font-size: 1rem; -webkit-text-fill-color: var(--text-secondary); font-weight: 400; letter-spacing: normal; text-shadow: none; }
 
         .plan-tag {
             background: var(--bg-gain-light); 
@@ -245,7 +242,7 @@
             text-transform: uppercase;
             display: inline-block;
             margin-bottom: 5px;
-            border: 1px solid rgba(212, 175, 55, 0.4); 
+            border: 1px solid rgba(212, 175, 55, 0.3); 
         }
 
         .pricing-list {
@@ -266,7 +263,7 @@
         .pricing-item strong { color: #fff; }
         .pricing-item span { color: var(--gold-base); font-weight: 700; } 
 
-        /* --- FEATURES GRID (COM LAYOUT HORIZONTAL) --- */
+        /* --- FEATURES GRID --- */
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -284,12 +281,11 @@
         }
         
         .feature-item:hover {
-            border-color: rgba(212, 175, 55, 0.5); /* Borda Dourada ao passar o mouse */
+            border-color: rgba(212, 175, 55, 0.3); 
             transform: translateY(-5px);
             box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
         }
 
-        /* --- NOVO ESTILO PARA O CABEÇALHO DO CARD (ÍCONE + TÍTULO) --- */
         .feature-header {
             display: flex;
             align-items: center; 
@@ -297,19 +293,12 @@
             margin-bottom: 12px; 
         }
         
-        /* Ícones dos recursos com degradê dourado (exceto os coloridos originais) */
         .feature-icon { 
             font-size: 1.8rem; 
             background: var(--gold-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 0; 
-        }
-
-        /* Ícones que devem manter suas cores originais */
-        .feature-icon.keep-color {
-            background: none;
-            -webkit-text-fill-color: initial;
         }
         
         .feature-item h4 { 
@@ -321,9 +310,9 @@
         }
         
         .brand-list { margin-top: 5px; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5; }
-        .brand-list span { color: #fff; font-weight: 600; }
+        .brand-list span { color: #e2e8f0; font-weight: 600; }
 
-        /* --- TABELA COMPARATIVA E CTA --- */
+        /* --- TABELA COMPARATIVA --- */
         .comparison-wrapper { overflow-x: auto; border-radius: 12px; border: 1px solid var(--border-color); }
         table { width: 100%; border-collapse: collapse; background: var(--bg-card); }
         th, td { padding: 15px; text-align: center; border-bottom: 1px solid var(--border-color); font-size: 0.95rem; }
@@ -331,9 +320,9 @@
         th { background: #0b1120; color: #fff; font-weight: 700; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.5px; }
         
         .pain-col {
-            background: var(--bg-pain-light); 
-            color: var(--color-pain); 
-            font-weight: 700; 
+            background: rgba(255, 255, 255, 0.03); 
+            color: var(--text-secondary); 
+            font-weight: 500; 
         }
 
         .highlight-col { 
@@ -342,7 +331,7 @@
             font-weight: 700; 
         }
 
-        /* Botões Verdes (Mantidos para contraste e ação) */
+        /* --- BOTÃO DE AÇÃO --- */
         .btn-header {
             display: inline-flex;
             align-items: center;
@@ -350,17 +339,18 @@
             gap: 10px;
             background: var(--action-gradient); 
             color: white;
-            padding: 16px 35px;
+            padding: 18px 40px; /* Botão um pouco maior */
             border-radius: 8px;
-            font-weight: 700;
+            font-weight: 800;
             text-transform: uppercase;
             text-decoration: none;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
             font-size: 1rem;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px var(--action-shadow); 
+            border: 1px solid rgba(255,255,255,0.1);
         }
-        .btn-header:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(16, 185, 129, 0.6); }
+        .btn-header:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(16, 185, 129, 0.5); filter: brightness(1.1); }
 
         .visitor-counter {
             margin-bottom: 10px;
@@ -380,7 +370,7 @@
         footer { text-align: center; padding: 30px 0; color: var(--text-secondary); font-size: 0.85rem; margin-top: 20px; border-top: 1px solid var(--border-color); }
 
         @media (max-width: 768px) {
-            header h1 { font-size: 1.8rem; }
+            header h1 { font-size: 2rem; }
             .price-display { font-size: 2.8rem; }
             .features-grid { grid-template-columns: 1fr; }
             section { padding: 40px 0; }
@@ -402,14 +392,14 @@
     <section>
         <div class="container">
             <div class="section-title">
-                <h2 style="color: #fff;">A Armadilha das Assinaturas</h2>
-                <span style="color: var(--color-pain);">Veja quanto você perde</span>
+                <h2 class="text-gold">A Armadilha das Assinaturas</h2>
+                <span>Veja quanto você perde</span>
             </div>
 
             <div class="problem-grid">
                 <div>
-                    <div class="card" style="border-color: rgba(239, 68, 68, 0.3);">
-                        <h4 style="margin-bottom: 15px; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; font-size: 1rem;">Seus Custos Mensais:</h4>
+                    <div class="card" style="border-color: var(--border-color);">
+                        <h4 style="margin-bottom: 15px; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; font-size: 1rem; color: #fff;">Seus Custos Mensais:</h4>
                         <div class="cost-row"><span>TV a Cabo</span> <span class="cost-price">R$ 109,90</span></div>
                         <div class="cost-row"><span>Netflix</span> <span class="cost-price">R$ 44,90</span></div>
                         <div class="cost-row"><span>Globoplay</span> <span class="cost-price">R$ 29,90</span></div>
@@ -419,16 +409,16 @@
                         <div class="cost-row"><span>Combate</span> <span class="cost-price">R$ 34,90</span></div>
                         
                         <div class="cost-row" style="border-top: 1px solid var(--border-color); margin-top: 10px; padding-top: 15px; border-bottom: none;">
-                            <span>TOTAL POR MÊS</span> 
-                            <span class="cost-price" style="font-size: 1.1rem;">R$ 343,30</span>
+                            <span style="color: #fff;">TOTAL POR MÊS</span> 
+                            <span class="cost-price" style="font-size: 1.1rem; color: #fff;">R$ 343,30</span>
                         </div>
                     </div>
                 </div>
                 <div style="display: flex; flex-direction: column; justify-content: center;">
                     <div class="total-box">
-                        <h3 style="color: var(--color-pain); font-size: 1.2rem; margin-bottom: 5px;">TOTAL ANUAL DESPERDIÇADO</h3>
+                        <h3 style="color: var(--text-secondary); font-size: 1.2rem; margin-bottom: 5px;">TOTAL ANUAL DESPERDIÇADO</h3>
                         <p style="font-size: 2.5rem; font-weight: 700; color: #fff; letter-spacing: -1px;">R$ 4.120,00</p>
-                        <p style="font-size: 0.9rem; margin-top: 5px; font-weight: 400;">Dava para comprar uma moto ou viajar nas férias.</p>
+                        <p style="font-size: 0.9rem; margin-top: 5px; font-weight: 400; color: var(--text-secondary);">Dava para comprar uma moto ou viajar nas férias.</p>
                     </div>
                 </div>
             </div>
@@ -437,13 +427,13 @@
 
     <section style="background-color: var(--bg-section); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
         <div class="container" style="text-align: center;">
-            <i class="fas fa-exchange-alt text-gold-gradient" style="font-size: 2rem; margin-bottom: 20px;"></i>
-            <h2 style="font-size: 1.8rem; margin-bottom: 10px;">Existe um jeito mais inteligente.</h2>
+            <i class="fas fa-exchange-alt text-gold" style="font-size: 2rem; margin-bottom: 20px;"></i>
+            <h2 style="font-size: 1.8rem; margin-bottom: 10px; color: #fff; background: none; -webkit-text-fill-color: initial;">Existe um jeito mais inteligente.</h2>
             <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto 20px auto; font-size: 1.1rem;">
                 Você não precisa cancelar os serviços que ama. <br>
                 Você só precisa trocar a forma como acessa eles.
             </p>
-            <h2 class="text-gold-gradient" style="font-size: 2.5rem; text-transform: uppercase; letter-spacing: 2px;">Apresentamos a EFLIXTV</h2>
+            <h2 class="text-gold" style="font-size: 2.5rem; text-transform: uppercase; letter-spacing: 2px;">Apresentamos a EFLIXTV</h2>
         </div>
     </section>
 
@@ -491,18 +481,18 @@
 
                 <div class="feature-item">
                     <div class="feature-header">
-                        <i class="fas fa-play-circle feature-icon keep-color" style="color: #E50914;"></i>
+                        <i class="fas fa-play-circle feature-icon"></i>
                         <h4>Super Streamings</h4>
                     </div>
                     <p class="brand-list">
                         Catálogo completo incluso:<br>
-                        <span style="color: #E50914;">Netflix</span> • <span style="color: #00A8E1;">Prime Video</span> • <span style="color: #ff6a00;">Globoplay</span> • <span style="color: #fff;">Apple TV+</span> • <span style="color: #9146FF;">HBO Max</span> • <span style="color: #113CCF;">Disney+</span>
+                        <span>Netflix</span> • <span>Prime Video</span> • <span>Globoplay</span> • <span>Apple TV+</span> • <span>HBO Max</span> • <span>Disney+</span>
                     </p>
                 </div>
 
                 <div class="feature-item">
                     <div class="feature-header">
-                        <i class="fas fa-futbol feature-icon keep-color" style="color: #25D366;"></i>
+                        <i class="fas fa-futbol feature-icon"></i>
                         <h4>Esportes Liberados</h4>
                     </div>
                     <p class="brand-list">
@@ -523,7 +513,7 @@
 
                 <div class="feature-item">
                     <div class="feature-header">
-                         <i class="fas fa-lock feature-icon keep-color" style="color: #f43f5e;"></i>
+                         <i class="fas fa-lock feature-icon"></i>
                         <h4>Adultos (+18)</h4>
                     </div>
                     <p class="brand-list">
