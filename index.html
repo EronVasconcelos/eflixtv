@@ -33,11 +33,11 @@
             
             /* --- PALETA DE CORES --- */
             
-            /* 1. CINZA/PRATA (SUBSTITUI O VERMELHO) */
+            /* 1. CINZA/PRATA (Custos/Dor) */
             --color-pain: #cbd5e1; 
             --bg-pain-light: rgba(148, 163, 184, 0.1); 
             
-            /* 2. DOURADO PREMIUM (AGORA NAS HEADLINES) */
+            /* 2. DOURADO PREMIUM (Destaques) */
             --gold-base: #d4af37; 
             --gold-light: #fceabb; 
             --gold-dark: #996515; 
@@ -105,7 +105,7 @@
         }
 
         header h1 {
-            font-size: 2.5rem; /* Aumentei um pouco */
+            font-size: 2.5rem; 
             margin-bottom: 15px;
             /* Aplicando Dourado Direto no H1 */
             background: var(--gold-gradient);
@@ -127,7 +127,7 @@
         .section-title { text-align: center; margin-bottom: 40px; }
         
         .section-title span {
-            color: #fff; /* Subtítulo agora é Branco/Prata */
+            color: #fff; /* Subtítulo Branco/Prata */
             font-size: 0.85rem;
             font-weight: 700;
             text-transform: uppercase;
@@ -339,7 +339,7 @@
             gap: 10px;
             background: var(--action-gradient); 
             color: white;
-            padding: 18px 40px; /* Botão um pouco maior */
+            padding: 18px 40px; 
             border-radius: 8px;
             font-weight: 800;
             text-transform: uppercase;
@@ -381,7 +381,7 @@
 
     <header>
         <div class="container">
-            <h1>A VERDADE SOBRE A SUA CONTA DE TV E STREAMING</h1>
+            <h1>A VERDADE SOBRE A SUA<br>CONTA DE TV E STREAMING</h1>
             <p>Descubra como economizar mais de <strong>R$ 4.000 por ano</strong> tendo acesso a absolutamente tudo.</p>
             <a href="#solucao" class="btn-header">
                 Ver a Solução <i class="fas fa-arrow-down"></i>
@@ -428,12 +428,15 @@
     <section style="background-color: var(--bg-section); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
         <div class="container" style="text-align: center;">
             <i class="fas fa-exchange-alt text-gold" style="font-size: 2rem; margin-bottom: 20px;"></i>
-            <h2 style="font-size: 1.8rem; margin-bottom: 10px; color: #fff; background: none; -webkit-text-fill-color: initial;">Existe um jeito mais inteligente.</h2>
+            
+            <h2 class="text-gold" style="font-size: 1.8rem; margin-bottom: 10px;">Existe um jeito mais inteligente.</h2>
+            
             <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto 20px auto; font-size: 1.1rem;">
                 Você não precisa cancelar os serviços que ama. <br>
                 Você só precisa trocar a forma como acessa eles.
             </p>
-            <h2 class="text-gold" style="font-size: 2.5rem; text-transform: uppercase; letter-spacing: 2px;">Apresentamos a EFLIXTV</h2>
+            
+            <h2 style="font-size: 2.5rem; text-transform: uppercase; letter-spacing: 2px; color: #fff; text-shadow: 0 0 15px rgba(255,255,255,0.3);">Apresentamos a EFLIXTV</h2>
         </div>
     </section>
 
