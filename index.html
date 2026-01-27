@@ -422,4 +422,470 @@
         .pain-col {
             background: rgba(255, 255, 255, 0.03); 
             color: var(--text-secondary); 
-            font-weight: 500
+            font-weight: 500; 
+        }
+
+        .highlight-col { 
+            background: var(--bg-gain-light); 
+            background-image: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800; 
+        }
+
+        /* --- BOTÃO DE AÇÃO --- */
+        .btn-header {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: var(--action-gradient); 
+            color: white;
+            padding: 18px 40px; 
+            border-radius: 8px;
+            font-weight: 800;
+            text-transform: uppercase;
+            text-decoration: none;
+            letter-spacing: 1px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px var(--action-shadow); 
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .btn-header:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(16, 185, 129, 0.5); filter: brightness(1.1); }
+
+        .visitor-counter {
+            margin-bottom: 10px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            display: inline-block;
+            background: rgba(255,255,255,0.05);
+            padding: 5px 15px;
+            border-radius: 50px;
+            border: 1px solid var(--border-color);
+        }
+        .visitor-counter span {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+
+        footer { text-align: center; padding: 30px 0; color: var(--text-secondary); font-size: 0.85rem; margin-top: 20px; border-top: 1px solid var(--border-color); }
+
+        /* --- RESPONSIVIDADE (MOBILE) --- */
+        @media (max-width: 768px) {
+            h1, h2 { font-size: var(--font-size-mobile); }
+            .features-grid { grid-template-columns: 1fr; }
+            section { padding: 40px 0; }
+            
+            .plan-cols { padding: 15px 5px; }
+            .val-equiv, .val-promo { font-size: 1rem; }
+            
+            /* Ajuste para selos em mobile */
+            .plan-header { flex-direction: column; align-items: flex-start; }
+            .badge-inline { margin-top: 5px; align-self: flex-start; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>A VERDADE SOBRE A SUA<br>CONTA DE TV E STREAMING</h1>
+            <p>Descubra como economizar mais de <strong>R$ 4.000 por ano</strong> tendo acesso a absolutamente tudo.</p>
+            <a href="#solucao" class="btn-header">
+                Ver a Solução <i class="fas fa-arrow-down"></i>
+            </a>
+        </div>
+    </header>
+
+    <section>
+        <div class="container">
+            <div class="section-title">
+                <h2 class="text-gold">A Armadilha das Assinaturas</h2>
+                <span>Veja quanto você perde</span>
+            </div>
+
+            <div class="problem-grid">
+                <div>
+                    <div class="card" style="border-color: var(--border-color);">
+                        <h4 style="margin-bottom: 15px; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; font-size: 1rem; color: #fff;">Seus Custos Mensais:</h4>
+                        <div class="cost-row"><span>TV a Cabo</span> <span class="cost-price">R$ 109,90</span></div>
+                        <div class="cost-row"><span>Netflix</span> <span class="cost-price">R$ 44,90</span></div>
+                        <div class="cost-row"><span>Globoplay</span> <span class="cost-price">R$ 29,90</span></div>
+                        <div class="cost-row"><span>Prime Video</span> <span class="cost-price">R$ 19,90</span></div>
+                        <div class="cost-row"><span>Premiere</span> <span class="cost-price">R$ 59,90</span></div>
+                        <div class="cost-row"><span>Disney+/Star+</span> <span class="cost-price">R$ 43,90</span></div>
+                        <div class="cost-row"><span>Combate</span> <span class="cost-price">R$ 34,90</span></div>
+                        
+                        <div class="cost-row" style="border-top: 1px solid var(--border-color); margin-top: 10px; padding-top: 15px; border-bottom: none;">
+                            <span style="color: #fff;">TOTAL POR MÊS</span> 
+                            <span class="cost-price" style="font-size: 1.1rem; color: #fff;">R$ 343,30</span>
+                        </div>
+                    </div>
+                </div>
+                <div style="display: flex; flex-direction: column; justify-content: center;">
+                    <div class="total-box">
+                        <h3 style="color: var(--text-secondary); font-size: 1.2rem; margin-bottom: 5px;">TOTAL ANUAL DESPERDIÇADO</h3>
+                        <p style="font-size: 2.5rem; font-weight: 700; color: #fff; letter-spacing: -1px;">R$ 4.120,00</p>
+                        <p style="font-size: 0.9rem; margin-top: 5px; font-weight: 400; color: var(--text-secondary);">Dava para comprar uma moto ou viajar nas férias.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="background-color: var(--bg-section); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+        <div class="container" style="text-align: center;">
+            <i class="fas fa-exchange-alt text-gold" style="font-size: 2rem; margin-bottom: 20px;"></i>
+            
+            <h2 class="text-gold" style="margin-bottom: 10px;">Existe um jeito mais inteligente.</h2>
+            
+            <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto 20px auto; font-size: 1.1rem;">
+                Você não precisa cancelar os serviços que ama. <br>
+                Você só precisa trocar a forma como acessa eles.
+            </p>
+            
+            <h2 style="color: #fff; background: none; -webkit-text-fill-color: initial; text-shadow: 0 0 15px rgba(255,255,255,0.3);">Apresentamos a EFLIXTV</h2>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="section-title">
+                <h2>Para quem serve esse conteúdo?</h2>
+            </div>
+            <div class="audience-grid">
+                <div class="audience-item">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <p>Para quem está cansado de pagar caro em faturas de TV e Streaming.</p>
+                </div>
+                <div class="audience-item">
+                    <i class="fas fa-tv"></i>
+                    <p>Para quem possui Smart TV, Tablet, TV Box e Smartphone.</p>
+                </div>
+                <div class="audience-item">
+                    <i class="fas fa-futbol"></i>
+                    <p>Para quem não quer perder nenhum jogo do seu time, filme ou série.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="background-color: var(--bg-section);">
+        <div class="container">
+            <div class="section-title">
+                <span>Tudo incluso no nosso App</span>
+                <h2>O Que Você Leva com a EFLIXTV?</h2>
+            </div>
+            
+            <div class="features-grid">
+                
+                <div class="feature-item">
+                    <div class="feature-header">
+                        <i class="fas fa-tv feature-icon"></i>
+                        <h4>TV Ao Vivo (+2.000)</h4>
+                    </div>
+                    <p class="brand-list">
+                        <span>Abertos:</span> Globo, SBT, Record, Band.<br>
+                        <span>Canais:</span> GloboNews, CNN, Viva, Multishow, HBO, Telecine, Discovery.
+                    </p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-header">
+                        <i class="fas fa-play-circle feature-icon"></i>
+                        <h4>Super Streamings</h4>
+                    </div>
+                    <p class="brand-list">
+                        Catálogo completo incluso:<br>
+                        <span>Netflix</span> • <span>Prime Video</span> • <span>Globoplay</span> • <span>Apple TV+</span> • <span>HBO Max</span> • <span>Disney+</span>
+                    </p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-header">
+                        <i class="fas fa-futbol feature-icon"></i>
+                        <h4>Esportes Liberados</h4>
+                    </div>
+                    <p class="brand-list">
+                        <span>Futebol:</span> Premiere (Séries A e B), Libertadores.<br>
+                        <span>Mundo:</span> Champions, Premier League, NBA, F1, UFC (Combate).
+                    </p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-header">
+                        <i class="fas fa-child feature-icon"></i>
+                        <h4>Kids & Família</h4>
+                    </div>
+                    <p class="brand-list">
+                        Cartoon Network, Nick, Gloob, Discovery Kids.<br>Filmes Disney/Pixar sob demanda.
+                    </p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-header">
+                         <i class="fas fa-lock feature-icon"></i>
+                        <h4>Adultos (+18)</h4>
+                    </div>
+                    <p class="brand-list">
+                        Conteúdo opcional com <span>Controle dos Pais</span> (senha). Discrição total e canais exclusivos.
+                    </p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-header">
+                        <i class="fas fa-star feature-icon"></i>
+                        <h4>Qualidade Cinema 4K</h4>
+                    </div>
+                    <p class="brand-list">
+                        Imagem em <span>UHD e Full HD</span> sem travamentos. Servidores estáveis e atualizados diariamente.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="solucao" class="solution-section">
+        <div class="container" style="text-align: center;">
+            <div class="section-title">
+                <span>Oferta Especial</span>
+                <h2>Escolha seu Plano</h2>
+            </div>
+            
+            <p style="max-width: 600px; margin: 0 auto 30px auto; color: var(--text-secondary); font-size: 1rem;">
+                Tudo o que você viu acima, por um preço que cabe no seu bolso.
+            </p>
+
+            <div class="plan-wrapper">
+                
+                <div class="plan-row">
+                    <div class="plan-header">
+                        <div class="header-content">
+                            <h3 class="plan-title-block">
+                                <span class="text-gold">MENSAL</span>
+                            </h3>
+                            <span class="duration-label">(1 Mês de acesso)</span>
+                        </div>
+                    </div>
+                    <div class="plan-cols">
+                        <div class="plan-col">
+                            <span class="col-label">Total</span>
+                            <span class="val-total" style="text-decoration: none; color: var(--text-secondary);">-</span>
+                        </div>
+                        <div class="vertical-divider"></div>
+                        <div class="plan-col">
+                            <span class="col-label">Promocional</span>
+                            <span class="val-promo">R$ 35</span>
+                        </div>
+                        <div class="vertical-divider"></div>
+                        <div class="plan-col">
+                            <span class="col-label">Equivalente à</span>
+                            <span class="val-equiv">R$ 35<small>/mês</small></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="plan-row">
+                    <div class="plan-header">
+                        <div class="header-content">
+                            <h3 class="plan-title-block">
+                                <span class="text-gold">BIMESTRAL</span> 
+                                <span class="divider-char">|</span> 
+                                <span class="plan-savings">Economize R$ 10</span>
+                            </h3>
+                            <span class="duration-label">(2 Meses de acesso)</span>
+                        </div>
+                    </div>
+                    <div class="plan-cols">
+                        <div class="plan-col">
+                            <span class="col-label">Total</span>
+                            <span class="val-total">R$ 70</span>
+                        </div>
+                        <div class="vertical-divider"></div>
+                        <div class="plan-col">
+                            <span class="col-label">Promocional</span>
+                            <span class="val-promo">R$ 60</span>
+                        </div>
+                        <div class="vertical-divider"></div>
+                        <div class="plan-col">
+                            <span class="col-label">Equivalente à</span>
+                            <span class="val-equiv">R$ 30<small>/mês</small></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="plan-row">
+                    <div class="plan-header">
+                        <div class="header-content">
+                            <h3 class="plan-title-block">
+                                <span class="text-gold">QUADRIMESTRAL</span> 
+                                <span class="divider-char">|</span> 
+                                <span class="plan-savings">Economize R$ 30</span>
+                            </h3>
+                            <span class="duration-label">(4 Meses de acesso)</span>
+                        </div>
+                        <div class="badge-inline">MAIS ESCOLHIDO</div>
+                    </div>
+                    <div class="plan-cols">
+                        <div class="plan-col">
+                            <span class="col-label">Total</span>
+                            <span class="val-total">R$ 140</span>
+                        </div>
+                        <div class="vertical-divider"></div>
+                        <div class="plan-col">
+                            <span class="col-label">Promocional</span>
+                            <span class="val-promo">R$ 110</span>
+                        </div>
+                        <div class="vertical-divider"></div>
+                        <div class="plan-col">
+                            <span class="col-label">Equivalente à</span>
+                            <span class="val-equiv">R$ 27,50<small>/mês</small></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="plan-row">
+                    <div class="plan-header">
+                        <div class="header-content">
+                            <h3 class="plan-title-block">
+                                <span class="text-gold">SEMESTRAL</span> 
+                                <span class="divider-char">|</span> 
+                                <span class="plan-savings">Economize R$ 60</span>
+                            </h3>
+                            <span class="duration-label">(6 Meses de acesso)</span>
+                        </div>
+                    </div>
+                    <div class="plan-cols">
+                        <div class="plan-col">
+                            <span class="col-label">Total</span>
+                            <span class="val-total">R$ 210</span>
+                        </div>
+                        <div class="vertical-divider"></div>
+                        <div class="plan-col">
+                            <span class="col-label">Promocional</span>
+                            <span class="val-promo">R$ 150</span>
+                        </div>
+                        <div class="vertical-divider"></div>
+                        <div class="plan-col">
+                            <span class="col-label">Equivalente à</span>
+                            <span class="val-equiv">R$ 25<small>/mês</small></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="plan-row">
+                    <div class="plan-header">
+                        <div class="header-content">
+                            <h3 class="plan-title-block">
+                                <span class="text-gold">ANUAL</span> 
+                                <span class="divider-char">|</span> 
+                                <span class="plan-savings">Economize R$ 180</span>
+                            </h3>
+                            <span class="duration-label">(12 Meses de acesso)</span>
+                        </div>
+                        <div class="badge-inline">MELHOR OPÇÃO</div>
+                    </div>
+                    
+                    <div class="plan-cols">
+                        <div class="plan-col">
+                            <span class="col-label">Total</span>
+                            <span class="val-total">R$ 420</span>
+                        </div>
+                        <div class="vertical-divider"></div>
+                        <div class="plan-col">
+                            <span class="col-label">Promocional</span>
+                            <span class="val-promo">R$ 240</span>
+                        </div>
+                        <div class="vertical-divider"></div>
+                        <div class="plan-col">
+                            <span class="col-label">Equivalente à</span>
+                            <span class="val-equiv">R$ 20<small>/mês</small></span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section style="background-color: #0b1120;">
+        <div class="container">
+            <div class="comparison-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="text-align: left;">Recurso</th>
+                            <th class="pain-col">TRADICIONAL</th>
+                            <th class="highlight-col">EFLIXTV</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="text-align: left; font-weight: 600;">Custo Mensal</td>
+                            <td class="pain-col">± R$ 350,00</td>
+                            <td class="highlight-col">A partir de R$ 20,00</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left; font-weight: 600;">Streamings</td>
+                            <td class="pain-col">Pagos à parte</td>
+                            <td class="highlight-col">Tudo Incluso</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left; font-weight: 600;">Instalação</td>
+                            <td class="pain-col">Cabos/Furos</td>
+                            <td class="highlight-col">App (5 min)</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left; font-weight: 600;">Fidelidade</td>
+                            <td class="pain-col">12 Meses</td>
+                            <td class="highlight-col">Sem Fidelidade</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card" style="margin-top: 30px; text-align: center; border-color: var(--gold-base); padding: 40px 20px;">
+                <h3 style="color: #fff; font-size: 1.5rem;">🔥 TESTE DE 3 HORAS GRÁTIS 🔥</h3>
+                <p style="color: var(--text-secondary); margin: 15px 0 25px 0; font-size: 1rem;">
+                    Não cobramos nada adiantado. Liberamos o sinal, você testa a qualidade na sua TV e só assina se gostar.
+                </p>
+                
+                <a href="https://wa.me/5585992780931?text=Ol%C3%A1%2C%20vi%20o%20site%20e%20quero%20o%20teste%20gr%C3%A1tis%20de%203%20horas." class="btn-header" target="_blank">
+                    <i class="fab fa-whatsapp" style="font-size: 1.3rem;"></i>
+                    PEDIR TESTE GRÁTIS
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="visitor-counter">
+                Visitas ao site: <span id="visit-count">...</span>
+            </div>
+            
+            <p style="margin-top: 10px;">&copy; 2020-2026 EFLIXTV | Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        const counterElement = document.getElementById('visit-count');
+        const numeroInicial = 534; 
+        
+        fetch('https://api.counterapi.dev/v1/eflixtv-eron/visits/up')
+            .then(response => response.json())
+            .then(data => {
+                const total = numeroInicial + data.count;
+                counterElement.innerText = total.toLocaleString('pt-BR');
+            })
+            .catch(err => {
+                console.error("Erro ao carregar contador:", err);
+                counterElement.innerText = (numeroInicial + 25).toLocaleString('pt-BR'); 
+            });
+    </script>
+
+</body>
+</html>
