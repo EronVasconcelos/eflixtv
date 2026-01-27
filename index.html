@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart TV | Economia Inteligente</title>
+    <title>EFLIXTV | Seu Mundo de Entretenimento</title>
     
     <link rel="icon" type="image/png" href="favicon.webp">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://eronvasconcelos.github.io/eflixtv">
-    <meta property="og:title" content="🔥 EFLIXTV: Tudo Liberado por R$ 20,00">
+    <meta property="og:title" content="🔥 EFLIXTV: Tudo Liberado a partir de R$ 20,00/mês">
     <meta property="og:description" content="Pare de pagar caro em TV a cabo e Streamings. Teste grátis agora!">
     <meta property="og:image" content="https://eronvasconcelos.github.io/eflixtv/capa-zap.webp">
 
@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
-        /* --- ESTILOS COMPACTOS --- */
+        /* --- ESTILOS GERAIS --- */
         :root {
             /* --- FUNDO AZUL MARINHO (PREMIUM) --- */
             --bg-dark: #0f172a;      
@@ -31,23 +31,31 @@
             --text-primary: #f8fafc; 
             --text-secondary: #94a3b8; 
             
-            /* --- SISTEMA DE CORES REFINADO --- */
+            /* --- PALETA DOURADA --- */
+            --color-pain: #cbd5e1; 
+            --bg-pain-light: rgba(148, 163, 184, 0.1); 
             
-            /* 1. VERMELHO (DOR/CUSTO) */
-            --color-pain: #ef4444; 
-            --bg-pain-light: rgba(239, 68, 68, 0.1);
+            --gold-base: #d4af37; 
+            --gold-light: #fceabb; 
+            --gold-dark: #996515; 
             
-            /* 2. AZUL CIANO / PRIME VIDEO (Positivo/Ganho) */
-            --color-gain: #00A8E1; 
-            --bg-gain-light: rgba(0, 168, 225, 0.15); 
+            /* DEGRADÊ DIAGONAL INVERTIDO (135deg) */
+            --gold-gradient: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
 
-            /* 3. VERDE (EXCLUSIVO PARA BOTÕES/AÇÃO) */
+            --color-gain: var(--gold-base); 
+            --bg-gain-light: rgba(212, 175, 55, 0.1); 
+            --gain-glow: rgba(212, 175, 55, 0.3); 
+
+            /* --- AÇÃO --- */
             --action-btn-color: #10b981;
             --action-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%); 
-            --action-shadow: rgba(16, 185, 129, 0.4);
+            --action-shadow: rgba(16, 185, 129, 0.3);
 
-            /* 4. AZUL MARCA (Ícones gerais e títulos) */
-            --brand-blue: #00A8E1; 
+            --brand-color: var(--gold-base); 
+            
+            /* --- CONTROLE DE TAMANHOS --- */
+            --font-size-standard: 3rem;
+            --font-size-mobile: 6.5vw;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -61,12 +69,20 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        h1, h2, h3, h4 {
+        /* --- PADRONIZAÇÃO DE TÍTULOS --- */
+        h1, h2 {
             font-family: 'Roboto', sans-serif;
             font-weight: 900;
-            line-height: 1.1;
+            line-height: 1.1; 
             text-transform: uppercase;
-            letter-spacing: -0.5px;
+            letter-spacing: -1px;
+            font-size: var(--font-size-standard); 
+        }
+        
+        h3, h4 {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
         }
 
         strong { color: #fff; font-weight: 700; }
@@ -77,20 +93,31 @@
             padding: 0 15px;
         }
 
+        /* CLASSE DE OURO GLOBAL */
+        .text-gold, 
+        .gold-effect {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: var(--gold-base); 
+            text-shadow: 0px 2px 10px rgba(0,0,0,0.3); 
+            font-weight: 700; 
+        }
+
         /* --- HERO --- */
         header {
-            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.9), var(--bg-dark)), 
+            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.95), var(--bg-dark)), 
                         url('https://images.unsplash.com/photo-1593784697778-27e049f20191?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
-            padding: 60px 0 40px 0;
+            padding: 70px 0 50px 0;
             text-align: center;
         }
 
         header h1 {
-            font-size: 2.2rem;
-            margin-bottom: 15px;
-            background: -webkit-linear-gradient(#fff, #cbd5e1);
+            margin-bottom: 20px;
+            background: var(--gold-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -99,31 +126,31 @@
             font-size: 1.1rem;
             color: var(--text-secondary);
             max-width: 700px;
-            margin: 0 auto 25px auto;
+            margin: 0 auto 30px auto;
             font-weight: 400;
         }
 
-        /* --- SEÇÕES GERAIS --- */
-        section {
-            padding: 50px 0;
-        }
+        /* --- SEÇÕES --- */
+        section { padding: 50px 0; }
 
-        .section-title {
-            text-align: center;
-            margin-bottom: 35px;
-        }
+        .section-title { text-align: center; margin-bottom: 40px; }
         
         .section-title span {
-            color: var(--brand-blue); 
+            color: #fff; 
             font-size: 0.85rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            display: block;
-            margin-bottom: 8px;
+            letter-spacing: 2px;
+            display: inline-block;
+            margin-bottom: 5px;
+            opacity: 0.8;
         }
 
-        .section-title h2 { font-size: 2rem; }
+        .section-title h2 { 
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
         /* --- CARDS --- */
         .card {
@@ -134,7 +161,7 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
-        /* --- SEÇÃO DA DOR (VERMELHO) --- */
+        /* --- PROBLEM GRID --- */
         .problem-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -146,24 +173,24 @@
             justify-content: space-between;
             align-items: center;
             padding: 10px 0;
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
             font-size: 0.95rem;
             font-weight: 500;
+            color: var(--text-secondary);
         }
-        .cost-row:last-child { border-bottom: none; }
         
         .cost-price { font-weight: 700; color: var(--color-pain); }
 
         .total-box {
             text-align: center;
             background: var(--bg-pain-light); 
-            border: 1px solid rgba(239, 68, 68, 0.3);
+            border: 1px solid var(--border-color);
             padding: 20px;
             border-radius: 12px;
             margin-top: 15px;
         }
 
-        /* --- PARA QUEM SERVE --- */
+        /* --- AUDIENCE GRID --- */
         .audience-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -175,11 +202,13 @@
             background: var(--bg-card);
             padding: 20px;
             border-radius: 12px;
-            border-left: 5px solid var(--brand-blue); 
+            border-left: 4px solid var(--gold-base); 
         }
         .audience-item i {
             font-size: 1.8rem;
-            color: var(--brand-blue); 
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             margin-right: 15px;
         }
         .audience-item p {
@@ -189,100 +218,110 @@
             margin: 0;
         }
 
-        /* --- SOLUÇÃO (CIANO / PRIME BLUE) --- */
+        /* --- SOLUÇÃO (GRID DE PLANOS) --- */
         .solution-section {
             background: linear-gradient(180deg, var(--bg-dark) 0%, #0b1120 100%);
             border-top: 1px solid var(--border-color);
             border-bottom: 1px solid var(--border-color);
-            padding: 40px 0;
+            padding: 50px 0;
         }
 
-        .price-display {
-            font-size: 3.5rem;
-            font-weight: 700;
-            color: var(--color-gain); 
-            line-height: 1;
-            margin: 10px 0 5px 0;
-            letter-spacing: -1px;
-            text-shadow: 0 0 25px rgba(0, 168, 225, 0.3);
+        /* Layout do Card de Planos */
+        .plan-wrapper {
+            max-width: 600px;
+            margin: 0 auto;
         }
-        .price-display small { font-size: 1rem; color: var(--text-secondary); font-weight: 400; letter-spacing: normal; text-shadow: none; }
 
-        .plan-tag {
-            background: var(--bg-gain-light); 
-            color: var(--color-gain); 
-            font-size: 0.75rem;
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-weight: 700;
+        .plan-row {
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+        .plan-row:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+        .plan-title {
+            text-align: left;
+            font-size: 1.1rem;
+            margin-bottom: 12px;
             text-transform: uppercase;
-            display: inline-block;
-            margin-bottom: 5px;
-            border: 1px solid rgba(0, 168, 225, 0.4); 
+        }
+        
+        /* Grid de 3 Colunas com divisor */
+        .plan-cols {
+            display: grid;
+            /* 1fr (col) 1px (linha) 1fr (col) 1px (linha) 1fr (col) */
+            grid-template-columns: 1fr 1px 1fr 1px 1fr; 
+            align-items: center;
+            background: rgba(0,0,0,0.2);
+            border-radius: 8px;
+            padding: 10px;
         }
 
-        /* --- NOVO ESTILO DA TABELA DE PREÇOS (3 COLUNAS) --- */
-        .pricing-list {
-            margin-top: 25px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 15px;
-        }
-
-        .pricing-header-row {
+        .plan-col {
+            text-align: center;
             display: flex;
-            justify-content: space-between;
-            font-size: 0.75rem;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .col-label {
+            font-size: 0.7rem;
             text-transform: uppercase;
             color: var(--text-secondary);
-            font-weight: 700;
-            margin-bottom: 10px;
-            padding: 0 5px;
+            margin-bottom: 2px;
+            letter-spacing: 0.5px;
         }
-        
-        .pricing-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+
+        .vertical-divider {
+            width: 1px;
+            height: 80%; /* Altura da linha separadora */
+            background-color: var(--border-color);
+            margin: 0 auto;
+        }
+
+        /* Estilos dos Valores */
+        .val-total {
+            text-decoration: line-through;
+            color: #64748b; /* Cinza apagado */
             font-size: 0.9rem;
-            padding: 8px 5px;
-            border-bottom: 1px dashed rgba(255,255,255,0.1);
-        }
-        .pricing-item:last-child { border-bottom: none; }
-
-        /* Colunas de Preço */
-        .col-price { flex: 1; text-align: center; position: relative; }
-        
-        /* Divisor Vertical (|) */
-        .col-price:not(:last-child)::after {
-            content: '|';
-            position: absolute;
-            right: 0;
-            top: 0;
-            color: #334155;
-            font-weight: 300;
-        }
-
-        /* Estilos Específicos das Colunas */
-        .val-total { 
-            color: var(--color-pain); /* Vermelho */
-            text-decoration: line-through; 
-            font-size: 0.85rem;
-            opacity: 0.8;
-        }
-        
-        .val-promo { 
-            color: var(--color-gain); /* Azul Ciano */
-            font-weight: 700;
-            font-size: 1rem;
-        }
-        
-        .val-equiv { 
-            color: #fff; /* Branco */
             font-weight: 500;
-            font-size: 0.9rem;
         }
-        .val-equiv small { font-size: 0.75rem; color: #aaa; }
 
+        .val-promo {
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .val-equiv {
+            font-weight: 900;
+            font-size: 1.2rem;
+            /* Aplicando o Ouro Gradiente no Equivalente */
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .val-equiv small {
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            -webkit-text-fill-color: var(--text-secondary);
+            font-weight: 400;
+        }
+
+        /* Tag de destaque para o Anual */
+        .best-value-tag {
+            background: var(--bg-gain-light);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 4px;
+            font-size: 0.65rem;
+            padding: 2px 8px;
+            margin-left: 10px;
+            vertical-align: middle;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--gold-base);
+        }
 
         /* --- FEATURES GRID --- */
         .features-grid {
@@ -298,24 +337,27 @@
             border-radius: 12px;
             border: 1px solid transparent;
             height: 100%;
-            transition: transform 0.2s;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
         
         .feature-item:hover {
-            border-color: rgba(0, 168, 225, 0.5); 
+            border-color: rgba(212, 175, 55, 0.3); 
             transform: translateY(-5px);
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
         }
 
         .feature-header {
             display: flex;
-            align-items: center;
+            align-items: center; 
             gap: 15px; 
             margin-bottom: 12px; 
         }
         
         .feature-icon { 
             font-size: 1.8rem; 
-            color: var(--brand-blue); 
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             margin-bottom: 0; 
         }
         
@@ -328,9 +370,9 @@
         }
         
         .brand-list { margin-top: 5px; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5; }
-        .brand-list span { color: #fff; font-weight: 600; }
+        .brand-list span { color: #e2e8f0; font-weight: 600; }
 
-        /* --- TABELA COMPARATIVA E CTA --- */
+        /* --- TABELA COMPARATIVA --- */
         .comparison-wrapper { overflow-x: auto; border-radius: 12px; border: 1px solid var(--border-color); }
         table { width: 100%; border-collapse: collapse; background: var(--bg-card); }
         th, td { padding: 15px; text-align: center; border-bottom: 1px solid var(--border-color); font-size: 0.95rem; }
@@ -338,17 +380,20 @@
         th { background: #0b1120; color: #fff; font-weight: 700; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.5px; }
         
         .pain-col {
-            background: var(--bg-pain-light); 
-            color: var(--color-pain); 
-            font-weight: 700; 
+            background: rgba(255, 255, 255, 0.03); 
+            color: var(--text-secondary); 
+            font-weight: 500; 
         }
 
         .highlight-col { 
             background: var(--bg-gain-light); 
-            color: var(--color-gain); 
-            font-weight: 700; 
+            background-image: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800; 
         }
 
+        /* --- BOTÃO DE AÇÃO --- */
         .btn-header {
             display: inline-flex;
             align-items: center;
@@ -356,17 +401,18 @@
             gap: 10px;
             background: var(--action-gradient); 
             color: white;
-            padding: 16px 35px;
+            padding: 18px 40px; 
             border-radius: 8px;
-            font-weight: 700;
+            font-weight: 800;
             text-transform: uppercase;
             text-decoration: none;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
             font-size: 1rem;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px var(--action-shadow); 
+            border: 1px solid rgba(255,255,255,0.1);
         }
-        .btn-header:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(16, 185, 129, 0.6); }
+        .btn-header:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(16, 185, 129, 0.5); filter: brightness(1.1); }
 
         .visitor-counter {
             margin-bottom: 10px;
@@ -379,17 +425,23 @@
             border: 1px solid var(--border-color);
         }
         .visitor-counter span {
-            color: var(--color-gain); 
-            font-weight: 700;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
         }
 
         footer { text-align: center; padding: 30px 0; color: var(--text-secondary); font-size: 0.85rem; margin-top: 20px; border-top: 1px solid var(--border-color); }
 
+        /* --- RESPONSIVIDADE (MOBILE) --- */
         @media (max-width: 768px) {
-            header h1 { font-size: 1.8rem; }
-            .price-display { font-size: 2.8rem; }
+            h1, h2 { font-size: var(--font-size-mobile); }
             .features-grid { grid-template-columns: 1fr; }
             section { padding: 40px 0; }
+            
+            /* Ajuste para as colunas não ficarem espremidas no mobile */
+            .plan-cols { padding: 15px 5px; }
+            .val-equiv { font-size: 1rem; }
         }
     </style>
 </head>
@@ -397,7 +449,7 @@
 
     <header>
         <div class="container">
-            <h1>A VERDADE SOBRE A SUA CONTA DE TV E STREAMING</h1>
+            <h1>A VERDADE SOBRE A SUA<br>CONTA DE TV E STREAMING</h1>
             <p>Descubra como economizar mais de <strong>R$ 4.000 por ano</strong> tendo acesso a absolutamente tudo.</p>
             <a href="#solucao" class="btn-header">
                 Ver a Solução <i class="fas fa-arrow-down"></i>
@@ -408,14 +460,14 @@
     <section>
         <div class="container">
             <div class="section-title">
-                <h2 style="color: #fff;">A Armadilha das Assinaturas</h2>
-                <span style="color: var(--color-pain); margin-top: 5px;">Veja quanto você perde</span>
+                <h2 class="text-gold">A Armadilha das Assinaturas</h2>
+                <span>Veja quanto você perde</span>
             </div>
 
             <div class="problem-grid">
                 <div>
-                    <div class="card" style="border-color: rgba(239, 68, 68, 0.3);">
-                        <h4 style="margin-bottom: 15px; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; font-size: 1rem;">Seus Custos Mensais:</h4>
+                    <div class="card" style="border-color: var(--border-color);">
+                        <h4 style="margin-bottom: 15px; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; font-size: 1rem; color: #fff;">Seus Custos Mensais:</h4>
                         <div class="cost-row"><span>TV a Cabo</span> <span class="cost-price">R$ 109,90</span></div>
                         <div class="cost-row"><span>Netflix</span> <span class="cost-price">R$ 44,90</span></div>
                         <div class="cost-row"><span>Globoplay</span> <span class="cost-price">R$ 29,90</span></div>
@@ -423,13 +475,18 @@
                         <div class="cost-row"><span>Premiere</span> <span class="cost-price">R$ 59,90</span></div>
                         <div class="cost-row"><span>Disney+/Star+</span> <span class="cost-price">R$ 43,90</span></div>
                         <div class="cost-row"><span>Combate</span> <span class="cost-price">R$ 34,90</span></div>
+                        
+                        <div class="cost-row" style="border-top: 1px solid var(--border-color); margin-top: 10px; padding-top: 15px; border-bottom: none;">
+                            <span style="color: #fff;">TOTAL POR MÊS</span> 
+                            <span class="cost-price" style="font-size: 1.1rem; color: #fff;">R$ 343,30</span>
+                        </div>
                     </div>
                 </div>
                 <div style="display: flex; flex-direction: column; justify-content: center;">
                     <div class="total-box">
-                        <h3 style="color: var(--color-pain); font-size: 1.2rem; margin-bottom: 5px;">TOTAL ANUAL DESPERDIÇADO</h3>
+                        <h3 style="color: var(--text-secondary); font-size: 1.2rem; margin-bottom: 5px;">TOTAL ANUAL DESPERDIÇADO</h3>
                         <p style="font-size: 2.5rem; font-weight: 700; color: #fff; letter-spacing: -1px;">R$ 4.120,00</p>
-                        <p style="font-size: 0.9rem; margin-top: 5px; font-weight: 400;">Dava para comprar uma moto ou viajar nas férias.</p>
+                        <p style="font-size: 0.9rem; margin-top: 5px; font-weight: 400; color: var(--text-secondary);">Dava para comprar uma moto ou viajar nas férias.</p>
                     </div>
                 </div>
             </div>
@@ -438,13 +495,16 @@
 
     <section style="background-color: var(--bg-section); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
         <div class="container" style="text-align: center;">
-            <i class="fas fa-exchange-alt" style="font-size: 2rem; color: var(--brand-blue); margin-bottom: 20px;"></i>
-            <h2 style="font-size: 1.8rem; margin-bottom: 10px;">Existe um jeito mais inteligente.</h2>
+            <i class="fas fa-exchange-alt text-gold" style="font-size: 2rem; margin-bottom: 20px;"></i>
+            
+            <h2 class="text-gold" style="margin-bottom: 10px;">Existe um jeito mais inteligente.</h2>
+            
             <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto 20px auto; font-size: 1.1rem;">
                 Você não precisa cancelar os serviços que ama. <br>
                 Você só precisa trocar a forma como acessa eles.
             </p>
-            <h2 style="color: var(--brand-blue); font-size: 2.5rem; text-transform: uppercase; letter-spacing: 2px;">Apresentamos a EFLIXTV</h2>
+            
+            <h2 style="color: #fff; background: none; -webkit-text-fill-color: initial; text-shadow: 0 0 15px rgba(255,255,255,0.3);">Apresentamos a EFLIXTV</h2>
         </div>
     </section>
 
@@ -460,7 +520,7 @@
                 </div>
                 <div class="audience-item">
                     <i class="fas fa-tv"></i>
-                    <p>Para quem possui Smart TV (Samsung/LG/Android), TV Box ou FireStick.</p>
+                    <p>Para quem possui Smart TV, Tablet, TV Box e Smartphone.</p>
                 </div>
                 <div class="audience-item">
                     <i class="fas fa-futbol"></i>
@@ -492,18 +552,18 @@
 
                 <div class="feature-item">
                     <div class="feature-header">
-                        <i class="fas fa-play-circle feature-icon" style="color: #E50914;"></i>
+                        <i class="fas fa-play-circle feature-icon"></i>
                         <h4>Super Streamings</h4>
                     </div>
                     <p class="brand-list">
                         Catálogo completo incluso:<br>
-                        <span style="color: #E50914;">Netflix</span> • <span style="color: #00A8E1;">Prime Video</span> • <span style="color: #ff6a00;">Globoplay</span> • <span style="color: #fff;">Apple TV+</span> • <span style="color: #9146FF;">HBO Max</span> • <span style="color: #113CCF;">Disney+</span>
+                        <span>Netflix</span> • <span>Prime Video</span> • <span>Globoplay</span> • <span>Apple TV+</span> • <span>HBO Max</span> • <span>Disney+</span>
                     </p>
                 </div>
 
                 <div class="feature-item">
                     <div class="feature-header">
-                        <i class="fas fa-futbol feature-icon" style="color: #25D366;"></i>
+                        <i class="fas fa-futbol feature-icon"></i>
                         <h4>Esportes Liberados</h4>
                     </div>
                     <p class="brand-list">
@@ -514,7 +574,7 @@
 
                 <div class="feature-item">
                     <div class="feature-header">
-                        <i class="fas fa-child feature-icon" style="color: #FFD700;"></i>
+                        <i class="fas fa-child feature-icon"></i>
                         <h4>Kids & Família</h4>
                     </div>
                     <p class="brand-list">
@@ -524,7 +584,7 @@
 
                 <div class="feature-item">
                     <div class="feature-header">
-                        <i class="fas fa-lock feature-icon" style="color: #f43f5e;"></i>
+                         <i class="fas fa-lock feature-icon"></i>
                         <h4>Adultos (+18)</h4>
                     </div>
                     <p class="brand-list">
@@ -534,7 +594,7 @@
 
                 <div class="feature-item">
                     <div class="feature-header">
-                        <i class="fas fa-star feature-icon" style="color: #fbbf24;"></i>
+                        <i class="fas fa-star feature-icon"></i>
                         <h4>Qualidade Cinema 4K</h4>
                     </div>
                     <p class="brand-list">
@@ -556,39 +616,87 @@
                 Tudo o que você viu acima, por um preço que cabe no seu bolso.
             </p>
 
-            <div class="card" style="display: inline-block; border-color: var(--color-gain); background: var(--bg-gain-light); padding: 30px; width: 100%; max-width: 550px;">
+            <div class="card plan-wrapper" style="border-color: var(--gold-base); background: var(--bg-card); padding: 30px;">
                 
-                <span class="plan-tag">PLANO ANUAL (MELHOR OFERTA)</span>
-                <p style="font-size: 0.9rem; color: var(--text-secondary); text-transform: uppercase; font-weight: 600;">Planos a partir de:</p>
-                
-                <div class="price-display">
-                    R$ 20,00<small>/mês</small>
+                <div class="plan-row">
+                    <h3 class="plan-title text-gold">Mensal</h3>
+                    <div class="plan-cols">
+                        <div class="plan-col">
+                            <span class="col-label">Total</span>
+                            <span class="val-total" style="text-decoration: none; color: var(--text-secondary);">R$ 35</span>
+                        </div>
+                        <div class="vertical-divider"></div>
+                        <div class="plan-col">
+                            <span class="col-label">Promocional</span>
+                            <span class="val-promo">R$ 35</span>
+                        </div>
+                        <div class="vertical-divider"></div>
+                        <div class="plan-col">
+                            <span class="col-label">Equivalente à</span>
+                            <span class="val-equiv">R$ 35<small>/mês</small></span>
+                        </div>
+                    </div>
                 </div>
-                <p style="font-size: 0.85rem; opacity: 0.8; margin-bottom: 20px;">No pagamento anual de R$ 240,00</p>
 
-                <div class="pricing-list">
-                    <div class="pricing-header-row">
-                        <span style="flex:1; text-align:center;">Total</span>
-                        <span style="flex:1; text-align:center; color: var(--color-gain);">Promocional</span>
-                        <span style="flex:1; text-align:center;">Equivalente à</span>
+                <div class="plan-row">
+                    <h3 class="plan-title text-gold">Trimestral</h3>
+                    <div class="plan-cols">
+                        <div class="plan-col">
+                            <span class="col-label">Total</span>
+                            <span class="val-total">R$ 105</span>
+                        </div>
+                        <div class="vertical-divider"></div>
+                        <div class="plan-col">
+                            <span class="col-label">Promocional</span>
+                            <span class="val-promo">R$ 90</span>
+                        </div>
+                        <div class="vertical-divider"></div>
+                        <div class="plan-col">
+                            <span class="col-label">Equivalente à</span>
+                            <span class="val-equiv">R$ 30<small>/mês</small></span>
+                        </div>
                     </div>
+                </div>
 
-                    <div class="pricing-item">
-                        <div class="col-price val-total">R$ 70</div>
-                        <div class="col-price val-promo">R$ 60</div>
-                        <div class="col-price val-equiv">R$ 30<small>/mês</small></div>
+                <div class="plan-row">
+                    <h3 class="plan-title text-gold">Semestral</h3>
+                    <div class="plan-cols">
+                        <div class="plan-col">
+                            <span class="col-label">Total</span>
+                            <span class="val-total">R$ 210</span>
+                        </div>
+                        <div class="vertical-divider"></div>
+                        <div class="plan-col">
+                            <span class="col-label">Promocional</span>
+                            <span class="val-promo">R$ 150</span>
+                        </div>
+                        <div class="vertical-divider"></div>
+                        <div class="plan-col">
+                            <span class="col-label">Equivalente à</span>
+                            <span class="val-equiv">R$ 25<small>/mês</small></span>
+                        </div>
                     </div>
+                </div>
+
+                <div class="plan-row" style="border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 8px; padding: 15px; margin-top: 25px; background: var(--bg-gain-light);">
+                    <h3 class="plan-title text-gold" style="margin-bottom: 0;">Anual <span class="best-value-tag">MELHOR OPÇÃO</span></h3>
+                    <p style="text-align: left; font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 10px;">Economize R$ 180,00</p>
                     
-                    <div class="pricing-item">
-                        <div class="col-price val-total">R$ 140</div>
-                        <div class="col-price val-promo">R$ 110</div>
-                        <div class="col-price val-equiv">R$ 27,50<small>/mês</small></div>
-                    </div>
-
-                    <div class="pricing-item">
-                        <div class="col-price val-total">R$ 210</div>
-                        <div class="col-price val-promo">R$ 150</div>
-                        <div class="col-price val-equiv">R$ 25<small>/mês</small></div>
+                    <div class="plan-cols" style="background: rgba(0,0,0,0.3);">
+                        <div class="plan-col">
+                            <span class="col-label">Total</span>
+                            <span class="val-total">R$ 420</span>
+                        </div>
+                        <div class="vertical-divider"></div>
+                        <div class="plan-col">
+                            <span class="col-label">Promocional</span>
+                            <span class="val-promo">R$ 240</span>
+                        </div>
+                        <div class="vertical-divider"></div>
+                        <div class="plan-col">
+                            <span class="col-label">Equivalente à</span>
+                            <span class="val-equiv" style="font-size: 1.5rem;">R$ 20<small>/mês</small></span>
+                        </div>
                     </div>
                 </div>
 
@@ -632,7 +740,7 @@
                 </table>
             </div>
 
-            <div class="card" style="margin-top: 30px; text-align: center; border-color: var(--color-gain); padding: 40px 20px;">
+            <div class="card" style="margin-top: 30px; text-align: center; border-color: var(--gold-base); padding: 40px 20px;">
                 <h3 style="color: #fff; font-size: 1.5rem;">🔥 TESTE DE 3 HORAS GRÁTIS 🔥</h3>
                 <p style="color: var(--text-secondary); margin: 15px 0 25px 0; font-size: 1rem;">
                     Não cobramos nada adiantado. Liberamos o sinal, você testa a qualidade na sua TV e só assina se gostar.
