@@ -231,36 +231,32 @@
 
         /* Container de cada plano (Row) */
         .plan-row {
-            border: 1px solid rgba(255,255,255,0.08); 
-            background: transparent; /* CORRIGIDO: Removido o fundo escuro */
+            position: relative; /* Para o posicionamento absoluto do selo */
+            background: var(--bg-card); /* COR RESTAURADA AO ORIGINAL */
+            border: 1px solid var(--border-color);
             border-radius: 12px;
             padding: 20px;
             margin-bottom: 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
             transition: transform 0.2s;
         }
         
         .plan-row:hover {
-            border-color: rgba(212, 175, 55, 0.2);
+            border-color: rgba(212, 175, 55, 0.4);
+            transform: translateY(-2px);
         }
 
         /* Cabeçalho do Plano */
         .plan-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 10px;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .header-content {
-            flex: 1;
+            margin-bottom: 12px;
+            text-align: left;
+            padding-right: 10px; /* Espaço para não colar no selo em telas pequenas */
         }
 
         .plan-title-block {
             display: flex;
             align-items: center;
-            font-size: 1rem;
+            font-size: 1.1rem;
             text-transform: uppercase;
             font-weight: 700;
             flex-wrap: wrap; 
@@ -273,15 +269,15 @@
         }
 
         .plan-savings {
-            color: #e2e8f0; 
-            font-size: 0.9rem;
+            color: #fff; /* Texto da economia em Branco */
+            font-size: 1rem;
             font-weight: 500;
             text-transform: none;
         }
 
         .duration-label {
             display: block;
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             color: var(--text-secondary);
             margin-top: 4px;
             font-weight: 400;
@@ -292,9 +288,9 @@
             display: grid;
             grid-template-columns: 1fr 1px 1fr 1px 1fr; 
             align-items: center;
-            background: rgba(0,0,0,0.3);
+            background: rgba(0,0,0,0.2);
             border-radius: 8px;
-            padding: 12px 5px;
+            padding: 15px 5px;
             margin-top: 10px;
         }
 
@@ -309,7 +305,7 @@
             font-size: 0.65rem;
             text-transform: uppercase;
             color: var(--text-secondary);
-            margin-bottom: 4px;
+            margin-bottom: 5px;
             letter-spacing: 0.5px;
         }
 
@@ -324,14 +320,14 @@
         .val-total {
             text-decoration: line-through;
             color: #64748b; 
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             font-weight: 500;
         }
 
-        /* PROMO (GOLD) */
+        /* PROMO (APENAS ESTE É DOURADO) */
         .val-promo {
-            font-weight: 800;
-            font-size: 1.1rem;
+            font-weight: 900;
+            font-size: 1.2rem;
             background: var(--gold-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -341,26 +337,29 @@
         .val-equiv {
             color: #fff;
             font-weight: 700;
-            font-size: 1.1rem; 
+            font-size: 1.2rem; 
         }
         
         .val-equiv small {
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             color: var(--text-secondary);
             font-weight: 400;
         }
 
-        /* --- SELOS DENTRO DO CARD (INLINE) --- */
-        .badge-inline {
+        /* --- SELOS (BADGES) NO CANTO SUPERIOR DIREITO --- */
+        .badge-corner {
+            position: absolute;
+            top: 15px;
+            right: 15px;
             background: var(--gold-gradient);
-            color: #3f2e00; 
+            color: #3f2e00; /* Contraste escuro no fundo dourado */
             font-size: 0.7rem;
             font-weight: 800;
             text-transform: uppercase;
             padding: 5px 12px;
             border-radius: 50px;
-            white-space: nowrap;
             box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            z-index: 5;
         }
 
         /* --- FEATURES GRID --- */
@@ -480,11 +479,10 @@
             section { padding: 40px 0; }
             
             .plan-cols { padding: 15px 5px; }
-            .val-equiv, .val-promo { font-size: 1rem; }
             
-            /* Ajuste para selos em mobile */
-            .plan-header { flex-direction: column; align-items: flex-start; }
-            .badge-inline { margin-top: 5px; align-self: flex-start; }
+            /* Ajuste para selos não baterem no texto em telas pequenas */
+            .plan-header { padding-right: 0; padding-top: 25px; /* Empurra texto pra baixo */ }
+            .badge-corner { top: 10px; right: 10px; font-size: 0.65rem; }
         }
     </style>
 </head>
@@ -663,12 +661,10 @@
                 
                 <div class="plan-row">
                     <div class="plan-header">
-                        <div class="header-content">
-                            <h3 class="plan-title-block">
-                                <span class="text-gold">MENSAL</span>
-                            </h3>
-                            <span class="duration-label">(1 Mês de acesso)</span>
-                        </div>
+                        <h3 class="plan-title-block">
+                            <span class="text-gold">MENSAL</span>
+                        </h3>
+                        <span class="duration-label">(1 Mês de acesso)</span>
                     </div>
                     <div class="plan-cols">
                         <div class="plan-col">
@@ -690,14 +686,12 @@
 
                 <div class="plan-row">
                     <div class="plan-header">
-                        <div class="header-content">
-                            <h3 class="plan-title-block">
-                                <span class="text-gold">BIMESTRAL</span> 
-                                <span class="divider-char">|</span> 
-                                <span class="plan-savings">Economize R$ 10</span>
-                            </h3>
-                            <span class="duration-label">(2 Meses de acesso)</span>
-                        </div>
+                        <h3 class="plan-title-block">
+                            <span class="text-gold">BIMESTRAL</span> 
+                            <span class="divider-char">|</span> 
+                            <span class="plan-savings">Economize R$ 10</span>
+                        </h3>
+                        <span class="duration-label">(2 Meses de acesso)</span>
                     </div>
                     <div class="plan-cols">
                         <div class="plan-col">
@@ -718,16 +712,15 @@
                 </div>
 
                 <div class="plan-row">
+                    <div class="badge-corner">MAIS ESCOLHIDO</div>
+                    
                     <div class="plan-header">
-                        <div class="header-content">
-                            <h3 class="plan-title-block">
-                                <span class="text-gold">QUADRIMESTRAL</span> 
-                                <span class="divider-char">|</span> 
-                                <span class="plan-savings">Economize R$ 30</span>
-                            </h3>
-                            <span class="duration-label">(4 Meses de acesso)</span>
-                        </div>
-                        <div class="badge-inline">MAIS ESCOLHIDO</div>
+                        <h3 class="plan-title-block">
+                            <span class="text-gold">QUADRIMESTRAL</span> 
+                            <span class="divider-char">|</span> 
+                            <span class="plan-savings">Economize R$ 30</span>
+                        </h3>
+                        <span class="duration-label">(4 Meses de acesso)</span>
                     </div>
                     <div class="plan-cols">
                         <div class="plan-col">
@@ -749,14 +742,12 @@
 
                 <div class="plan-row">
                     <div class="plan-header">
-                        <div class="header-content">
-                            <h3 class="plan-title-block">
-                                <span class="text-gold">SEMESTRAL</span> 
-                                <span class="divider-char">|</span> 
-                                <span class="plan-savings">Economize R$ 60</span>
-                            </h3>
-                            <span class="duration-label">(6 Meses de acesso)</span>
-                        </div>
+                        <h3 class="plan-title-block">
+                            <span class="text-gold">SEMESTRAL</span> 
+                            <span class="divider-char">|</span> 
+                            <span class="plan-savings">Economize R$ 60</span>
+                        </h3>
+                        <span class="duration-label">(6 Meses de acesso)</span>
                     </div>
                     <div class="plan-cols">
                         <div class="plan-col">
@@ -777,16 +768,15 @@
                 </div>
 
                 <div class="plan-row">
+                    <div class="badge-corner">MELHOR OPÇÃO</div>
+                    
                     <div class="plan-header">
-                        <div class="header-content">
-                            <h3 class="plan-title-block">
-                                <span class="text-gold">ANUAL</span> 
-                                <span class="divider-char">|</span> 
-                                <span class="plan-savings">Economize R$ 180</span>
-                            </h3>
-                            <span class="duration-label">(12 Meses de acesso)</span>
-                        </div>
-                        <div class="badge-inline">MELHOR OPÇÃO</div>
+                        <h3 class="plan-title-block">
+                            <span class="text-gold">ANUAL</span> 
+                            <span class="divider-char">|</span> 
+                            <span class="plan-savings">Economize R$ 180</span>
+                        </h3>
+                        <span class="duration-label">(12 Meses de acesso)</span>
                     </div>
                     
                     <div class="plan-cols">
