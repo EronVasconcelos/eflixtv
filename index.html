@@ -36,8 +36,6 @@
             --bg-pain-light: rgba(148, 163, 184, 0.1); 
             
             --gold-base: #d4af37; 
-            --gold-light: #fceabb; 
-            --gold-dark: #996515; 
             
             /* DEGRADÊ DIAGONAL INVERTIDO (135deg) */
             --gold-gradient: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
@@ -218,7 +216,7 @@
             margin: 0;
         }
 
-        /* --- SOLUÇÃO (GRID DE PLANOS) --- */
+        /* --- SOLUÇÃO (LAYOUT DE PLANOS ATUALIZADO) --- */
         .solution-section {
             background: linear-gradient(180deg, var(--bg-dark) 0%, #0b1120 100%);
             border-top: 1px solid var(--border-color);
@@ -231,50 +229,66 @@
             margin: 0 auto;
         }
 
+        /* Container de cada plano (Row) */
         .plan-row {
-            border-bottom: 1px solid rgba(255,255,255,0.08);
-            padding-bottom: 20px;
-            margin-bottom: 20px;
+            position: relative; /* Necessário para o selo absoluto */
+            border: 1px solid rgba(255,255,255,0.08); /* Card individual leve */
+            background: rgba(255,255,255,0.02);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 25px;
+            transition: transform 0.2s;
         }
-        .plan-row:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        
+        .plan-row:hover {
+            border-color: rgba(212, 175, 55, 0.2);
+        }
 
-        /* Cabeçalho do Card (Nome + Economia) */
+        /* Cabeçalho do Plano */
         .plan-header {
+            margin-bottom: 10px;
+            text-align: left;
+        }
+
+        .plan-title-block {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            margin-bottom: 12px;
-        }
-
-        .plan-name {
-            font-size: 1.1rem;
+            font-size: 1rem;
             text-transform: uppercase;
+            font-weight: 700;
+            flex-wrap: wrap; /* Garante quebra em telas muito pequenas */
+        }
+        
+        .divider-char {
+            margin: 0 10px;
+            color: var(--border-color);
+            font-weight: 300;
         }
 
-        .savings-tag {
-            font-size: 0.75rem;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            color: var(--text-secondary);
-            padding: 3px 10px;
-            border-radius: 20px;
+        .plan-savings {
+            color: #e2e8f0; /* Branco/Cinza claro */
+            font-size: 0.9rem;
             font-weight: 500;
         }
-        
-        .savings-tag.highlight {
-            border-color: rgba(212, 175, 55, 0.4);
-            color: #fff;
-            background: var(--bg-gain-light);
+
+        .duration-label {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-top: 4px;
+            font-weight: 400;
+            text-transform: none; /* "Meses" minúsculo fica mais limpo */
         }
-        
-        /* Grid de 3 Colunas */
+
+        /* Grid de 3 Colunas com divisor */
         .plan-cols {
             display: grid;
             grid-template-columns: 1fr 1px 1fr 1px 1fr; 
             align-items: center;
-            background: rgba(0,0,0,0.2);
+            background: rgba(0,0,0,0.3);
             border-radius: 8px;
-            padding: 10px;
+            padding: 12px 5px;
+            margin-top: 10px;
         }
 
         .plan-col {
@@ -299,34 +313,51 @@
             margin: 0 auto;
         }
 
-        /* Estilos dos Valores Padronizados */
+        /* Estilos dos Valores */
         .val-total {
             text-decoration: line-through;
             color: #64748b; 
             font-size: 0.9rem;
             font-weight: 500;
         }
-        
-        /* Aumentei a classe base para alinhar Promo e Equiv */
-        .val-promo {
-            color: #fff;
-            font-weight: 700;
-            font-size: 1.1rem; /* Tamanho Padronizado */
-        }
 
-        .val-equiv {
-            font-weight: 900;
-            font-size: 1.1rem; /* Tamanho Padronizado (Igual Promo) */
+        /* PROMO AGORA TEM O DOURADO */
+        .val-promo {
+            font-weight: 800;
+            font-size: 1.1rem;
             background: var(--gold-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+        }
+
+        /* EQUIVALENTE AGORA É BRANCO/CINZA */
+        .val-equiv {
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.1rem; /* Mesmo tamanho do promo */
         }
         
         .val-equiv small {
             font-size: 0.7rem;
             color: var(--text-secondary);
-            -webkit-text-fill-color: var(--text-secondary);
             font-weight: 400;
+        }
+
+        /* --- SELOS (BADGES) --- */
+        .badge-corner {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: var(--gold-gradient);
+            color: #3f2e00; /* Texto escuro para contraste no ouro */
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            padding: 5px 12px;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            z-index: 10;
+            letter-spacing: 0.5px;
         }
 
         /* --- FEATURES GRID --- */
@@ -621,12 +652,15 @@
                 Tudo o que você viu acima, por um preço que cabe no seu bolso.
             </p>
 
-            <div class="card plan-wrapper" style="border-color: var(--gold-base); background: var(--bg-card); padding: 30px;">
+            <div class="plan-wrapper">
                 
                 <div class="plan-row">
                     <div class="plan-header">
-                        <h3 class="plan-name text-gold">Mensal</h3>
-                        </div>
+                        <h3 class="plan-title-block">
+                            <span class="text-gold">MENSAL</span>
+                        </h3>
+                        <span class="duration-label">(1 Mês de acesso)</span>
+                    </div>
                     <div class="plan-cols">
                         <div class="plan-col">
                             <span class="col-label">Total</span>
@@ -647,8 +681,12 @@
 
                 <div class="plan-row">
                     <div class="plan-header">
-                        <h3 class="plan-name text-gold">Bimestral</h3>
-                        <span class="savings-tag">Economize R$ 10</span>
+                        <h3 class="plan-title-block">
+                            <span class="text-gold">BIMESTRAL</span> 
+                            <span class="divider-char">|</span> 
+                            <span class="plan-savings">Economize R$ 10</span>
+                        </h3>
+                        <span class="duration-label">(2 Meses de acesso)</span>
                     </div>
                     <div class="plan-cols">
                         <div class="plan-col">
@@ -669,9 +707,15 @@
                 </div>
 
                 <div class="plan-row">
+                    <div class="badge-corner">MAIS ESCOLHIDO</div>
+                    
                     <div class="plan-header">
-                        <h3 class="plan-name text-gold">Quadrimestral</h3>
-                        <span class="savings-tag">Economize R$ 30</span>
+                        <h3 class="plan-title-block">
+                            <span class="text-gold">QUADRIMESTRAL</span> 
+                            <span class="divider-char">|</span> 
+                            <span class="plan-savings">Economize R$ 30</span>
+                        </h3>
+                        <span class="duration-label">(4 Meses de acesso)</span>
                     </div>
                     <div class="plan-cols">
                         <div class="plan-col">
@@ -693,8 +737,12 @@
 
                 <div class="plan-row">
                     <div class="plan-header">
-                        <h3 class="plan-name text-gold">Semestral</h3>
-                        <span class="savings-tag">Economize R$ 60</span>
+                        <h3 class="plan-title-block">
+                            <span class="text-gold">SEMESTRAL</span> 
+                            <span class="divider-char">|</span> 
+                            <span class="plan-savings">Economize R$ 60</span>
+                        </h3>
+                        <span class="duration-label">(6 Meses de acesso)</span>
                     </div>
                     <div class="plan-cols">
                         <div class="plan-col">
@@ -714,13 +762,19 @@
                     </div>
                 </div>
 
-                <div class="plan-row" style="border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 8px; padding: 15px; margin-top: 25px; background: var(--bg-gain-light);">
+                <div class="plan-row">
+                    <div class="badge-corner">MELHOR OPÇÃO</div>
+                    
                     <div class="plan-header">
-                        <h3 class="plan-name text-gold" style="margin-bottom: 0;">Anual</h3>
-                        <span class="savings-tag highlight">Economize R$ 180</span>
+                        <h3 class="plan-title-block">
+                            <span class="text-gold">ANUAL</span> 
+                            <span class="divider-char">|</span> 
+                            <span class="plan-savings">Economize R$ 180</span>
+                        </h3>
+                        <span class="duration-label">(12 Meses de acesso)</span>
                     </div>
                     
-                    <div class="plan-cols" style="background: rgba(0,0,0,0.3);">
+                    <div class="plan-cols">
                         <div class="plan-col">
                             <span class="col-label">Total</span>
                             <span class="val-total">R$ 420</span>
@@ -733,7 +787,7 @@
                         <div class="vertical-divider"></div>
                         <div class="plan-col">
                             <span class="col-label">Equivalente à</span>
-                            <span class="val-equiv" style="font-size: 1.3rem;">R$ 20<small>/mês</small></span>
+                            <span class="val-equiv">R$ 20<small>/mês</small></span>
                         </div>
                     </div>
                 </div>
