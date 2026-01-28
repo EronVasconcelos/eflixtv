@@ -178,7 +178,18 @@
         .p-name { 
             text-align: left; color: #fff; font-weight: 700; text-transform: uppercase; font-size: 0.9rem; 
             white-space: nowrap; /* Impede quebra de linha no nome */
+            display: flex; align-items: center; gap: 5px; /* Para o selo */
         }
+        
+        /* Novo estilo para o mini-selo */
+        .plan-badge-mini {
+            font-size: 0.65rem; /* Fonte bem pequena */
+            color: var(--gold-base); /* Cor dourada */
+            font-weight: 400; /* Sem negrito */
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
         .p-total { 
             text-align: right; text-decoration: line-through; color: #64748b; font-size: 0.85rem; font-weight: 500; 
             white-space: nowrap;
@@ -239,7 +250,8 @@
             }
 
             /* Reduz fontes para caber na linha sem quebrar */
-            .p-name { font-size: 0.75rem; }
+            .p-name { font-size: 0.75rem; flex-wrap: wrap; /* Permite que o selo quebre se necessário */ }
+            .plan-badge-mini { font-size: 0.6rem; } /* Selo ainda menor no mobile */
             .p-total { font-size: 0.7rem; letter-spacing: -0.5px; }
             .p-promo { font-size: 0.95rem; }
             .p-divider { font-size: 0.9rem; }
@@ -431,7 +443,7 @@
                 <p style="font-size: 0.85rem; opacity: 0.8; margin-bottom: 20px;">No pagamento anual de R$ 240,00</p>
 
                 <div class="pricing-list">
-                    <p class="text-gold" style="font-size: 0.8rem; margin-bottom: 10px; text-transform: uppercase;">pacotes disponíveis:</p>
+                    <p class="text-gold" style="font-size: 0.8rem; margin-bottom: 10px; text-transform: uppercase;">Outras opções disponíveis:</p>
                     
                     <div class="pricing-row">
                         <div class="p-name">1 Mês</div>
@@ -450,7 +462,10 @@
                     </div>
 
                     <div class="pricing-row">
-                        <div class="p-name">4 Meses</div>
+                        <div class="p-name">
+                            4 Meses
+                            <span class="plan-badge-mini">|+VENDIDO</span>
+                        </div>
                         <div class="p-total">R$ 140</div>
                         <div class="p-promo">R$ 110</div>
                         <div class="p-divider">|</div>
@@ -466,7 +481,10 @@
                     </div>
 
                      <div class="pricing-row">
-                        <div class="p-name">12 Meses 🔥</div>
+                        <div class="p-name">
+                            12 Meses
+                            <span class="plan-badge-mini">|+ECONOMIA</span>
+                        </div>
                         <div class="p-total">R$ 420</div>
                         <div class="p-promo">R$ 240</div>
                         <div class="p-divider">|</div>
