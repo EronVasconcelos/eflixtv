@@ -217,7 +217,7 @@
             margin: 0;
         }
 
-        /* --- SOLUÇÃO (NOVO LAYOUT DE PREÇOS) --- */
+        /* --- SOLUÇÃO (NOVO LAYOUT DE CARDS INDIVIDUAIS) --- */
         .solution-section {
             background: linear-gradient(180deg, var(--bg-dark) 0%, #0b1120 100%);
             border-top: 1px solid var(--border-color);
@@ -230,25 +230,37 @@
             margin: 0 auto;
         }
 
-        /* Agrupamento do Plano (Título + Caixa de Preço) */
-        .plan-group {
-            margin-bottom: 30px;
+        /* O Card Principal de Cada Plano */
+        .plan-card-item {
+            position: relative; /* Para o selo */
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 25px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .plan-card-item:hover {
+            border-color: rgba(212, 175, 55, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
-        /* Linha do Cabeçalho: Título e Selo */
+        /* Linha do Cabeçalho: Título e Economia */
         .plan-header-row {
             display: flex;
-            justify-content: space-between; /* Título na esquerda, Selo na direita */
+            justify-content: space-between; 
             align-items: center;
-            margin-bottom: 8px; /* Espaço entre título e caixa escura */
-            padding: 0 5px;
+            margin-bottom: 12px;
+            min-height: 28px; /* Altura mínima para alinhar com selos */
         }
 
         .plan-title-container {
             display: flex;
             align-items: center;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 8px;
             font-size: 1rem;
             text-transform: uppercase;
             font-weight: 700;
@@ -260,18 +272,18 @@
         }
 
         .plan-savings {
-            color: var(--text-secondary); /* Cinza claro/Branco */
+            color: var(--text-secondary); 
             font-size: 0.9rem;
             font-weight: 500;
             text-transform: none;
         }
 
-        /* Caixa Escura dos Preços (Igual à imagem de referência) */
+        /* Caixa Escura dos Preços (Inside) */
         .pricing-box {
             background: var(--bg-inner-price);
             border-radius: 8px;
-            padding: 15px;
-            border: 1px solid rgba(255,255,255,0.05); /* Borda sutil */
+            padding: 15px 5px; /* Padding lateral menor para caber colunas */
+            border: 1px solid rgba(255,255,255,0.03); 
         }
 
         /* Grid de 3 Colunas com divisor */
@@ -298,7 +310,7 @@
 
         .vertical-divider {
             width: 1px;
-            height: 40px; /* Altura fixa para a linha */
+            height: 40px; 
             background-color: rgba(255,255,255,0.1);
             margin: 0 auto;
         }
@@ -306,7 +318,7 @@
         /* Estilos dos Valores */
         .val-total {
             text-decoration: line-through;
-            color: #475569; /* Cinza bem escuro para "apagado" */
+            color: #475569; 
             font-size: 0.95rem;
             font-weight: 500;
         }
@@ -320,7 +332,7 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* EQUIVALENTE (BRANCO/AMARELO CLARO) */
+        /* EQUIVALENTE (BRANCO) */
         .val-equiv {
             color: #fff;
             font-weight: 700;
@@ -333,17 +345,18 @@
             font-weight: 400;
         }
 
-        /* --- SELOS (BADGES) ALINHADOS À DIREITA --- */
-        .badge-right {
+        /* --- SELOS (BADGES) --- */
+        .badge-pill {
             background: var(--gold-gradient);
-            color: #3f2e00; 
-            font-size: 0.65rem;
+            color: #3f2e00; /* Texto escuro */
+            font-size: 0.7rem;
             font-weight: 800;
             text-transform: uppercase;
-            padding: 4px 10px;
-            border-radius: 4px; /* Mais quadrado como na referência */
+            padding: 4px 12px;
+            border-radius: 50px; /* Formato Pílula */
             white-space: nowrap;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            display: inline-block;
         }
 
         /* --- FEATURES GRID --- */
@@ -465,8 +478,10 @@
             .val-equiv, .val-promo { font-size: 1rem; }
             
             /* Ajuste para cabeçalho não quebrar feio no mobile */
-            .plan-title-container { font-size: 0.9rem; }
+            .plan-title-container { font-size: 0.9rem; max-width: 70%; }
             .plan-savings { font-size: 0.8rem; }
+            
+            .badge-pill { font-size: 0.6rem; padding: 3px 8px; }
         }
     </style>
 </head>
@@ -641,9 +656,9 @@
                 Tudo o que você viu acima, por um preço que cabe no seu bolso.
             </p>
 
-            <div class="card plan-wrapper" style="border-color: var(--gold-base); background: var(--bg-card); padding: 30px;">
+            <div class="plan-wrapper">
                 
-                <div class="plan-group">
+                <div class="plan-card-item">
                     <div class="plan-header-row">
                         <div class="plan-title-container">
                             <span class="text-gold">1 MÊS</span>
@@ -669,7 +684,7 @@
                     </div>
                 </div>
 
-                <div class="plan-group">
+                <div class="plan-card-item">
                     <div class="plan-header-row">
                         <div class="plan-title-container">
                             <span class="text-gold">2 MESES</span>
@@ -697,14 +712,14 @@
                     </div>
                 </div>
 
-                <div class="plan-group">
+                <div class="plan-card-item">
                     <div class="plan-header-row">
                         <div class="plan-title-container">
                             <span class="text-gold">4 MESES</span>
                             <span class="divider-char">|</span>
                             <span class="plan-savings">Economize R$ 30,00</span>
                         </div>
-                        <div class="badge-right">MAIS VENDIDO</div>
+                        <div class="badge-pill">MAIS VENDIDO</div>
                     </div>
                     <div class="pricing-box">
                         <div class="plan-cols">
@@ -726,7 +741,7 @@
                     </div>
                 </div>
 
-                <div class="plan-group">
+                <div class="plan-card-item">
                     <div class="plan-header-row">
                         <div class="plan-title-container">
                             <span class="text-gold">6 MESES</span>
@@ -754,14 +769,14 @@
                     </div>
                 </div>
 
-                <div class="plan-group">
+                <div class="plan-card-item">
                     <div class="plan-header-row">
                         <div class="plan-title-container">
                             <span class="text-gold">1 ANO</span>
                             <span class="divider-char">|</span>
                             <span class="plan-savings">Economize R$ 180,00</span>
                         </div>
-                        <div class="badge-right">MELHOR OPÇÃO</div>
+                        <div class="badge-pill">MELHOR OPÇÃO</div>
                     </div>
                     <div class="pricing-box">
                         <div class="plan-cols">
