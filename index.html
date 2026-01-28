@@ -125,7 +125,6 @@
             border-bottom: 1px solid var(--border-color);
         }
 
-        /* Estilo do Preço Gigante (Ancora) */
         .price-display {
             font-size: 4.5rem; 
             font-weight: 900;
@@ -160,23 +159,41 @@
             padding-top: 10px;
         }
 
-        /* Grid da Linha do Plano - Configuração Desktop Padrão */
+        /* CONFIGURAÇÃO DO GRID */
         .pricing-row {
             display: grid;
-            /* Layout: Nome | Total Riscado | Promo Gold | Divisor | Equiv */
-            grid-template-columns: 1fr 70px 85px 20px 105px; 
             align-items: center;
             padding: 12px 0;
             border-bottom: 1px dashed rgba(255,255,255,0.1);
         }
         .pricing-row:last-child { border-bottom: none; }
 
+        /* LAYOUT DESKTOP (Padrão) */
+        /* Colunas: Nome (auto) | Total (70px) | Promo (85px) | Div (20px) | Equiv (105px) */
+        .pricing-row {
+            grid-template-columns: 1fr 70px 85px 20px 105px; 
+        }
+
         /* Estilos das Células */
-        .p-name { text-align: left; color: #fff; font-weight: 700; text-transform: uppercase; font-size: 0.9rem; white-space: nowrap; }
-        .p-total { text-align: right; text-decoration: line-through; color: #64748b; font-size: 0.85rem; font-weight: 500; }
-        .p-promo { text-align: right; background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 800; font-size: 1.1rem; }
-        .p-divider { text-align: center; color: var(--border-color); font-weight: 300; }
-        .p-equiv { text-align: right; color: var(--text-secondary); font-size: 0.85rem; white-space: nowrap; }
+        .p-name { 
+            text-align: left; color: #fff; font-weight: 700; text-transform: uppercase; font-size: 0.9rem; 
+            white-space: nowrap; /* Impede quebra de linha no nome */
+        }
+        .p-total { 
+            text-align: right; text-decoration: line-through; color: #64748b; font-size: 0.85rem; font-weight: 500; 
+            white-space: nowrap;
+        }
+        .p-promo { 
+            text-align: right; background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 800; font-size: 1.1rem; 
+            white-space: nowrap;
+        }
+        .p-divider { 
+            text-align: center; color: var(--border-color); font-weight: 300; 
+        }
+        .p-equiv { 
+            text-align: right; color: var(--text-secondary); font-size: 0.85rem; 
+            white-space: nowrap; 
+        }
         .p-equiv span { color: #fff; font-weight: 600; font-size: 0.95rem; }
 
         /* --- FEATURE ITEMS --- */
@@ -213,22 +230,21 @@
             .price-display { font-size: 13vw; }
             .features-grid { grid-template-columns: 1fr; }
             
-            /* FORÇAR MODO COLUNA (HORIZONTAL) NO MOBILE TAMBÉM */
+            /* --- CORREÇÃO DO ALINHAMENTO DE PREÇOS NO MOBILE --- */
             .pricing-row {
-                /* Reduzimos o gap e usamos auto para as colunas se ajustarem ao conteúdo */
-                grid-template-columns: 1fr auto auto auto auto; 
-                gap: 5px; 
+                /* Redefine o Grid para tamanhos menores, mas MANTENDO as colunas */
+                /* Nome (restante) | Total (45px) | Promo (60px) | Div (10px) | Equiv (75px) */
+                grid-template-columns: 1fr 45px 60px 10px 75px; 
+                gap: 2px;
             }
 
-            /* Reduzimos um pouco as fontes para caber tudo numa linha */
-            .p-name { font-size: 0.8rem; }
-            .p-total { font-size: 0.75rem; }
+            /* Reduz fontes para caber na linha sem quebrar */
+            .p-name { font-size: 0.75rem; }
+            .p-total { font-size: 0.7rem; letter-spacing: -0.5px; }
             .p-promo { font-size: 0.95rem; }
-            .p-equiv { font-size: 0.75rem; }
-            .p-equiv span { font-size: 0.8rem; }
-            
-            /* Remove margins do divisor para economizar espaço */
-            .p-divider { margin: 0; }
+            .p-divider { font-size: 0.9rem; }
+            .p-equiv { font-size: 0.7rem; }
+            .p-equiv span { font-size: 0.75rem; }
         }
     </style>
 </head>
