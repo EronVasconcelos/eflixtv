@@ -38,7 +38,9 @@
             --gold-base: #d4af37; 
             --gold-light: #fceabb; 
             --gold-dark: #996515; 
-            --gold-gradient: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+            
+            /* DEGRADÊ DIAGONAL INVERTIDO (135deg) - Descendo da esquerda para direita */
+            --gold-gradient: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
 
             --color-gain: var(--gold-base); 
             --bg-gain-light: rgba(212, 175, 55, 0.1); 
@@ -52,9 +54,7 @@
             --brand-color: var(--gold-base); 
             
             /* --- CONTROLE DE TAMANHOS --- */
-            /* Headline Desktop: 3rem */
             --font-size-standard: 3rem;
-            /* Headline Mobile: 6.5vw (Garante 2 linhas) */
             --font-size-mobile: 6.5vw;
         }
 
@@ -93,13 +93,16 @@
             padding: 0 15px;
         }
 
-        .text-gold {
+        /* CLASSE DE OURO GLOBAL (Aplicada em tudo que é amarelo) */
+        .text-gold, 
+        .gold-effect {
             background: var(--gold-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            color: var(--gold-base); 
+            color: var(--gold-base); /* Fallback */
             text-shadow: 0px 2px 10px rgba(0,0,0,0.3); 
+            font-weight: 700; 
         }
 
         /* --- HERO --- */
@@ -223,9 +226,7 @@
             padding: 50px 0;
         }
 
-        /* --- ESTILO DO PREÇO (AUMENTADO) --- */
         .price-display {
-            /* Tamanho bem maior que os títulos (4.5rem vs 3rem) */
             font-size: 4.5rem; 
             font-weight: 900;
             background: var(--gold-gradient);
@@ -240,11 +241,14 @@
 
         .plan-tag {
             background: var(--bg-gain-light); 
-            color: var(--gold-base); 
+            background-image: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            
             font-size: 0.75rem;
             padding: 4px 10px;
             border-radius: 20px;
-            font-weight: 700;
+            font-weight: 800;
             text-transform: uppercase;
             display: inline-block;
             margin-bottom: 5px;
@@ -267,7 +271,13 @@
         }
         .pricing-item:last-child { border-bottom: none; }
         .pricing-item strong { color: #fff; }
-        .pricing-item span { color: var(--gold-base); font-weight: 700; } 
+        
+        .pricing-item span { 
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800; 
+        } 
 
         /* --- FEATURES GRID --- */
         .features-grid {
@@ -333,8 +343,10 @@
 
         .highlight-col { 
             background: var(--bg-gain-light); 
-            color: var(--gold-base); 
-            font-weight: 700; 
+            background-image: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800; 
         }
 
         /* --- BOTÃO DE AÇÃO --- */
@@ -369,8 +381,10 @@
             border: 1px solid var(--border-color);
         }
         .visitor-counter span {
-            color: var(--gold-base); 
-            font-weight: 700;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
         }
 
         footer { text-align: center; padding: 30px 0; color: var(--text-secondary); font-size: 0.85rem; margin-top: 20px; border-top: 1px solid var(--border-color); }
@@ -379,12 +393,10 @@
         @media (max-width: 768px) {
             
             h1, h2 { 
-                /* Mantém 6.5vw para 2 linhas perfeitas */
                 font-size: var(--font-size-mobile); 
             }
 
             .price-display { 
-                /* Preço muito maior no mobile também (12vw vs 6.5vw do título) */
                 font-size: 12vw; 
             }
 
@@ -567,7 +579,8 @@
             <div class="card" style="display: inline-block; border-color: var(--gold-base); background: var(--bg-gain-light); padding: 30px; width: 100%; max-width: 450px;">
                 
                 <span class="plan-tag">PLANO ANUAL (MELHOR OFERTA)</span>
-                <p style="font-size: 0.9rem; color: var(--text-secondary); text-transform: uppercase; font-weight: 600;">Planos a partir de:</p>
+                
+                <p class="text-gold" style="font-size: 0.9rem; text-transform: uppercase; margin-bottom: 5px;">Planos a partir de:</p>
                 
                 <div class="price-display">
                     R$ 20,00<small>/mês</small>
@@ -575,7 +588,7 @@
                 <p style="font-size: 0.85rem; opacity: 0.8; margin-bottom: 20px;">No pagamento anual de R$ 240,00</p>
 
                 <div class="pricing-list">
-                    <p style="color: var(--gold-base); font-size: 0.8rem; font-weight: 700; margin-bottom: 10px; text-transform: uppercase;">Outras opções disponíveis:</p>
+                    <p class="text-gold" style="font-size: 0.8rem; margin-bottom: 10px; text-transform: uppercase;">Outras opções disponíveis:</p>
                     
                     <div class="pricing-item">
                         <strong>Mensal</strong>
