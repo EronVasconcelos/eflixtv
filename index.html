@@ -27,7 +27,6 @@
             --bg-section: #131c2e;   
             --bg-card: #1e293b;      
             --border-color: #334155; 
-            --bg-inner-price: #151e2e; 
             
             --text-primary: #f8fafc; 
             --text-secondary: #94a3b8; 
@@ -37,8 +36,10 @@
             --bg-pain-light: rgba(148, 163, 184, 0.1); 
             
             --gold-base: #d4af37; 
+            --gold-light: #fceabb; 
+            --gold-dark: #996515; 
             
-            /* DEGRADÊ DIAGONAL INVERTIDO (135deg) */
+            /* DEGRADÊ DIAGONAL INVERTIDO (135deg) - Descendo da esquerda para direita */
             --gold-gradient: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
 
             --color-gain: var(--gold-base); 
@@ -92,14 +93,14 @@
             padding: 0 15px;
         }
 
-        /* CLASSE DE OURO GLOBAL */
+        /* CLASSE DE OURO GLOBAL (Aplicada em tudo que é amarelo) */
         .text-gold, 
         .gold-effect {
             background: var(--gold-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            color: var(--gold-base); 
+            color: var(--gold-base); /* Fallback */
             text-shadow: 0px 2px 10px rgba(0,0,0,0.3); 
             font-weight: 700; 
         }
@@ -217,7 +218,7 @@
             margin: 0;
         }
 
-        /* --- SOLUÇÃO (NOVO LAYOUT DE LISTA/TABELA) --- */
+        /* --- SOLUÇÃO --- */
         .solution-section {
             background: linear-gradient(180deg, var(--bg-dark) 0%, #0b1120 100%);
             border-top: 1px solid var(--border-color);
@@ -225,96 +226,58 @@
             padding: 50px 0;
         }
 
-        .plan-list-wrapper {
-            max-width: 700px; /* Largura um pouco maior para a lista ficar confortável */
-            margin: 0 auto;
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            overflow: hidden; /* Para os cantos arredondados */
-            background: var(--bg-card);
+        .price-display {
+            font-size: 4.5rem; 
+            font-weight: 900;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1;
+            margin: 10px 0 5px 0;
+            letter-spacing: -1px;
+            text-shadow: 0 0 30px var(--gain-glow);
+        }
+        .price-display small { font-size: 1.2rem; -webkit-text-fill-color: var(--text-secondary); font-weight: 400; letter-spacing: normal; text-shadow: none; }
+
+        .plan-tag {
+            background: var(--bg-gain-light); 
+            background-image: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-weight: 800;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 5px;
+            border: 1px solid rgba(212, 175, 55, 0.3); 
         }
 
-        .plan-list-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 25px;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            transition: background 0.2s;
-        }
-        
-        .plan-list-item:last-child {
-            border-bottom: none;
-        }
-        
-        .plan-list-item:hover {
-            background: rgba(255,255,255,0.02);
-        }
-
-        /* Lado Esquerdo: Nome + Selo */
-        .list-left {
-            display: flex;
-            align-items: center;
-            gap: 15px;
+        .pricing-list {
+            margin-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 15px;
             text-align: left;
         }
-
-        .list-plan-name {
-            font-size: 1.1rem;
-            text-transform: uppercase;
-            font-weight: 800;
-            /* Dourado aplicado ao Nome */
-            background: var(--gold-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* Lado Direito: Preços */
-        .list-right {
+        .pricing-item {
             display: flex;
-            align-items: center;
-            gap: 12px;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            padding: 6px 0;
+            color: var(--text-secondary);
+            border-bottom: 1px dashed rgba(255,255,255,0.1);
         }
-
-        .list-promo {
-            font-size: 1.2rem;
-            font-weight: 800;
-            /* Dourado aplicado ao Preço Promocional */
+        .pricing-item:last-child { border-bottom: none; }
+        .pricing-item strong { color: #fff; }
+        
+        .pricing-item span { 
             background: var(--gold-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-        }
-
-        .list-divider {
-            color: var(--border-color);
-            font-weight: 300;
-            font-size: 1.2rem;
-        }
-
-        .list-equiv {
-            color: #fff;
-            font-size: 1rem;
-            font-weight: 500;
-            opacity: 0.9;
-        }
-        .list-equiv small {
-            font-size: 0.75rem;
-            color: var(--text-secondary);
-        }
-
-        /* --- SELOS (BADGES) --- */
-        .badge-small {
-            background: var(--gold-gradient);
-            color: #3f2e00; 
-            font-size: 0.65rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            padding: 3px 8px;
-            border-radius: 4px;
-            white-space: nowrap;
-            display: inline-block;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
+            font-weight: 800; 
+        } 
 
         /* --- FEATURES GRID --- */
         .features-grid {
@@ -428,25 +391,17 @@
 
         /* --- RESPONSIVIDADE (MOBILE) --- */
         @media (max-width: 768px) {
-            h1, h2 { font-size: var(--font-size-mobile); }
+            
+            h1, h2 { 
+                font-size: var(--font-size-mobile); 
+            }
+
+            .price-display { 
+                font-size: 12vw; 
+            }
+
             .features-grid { grid-template-columns: 1fr; }
             section { padding: 40px 0; }
-            
-            /* Ajuste da Lista para Mobile */
-            .plan-list-item { 
-                flex-direction: column; 
-                align-items: flex-start; 
-                gap: 10px;
-            }
-            .list-left { 
-                width: 100%; 
-                justify-content: space-between; /* Nome na esquerda, badge na direita */
-            }
-            .list-right {
-                width: 100%;
-                justify-content: flex-start;
-                gap: 15px;
-            }
         }
     </style>
 </head>
@@ -621,62 +576,35 @@
                 Tudo o que você viu acima, por um preço que cabe no seu bolso.
             </p>
 
-            <div class="plan-list-wrapper">
+            <div class="card" style="display: inline-block; border-color: var(--gold-base); background: var(--bg-gain-light); padding: 30px; width: 100%; max-width: 450px;">
                 
-                <div class="plan-list-item">
-                    <div class="list-left">
-                        <span class="list-plan-name">1 MÊS</span>
-                    </div>
-                    <div class="list-right">
-                        <span class="list-promo">R$ 35</span>
-                        <span class="list-divider">|</span>
-                        <span class="list-equiv">R$ 35<small>/mês</small></span>
-                    </div>
+                <span class="plan-tag">PLANO ANUAL (MELHOR OFERTA)</span>
+                
+                <p class="text-gold" style="font-size: 0.9rem; text-transform: uppercase; margin-bottom: 5px;">Planos a partir de:</p>
+                
+                <div class="price-display">
+                    R$ 20,00<small>/mês</small>
                 </div>
+                <p style="font-size: 0.85rem; opacity: 0.8; margin-bottom: 20px;">No pagamento anual de R$ 240,00</p>
 
-                <div class="plan-list-item">
-                    <div class="list-left">
-                        <span class="list-plan-name">2 MESES</span>
+                <div class="pricing-list">
+                    <p class="text-gold" style="font-size: 0.8rem; margin-bottom: 10px; text-transform: uppercase;">Outras opções disponíveis:</p>
+                    
+                    <div class="pricing-item">
+                        <strong>Mensal</strong>
+                        <span>R$ 35,00</span>
                     </div>
-                    <div class="list-right">
-                        <span class="list-promo">R$ 60</span>
-                        <span class="list-divider">|</span>
-                        <span class="list-equiv">R$ 30<small>/mês</small></span>
+                    <div class="pricing-item">
+                        <strong>Bimestral</strong>
+                        <span>R$ 60,00 <small style="color: var(--text-secondary); font-weight:400;">(R$ 30/mês)</small></span>
                     </div>
-                </div>
-
-                <div class="plan-list-item">
-                    <div class="list-left">
-                        <span class="list-plan-name">4 MESES</span>
-                        <span class="badge-small">MAIS VENDIDO</span>
+                    <div class="pricing-item">
+                        <strong>Quadrimestral</strong>
+                        <span>R$ 110,00 <small style="color: var(--text-secondary); font-weight:400;">(R$ 27,50/mês)</small></span>
                     </div>
-                    <div class="list-right">
-                        <span class="list-promo">R$ 110</span>
-                        <span class="list-divider">|</span>
-                        <span class="list-equiv">R$ 27,50<small>/mês</small></span>
-                    </div>
-                </div>
-
-                <div class="plan-list-item">
-                    <div class="list-left">
-                        <span class="list-plan-name">6 MESES</span>
-                    </div>
-                    <div class="list-right">
-                        <span class="list-promo">R$ 150</span>
-                        <span class="list-divider">|</span>
-                        <span class="list-equiv">R$ 25<small>/mês</small></span>
-                    </div>
-                </div>
-
-                <div class="plan-list-item">
-                    <div class="list-left">
-                        <span class="list-plan-name">1 ANO</span>
-                        <span class="badge-small">MELHOR OPÇÃO</span>
-                    </div>
-                    <div class="list-right">
-                        <span class="list-promo">R$ 240</span>
-                        <span class="list-divider">|</span>
-                        <span class="list-equiv">R$ 20<small>/mês</small></span>
+                    <div class="pricing-item">
+                        <strong>Semestral</strong>
+                        <span>R$ 150,00 <small style="color: var(--text-secondary); font-weight:400;">(R$ 25/mês)</small></span>
                     </div>
                 </div>
 
