@@ -38,6 +38,9 @@
 
             --action-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%); 
             --action-shadow: rgba(16, 185, 129, 0.3);
+            
+            /* Cor dos títulos das colunas (Cinza Escuro da imagem) */
+            --header-gray: #64748b;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -118,7 +121,7 @@
         .audience-item i { font-size: 1.8rem; background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-right: 15px; }
         .audience-item p { font-size: 0.95rem; font-weight: 500; color: #fff; margin: 0; }
 
-        /* --- LAYOUT DE PREÇOS (CARD PRINCIPAL) --- */
+        /* --- LAYOUT DE PREÇOS --- */
         .solution-section {
             background: linear-gradient(180deg, var(--bg-dark) 0%, #0b1120 100%);
             border-top: 1px solid var(--border-color);
@@ -154,12 +157,11 @@
 
         /* --- LISTA DE PREÇOS (GRID SYSTEM) --- */
         .pricing-list {
-            margin-top: 25px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 10px;
+            margin-top: 35px;
+            padding-top: 0;
         }
 
-        /* CONFIGURAÇÃO DO GRID */
+        /* CONFIGURAÇÃO DO GRID - USADO TANTO PARA O CABEÇALHO QUANTO PARA AS LINHAS */
         .pricing-row {
             display: grid;
             align-items: center;
@@ -169,25 +171,53 @@
         .pricing-row:last-child { border-bottom: none; }
 
         /* LAYOUT DESKTOP (Padrão) */
-        /* Colunas: Nome (auto) | Total (70px) | Promo (85px) | Div (20px) | Equiv (105px) */
+        /* Colunas: Nome(1fr) | Total(70px) | Promo(85px) | Div(20px) | Equiv(105px) */
         .pricing-row {
             grid-template-columns: 1fr 70px 85px 20px 105px; 
         }
 
-        /* Estilos das Células */
+        /* --- ESTILOS DO CABEÇALHO DA TABELA --- */
+        .header-row {
+            border-bottom: 1px solid rgba(255,255,255,0.1); /* Linha sólida para separar títulos */
+            padding-bottom: 10px;
+            margin-bottom: 5px;
+        }
+
+        .ph-title {
+            color: var(--gold-base);
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            text-align: left;
+        }
+
+        .ph-label {
+            color: var(--header-gray);
+            font-size: 0.75rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            text-align: right;
+            white-space: nowrap;
+        }
+        /* Centraliza o pipe do header se necessário, ou alinha a direita */
+        .ph-div { text-align: center; color: var(--border-color); font-size: 0.7rem; }
+
+
+        /* --- ESTILOS DAS CÉLULAS DE DADOS --- */
         .p-name { 
             text-align: left; color: #fff; font-weight: 700; text-transform: uppercase; font-size: 0.9rem; 
-            white-space: nowrap; /* Impede quebra de linha no nome */
-            display: flex; align-items: center; gap: 5px; /* Para o selo */
+            white-space: nowrap;
+            display: flex; align-items: center; gap: 5px; 
         }
         
-        /* Novo estilo para o mini-selo */
+        /* Mini Badges (Estilo Imagem: parênteses, dourado, pequeno) */
         .plan-badge-mini {
-            font-size: 0.65rem; /* Fonte bem pequena */
+            font-size: 0.65rem; 
             color: var(--gold-base); /* Cor dourada */
-            font-weight: 400; /* Sem negrito */
+            font-weight: 400; 
             letter-spacing: 0.5px;
             text-transform: uppercase;
+            opacity: 0.9;
         }
 
         .p-total { 
@@ -241,22 +271,28 @@
             .price-display { font-size: 13vw; }
             .features-grid { grid-template-columns: 1fr; }
             
-            /* --- CORREÇÃO DO ALINHAMENTO DE PREÇOS NO MOBILE --- */
+            /* --- GRID MOBILE --- */
             .pricing-row {
-                /* Redefine o Grid para tamanhos menores, mas MANTENDO as colunas */
-                /* Nome (restante) | Total (45px) | Promo (60px) | Div (10px) | Equiv (75px) */
-                grid-template-columns: 1fr 45px 60px 10px 75px; 
+                /* Grid compacto para manter tudo na mesma linha */
+                /* Nome | Total(40px) | Promo(60px) | Div(10px) | Equiv(70px) */
+                grid-template-columns: 1fr 40px 60px 10px 70px; 
                 gap: 2px;
             }
 
-            /* Reduz fontes para caber na linha sem quebrar */
-            .p-name { font-size: 0.75rem; flex-wrap: wrap; /* Permite que o selo quebre se necessário */ }
-            .plan-badge-mini { font-size: 0.6rem; } /* Selo ainda menor no mobile */
-            .p-total { font-size: 0.7rem; letter-spacing: -0.5px; }
-            .p-promo { font-size: 0.95rem; }
-            .p-divider { font-size: 0.9rem; }
-            .p-equiv { font-size: 0.7rem; }
-            .p-equiv span { font-size: 0.75rem; }
+            /* Ajustes de Fonte para não quebrar linha */
+            .p-name { font-size: 0.7rem; flex-wrap: wrap; line-height: 1.1; }
+            .plan-badge-mini { font-size: 0.55rem; display: block; width: 100%; margin-top: 2px; } /* Badge vai para linha de baixo do nome se apertar */
+            
+            .p-total { font-size: 0.65rem; letter-spacing: -0.5px; }
+            .p-promo { font-size: 0.9rem; }
+            .p-divider { font-size: 0.8rem; }
+            .p-equiv { font-size: 0.65rem; }
+            .p-equiv span { font-size: 0.7rem; }
+
+            /* Ajuste dos Títulos no Mobile */
+            .ph-title { font-size: 0.65rem; }
+            .ph-label { font-size: 0.55rem; letter-spacing: -0.5px; }
+            .ph-div { font-size: 0.6rem; }
         }
     </style>
 </head>
@@ -443,8 +479,15 @@
                 <p style="font-size: 0.85rem; opacity: 0.8; margin-bottom: 20px;">No pagamento anual de R$ 240,00</p>
 
                 <div class="pricing-list">
-                    <p class="text-gold" style="font-size: 0.8rem; margin-bottom: 10px; text-transform: uppercase;">Outras opções disponíveis:</p>
                     
+                    <div class="pricing-row header-row">
+                        <div class="ph-title">PACOTES DISPONÍVEIS</div>
+                        <div class="ph-label">PREÇO</div>
+                        <div class="ph-label">OFERTA</div>
+                        <div class="ph-div">|</div>
+                        <div class="ph-label">EQUIVALENTE</div>
+                    </div>
+
                     <div class="pricing-row">
                         <div class="p-name">1 Mês</div>
                         <div class="p-total"></div>
@@ -533,7 +576,7 @@
             </div>
 
             <div class="card" style="margin-top: 30px; text-align: center; border-color: var(--gold-base); padding: 40px 20px;">
-                <h3 style="color: #fff; font-size: 1.5rem;">🔥TESTE DE 3 HORAS GRÁTIS🔥</h3>
+                <h3 style="color: #fff; font-size: 1.5rem;">🔥 TESTE DE 3 HORAS GRÁTIS 🔥</h3>
                 <p style="color: var(--text-secondary); margin: 15px 0 25px 0; font-size: 1rem;">
                     Não cobramos nada adiantado. Liberamos o sinal, você testa a qualidade na sua TV e só assina se gostar.
                 </p>
