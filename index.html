@@ -226,7 +226,7 @@
 
         /* Estilo do Preço Gigante */
         .price-display {
-            font-size: 4.5rem; /* Tamanho Gigante Desktop */
+            font-size: 4.5rem; 
             font-weight: 900;
             background: var(--gold-gradient);
             -webkit-background-clip: text;
@@ -259,30 +259,64 @@
             border: 1px solid rgba(212, 175, 55, 0.3); 
         }
 
-        /* Lista de Preços Secundários */
+        /* Lista de Preços Secundários (NOVO LAYOUT) */
         .pricing-list {
             margin-top: 25px;
             border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 20px;
+            padding-top: 10px;
             text-align: left;
         }
+
         .pricing-item {
             display: flex;
             justify-content: space-between;
-            font-size: 0.95rem;
-            padding: 8px 0;
-            color: var(--text-secondary);
+            align-items: center;
+            font-size: 0.9rem;
+            padding: 12px 0;
             border-bottom: 1px dashed rgba(255,255,255,0.1);
+            flex-wrap: wrap; /* Para telas muito pequenas */
+            gap: 5px;
         }
         .pricing-item:last-child { border-bottom: none; }
-        .pricing-item strong { color: #fff; text-transform: uppercase; font-size: 0.9rem; }
         
-        .pricing-item span { 
+        .plan-name-small {
+            color: #fff; 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            font-size: 0.95rem;
+            min-width: 80px;
+        }
+        
+        /* Container dos valores à direita */
+        .pricing-values {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .price-old {
+            text-decoration: line-through;
+            color: #64748b;
+            font-size: 0.8rem;
+        }
+
+        .price-current {
             background: var(--gold-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            font-weight: 800; 
-        } 
+            font-weight: 800;
+            font-size: 1rem;
+        }
+
+        .price-divider {
+            color: var(--border-color);
+            font-weight: 300;
+        }
+
+        .price-equiv {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
 
         /* --- FEATURES GRID --- */
         .features-grid {
@@ -399,12 +433,15 @@
             h1, h2 { font-size: var(--font-size-mobile); }
             
             .price-display { 
-                /* Fonte gigante no mobile também (12vw) */
                 font-size: 12vw; 
             }
             
             .features-grid { grid-template-columns: 1fr; }
             section { padding: 40px 0; }
+            
+            /* Ajuste da lista no mobile */
+            .pricing-item { justify-content: center; text-align: center; }
+            .pricing-values { width: 100%; justify-content: center; margin-top: 5px; }
         }
     </style>
 </head>
@@ -579,7 +616,7 @@
                 Tudo o que você viu acima, por um preço que cabe no seu bolso.
             </p>
 
-            <div class="card" style="display: inline-block; border-color: var(--gold-base); background: var(--bg-gain-light); padding: 30px; width: 100%; max-width: 450px;">
+            <div class="card" style="display: inline-block; border-color: var(--gold-base); background: var(--bg-gain-light); padding: 30px; width: 100%; max-width: 500px;">
                 
                 <span class="plan-tag">PLANO ANUAL (MELHOR OFERTA)</span>
                 
@@ -594,20 +631,42 @@
                     <p class="text-gold" style="font-size: 0.8rem; margin-bottom: 10px; text-transform: uppercase;">Outras opções disponíveis:</p>
                     
                     <div class="pricing-item">
-                        <strong>Mensal</strong>
-                        <span>R$ 35,00</span>
+                        <span class="plan-name-small">1 Mês</span>
+                        <div class="pricing-values">
+                            <span class="price-current">R$ 35</span>
+                            <span class="price-divider">|</span>
+                            <span class="price-equiv">R$ 35/mês</span>
+                        </div>
                     </div>
+
                     <div class="pricing-item">
-                        <strong>Bimestral</strong>
-                        <span>R$ 60,00 <small style="color: var(--text-secondary); font-weight:400;">(R$ 30/mês)</small></span>
+                        <span class="plan-name-small">2 Meses</span>
+                        <div class="pricing-values">
+                            <span class="price-old">R$ 70</span>
+                            <span class="price-current">R$ 60</span>
+                            <span class="price-divider">|</span>
+                            <span class="price-equiv">R$ 30/mês</span>
+                        </div>
                     </div>
+
                     <div class="pricing-item">
-                        <strong>Quadrimestral</strong>
-                        <span>R$ 110,00 <small style="color: var(--text-secondary); font-weight:400;">(R$ 27,50/mês)</small></span>
+                        <span class="plan-name-small">4 Meses</span>
+                        <div class="pricing-values">
+                            <span class="price-old">R$ 140</span>
+                            <span class="price-current">R$ 110</span>
+                            <span class="price-divider">|</span>
+                            <span class="price-equiv">R$ 27,50/mês</span>
+                        </div>
                     </div>
+
                     <div class="pricing-item">
-                        <strong>Semestral</strong>
-                        <span>R$ 150,00 <small style="color: var(--text-secondary); font-weight:400;">(R$ 25/mês)</small></span>
+                        <span class="plan-name-small">6 Meses</span>
+                        <div class="pricing-values">
+                            <span class="price-old">R$ 210</span>
+                            <span class="price-current">R$ 150</span>
+                            <span class="price-divider">|</span>
+                            <span class="price-equiv">R$ 25/mês</span>
+                        </div>
                     </div>
                 </div>
 
